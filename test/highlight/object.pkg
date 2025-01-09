@@ -1,0 +1,33 @@
+Object oLeftWebHost is a cLocalWebControlHost
+// ^ keyword
+//           ^ tag
+//                  ^ keyword
+//                     ^ keyword
+    Set Size to 195 368
+    Set Location to 3 7
+    Set piColumnCount to 12
+    Set peAnchors to anTopBottomLeft
+
+    Object oInfo is a cWebLabel
+    // ^ keyword
+    //       ^ tag
+    //           ^ keyword
+    //              ^ keyword
+        Set psCaption to ""
+        Set piColumnSpan to 1
+
+        Object oNested is a cClass
+        End_Object
+    End_Object
+    // ^ keyword
+
+    Object oSample1 is a cWebLabel
+    // ^ keyword
+    //       ^ tag
+    //              ^ keyword
+    //                 ^ keyword
+        Set piColumnSpan to 12
+    End_Object
+    // ^ keyword
+End_Object
+// ^ keyword

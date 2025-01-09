@@ -1,0 +1,73 @@
+===
+Simple object
+===
+
+Object oFoo is a cBar
+End_Object
+
+---
+
+(source_file
+  (object_declaration
+    (object_declarator
+      (keyword)
+      name: (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (keyword)))
+
+===
+Other object
+===
+
+Object oPromptList is a cWebPromptList
+    Set pbFillHeight to True
+    Set piColumnSpan to 6
+End_Object
+
+---
+
+(source_file
+  (object_declaration
+    (object_declarator
+      (keyword)
+      name: (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (unknown_command_statement
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))
+    (unknown_command_statement
+      (identifier)
+      (identifier)
+      (identifier)
+      (number_literal))
+    (keyword)))
+
+===
+Deferred object
+===
+
+Deferred_View Activate_oCommunication for ;
+Object oCommunication is a dbView
+End_Object
+
+---
+
+(source_file
+  (unknown_command_statement
+    (identifier)
+    (identifier)
+    (identifier))
+  (object_declaration
+    (object_declarator
+      (keyword)
+      name: (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (keyword)))

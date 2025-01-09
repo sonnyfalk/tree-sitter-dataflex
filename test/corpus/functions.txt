@@ -1,0 +1,14 @@
+===
+Simple function
+===
+
+Function test
+End_Function
+
+---
+
+(source_file
+  (function_declaration
+    (keyword)
+    name: (identifier)
+    (keyword)))

@@ -4,10 +4,9 @@
       "name": "dataflex",
       "camelcase": "Dataflex",
       "scope": "source.dataflex",
-      "file-types": [
-        ".pkg"
-      ],
-      "injection-regex": "^dataflex$"
+      "file-types": ["pkg"],
+      "injection-regex": "^dataflex$",
+      "highlights": "queries/highlights.scm"
     }
   ],
   "metadata": {
