@@ -1,0 +1,35 @@
+{
+  "grammars": [
+    {
+      "name": "dataflex",
+      "camelcase": "Dataflex",
+      "scope": "source.dataflex",
+      "file-types": [
+        ".pkg"
+      ],
+      "injection-regex": "^dataflex$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Dataflex grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Sonny Falk",
+        "email": "sonnyfalk@gmail.com"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/sonnyfalk/tree-sitter-dataflex.git"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
