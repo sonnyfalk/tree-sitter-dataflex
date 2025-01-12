@@ -14,14 +14,12 @@ module.exports = grammar({
   word: ($) => $.identifier,
 
   rules: {
-    // TODO: add the actual grammar rules
     source_file: ($) => repeat($._top_level_code),
 
-    _top_level_code: ($) => choice($._declaration, $._statement),
+    _top_level_code: ($) =>
+      choice($.function_definition, $.object_definition, $._statement),
 
-    _declaration: ($) => choice($.function_declaration, $.object_declaration),
-
-    function_declaration: ($) =>
+    function_definition: ($) =>
       seq(
         keyword(/Function/i, $),
         field("name", $.identifier),
@@ -30,7 +28,7 @@ module.exports = grammar({
         alias(/End_Function/i, $.keyword),
       ),
 
-    object_declaration: ($) =>
+    object_definition: ($) =>
       seq(
         $.object_declarator,
         repeat($._top_level_code),

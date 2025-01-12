@@ -5,7 +5,7 @@
     "fields": {}
   },
   {
-    "type": "function_declaration",
+    "type": "function_definition",
     "named": true,
     "fields": {
       "name": {
@@ -66,41 +66,6 @@
     }
   },
   {
-    "type": "object_declaration",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "function_declaration",
-          "named": true
-        },
-        {
-          "type": "keyword",
-          "named": true
-        },
-        {
-          "type": "move_statement",
-          "named": true
-        },
-        {
-          "type": "object_declaration",
-          "named": true
-        },
-        {
-          "type": "object_declarator",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "object_declarator",
     "named": true,
     "fields": {
@@ -131,6 +96,41 @@
     }
   },
   {
+    "type": "object_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "object_declarator",
+          "named": true
+        },
+        {
+          "type": "object_definition",
+          "named": true
+        },
+        {
+          "type": "unknown_command_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -140,7 +140,7 @@
       "required": false,
       "types": [
         {
-          "type": "function_declaration",
+          "type": "function_definition",
           "named": true
         },
         {
@@ -148,7 +148,7 @@
           "named": true
         },
         {
-          "type": "object_declaration",
+          "type": "object_definition",
           "named": true
         },
         {

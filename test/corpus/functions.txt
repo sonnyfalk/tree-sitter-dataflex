@@ -8,7 +8,7 @@ End_Function
 ---
 
 (source_file
-  (function_declaration
+  (function_definition
     (keyword)
     name: (identifier)
     (keyword)))

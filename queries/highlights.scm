@@ -1,5 +1,4 @@
 (keyword) @keyword
-; "Set" @keyword
 
 (comment) @comment
 (line_comment) @comment
@@ -7,4 +6,4 @@
 (number_literal) @number
 
 (object_declarator name: (identifier) @tag)
-(function_declaration name: (identifier) @function)
+(function_definition name: (identifier) @function)

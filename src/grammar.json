@@ -15,7 +15,11 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_declaration"
+          "name": "function_definition"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "object_definition"
         },
         {
           "type": "SYMBOL",
@@ -23,20 +27,7 @@
         }
       ]
     },
-    "_declaration": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "function_declaration"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "object_declaration"
-        }
-      ]
-    },
-    "function_declaration": {
+    "function_definition": {
       "type": "SEQ",
       "members": [
         {
@@ -85,7 +76,7 @@
         }
       ]
     },
-    "object_declaration": {
+    "object_definition": {
       "type": "SEQ",
       "members": [
         {

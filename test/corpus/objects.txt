@@ -8,7 +8,7 @@ End_Object
 ---
 
 (source_file
-  (object_declaration
+  (object_definition
     (object_declarator
       (keyword)
       name: (identifier)
@@ -29,7 +29,7 @@ End_Object
 ---
 
 (source_file
-  (object_declaration
+  (object_definition
     (object_declarator
       (keyword)
       name: (identifier)
@@ -63,7 +63,7 @@ End_Object
     (identifier)
     (identifier)
     (identifier))
-  (object_declaration
+  (object_definition
     (object_declarator
       (keyword)
       name: (identifier)
