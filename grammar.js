@@ -28,15 +28,27 @@ module.exports = grammar({
       seq(
         keyword(/Function/i, $),
         field("name", $.identifier),
+        optional($.parameter_list),
+        keyword(/Returns/i, $),
+        field("return_type", $.identifier),
         $._eol,
         optional($._statement_list),
         keyword(/End_Function/i, $),
+      ),
+
+    parameter_list: ($) =>
+      repeat1(
+        seq(
+          field("parameter_type", $.identifier),
+          field("parameter_name", $.identifier),
+        ),
       ),
 
     procedure_definition: ($) =>
       seq(
         keyword(/Procedure/i, $),
         field("name", $.identifier),
+        optional($.parameter_list),
         $._eol,
         optional($._statement_list),
         keyword(/End_Procedure/i, $),

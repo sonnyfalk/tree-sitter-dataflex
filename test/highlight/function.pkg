@@ -1,4 +1,4 @@
-Function test
+Function test Returns Integer
 // ^ keyword
 //        ^ function
 End_Function

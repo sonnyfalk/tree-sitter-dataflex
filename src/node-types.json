@@ -17,6 +17,16 @@
             "named": true
           }
         ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
@@ -29,6 +39,10 @@
         },
         {
           "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
           "named": true
         },
         {
@@ -135,6 +149,32 @@
     }
   },
   {
+    "type": "parameter_list",
+    "named": true,
+    "fields": {
+      "parameter_name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "parameter_type": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "procedure_definition",
     "named": true,
     "fields": {
@@ -159,6 +199,10 @@
         },
         {
           "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
           "named": true
         },
         {

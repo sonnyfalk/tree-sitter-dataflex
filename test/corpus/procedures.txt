@@ -12,3 +12,23 @@ End_Procedure
     (keyword)
     name: (identifier)
     (keyword)))
+
+===
+Procedure with parameters
+===
+
+Procedure test Integer iArg1 String iArg2
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (keyword)
+    name: (identifier)
+    (parameter_list
+      parameter_type: (identifier)
+      parameter_name: (identifier)
+      parameter_type: (identifier)
+      parameter_name: (identifier))
+    (keyword)))

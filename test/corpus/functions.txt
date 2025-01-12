@@ -2,7 +2,7 @@
 Simple function
 ===
 
-Function test
+Function test Returns Integer
 End_Function
 
 ---
@@ -11,4 +11,28 @@ End_Function
   (function_definition
     (keyword)
     name: (identifier)
+    (keyword)
+    return_type: (identifier)
+    (keyword)))
+
+===
+Function with parameters
+===
+
+Function test Integer iArg1 String iArg2 Returns Integer
+End_Function
+
+---
+
+(source_file
+  (function_definition
+    (keyword)
+    name: (identifier)
+    (parameter_list
+      parameter_type: (identifier)
+      parameter_name: (identifier)
+      parameter_type: (identifier)
+      parameter_name: (identifier))
+    (keyword)
+    return_type: (identifier)
     (keyword)))
