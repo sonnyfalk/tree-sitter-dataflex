@@ -1,0 +1,5 @@
+Procedure test
+// ^ keyword
+//        ^ function
+End_Procedure
+// ^ keyword

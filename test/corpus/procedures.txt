@@ -1,0 +1,14 @@
+===
+Simple procedure
+===
+
+Procedure test
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (keyword)
+    name: (identifier)
+    (keyword)))

@@ -7,3 +7,4 @@
 
 (object_declarator name: (identifier) @tag)
 (function_definition name: (identifier) @function)
+(procedure_definition name: (identifier) @function)

@@ -124,6 +124,44 @@
           "named": true
         },
         {
+          "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "unknown_command_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "procedure_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "move_statement",
+          "named": true
+        },
+        {
           "type": "unknown_command_statement",
           "named": true
         }
@@ -149,6 +187,10 @@
         },
         {
           "type": "object_definition",
+          "named": true
+        },
+        {
+          "type": "procedure_definition",
           "named": true
         },
         {

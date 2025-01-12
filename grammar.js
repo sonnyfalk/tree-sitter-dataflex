@@ -17,7 +17,12 @@ module.exports = grammar({
     source_file: ($) => repeat($._top_level_code),
 
     _top_level_code: ($) =>
-      choice($.function_definition, $.object_definition, $._statement),
+      choice(
+        $.function_definition,
+        $.procedure_definition,
+        $.object_definition,
+        $._statement,
+      ),
 
     function_definition: ($) =>
       seq(
@@ -25,22 +30,28 @@ module.exports = grammar({
         field("name", $.identifier),
         $._eol,
         optional($._statement_list),
-        alias(/End_Function/i, $.keyword),
+        keyword(/End_Function/i, $),
+      ),
+
+    procedure_definition: ($) =>
+      seq(
+        keyword(/Procedure/i, $),
+        field("name", $.identifier),
+        $._eol,
+        optional($._statement_list),
+        keyword(/End_Procedure/i, $),
       ),
 
     object_definition: ($) =>
       seq(
         $.object_declarator,
         repeat($._top_level_code),
-        choice(
-          alias(/End_Object/i, $.keyword),
-          alias(/Cd_End_Object/i, $.keyword),
-        ),
+        choice(keyword(/End_Object/i, $), keyword(/Cd_End_Object/i, $)),
       ),
 
     object_declarator: ($) =>
       seq(
-        alias(/Object/i, $.keyword),
+        keyword(/Object/i, $),
         field("name", $.identifier),
         keyword(/is/i, $),
         keyword(/a/i, $),
