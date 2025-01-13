@@ -10,7 +10,7 @@
 module.exports = grammar({
   name: "dataflex",
 
-  extras: ($) => [$.comment, $.line_comment, /[ \t]/],
+  extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;[\r\n|\n]/],
   word: ($) => $.identifier,
 
   rules: {

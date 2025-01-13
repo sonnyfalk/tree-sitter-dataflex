@@ -1,0 +1,26 @@
+===
+Line continuation
+===
+
+Function test Integer iArg1;
+              Integer iArg2;
+              Returns Integer
+End_Function
+
+---
+
+(source_file
+  (function_definition
+    (function_header
+      (keyword)
+      (identifier)
+      (parameter
+        (identifier)
+        (identifier))
+      (parameter
+        (identifier)
+        (identifier))
+      (keyword)
+      (identifier))
+    (function_footer
+      (keyword))))
