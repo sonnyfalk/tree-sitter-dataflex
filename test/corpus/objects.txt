@@ -25,6 +25,10 @@ Other object
 Object oPromptList is a cWebPromptList
     Set pbFillHeight to True
     Set piColumnSpan to 6
+
+    Procedure Prompt_Callback Handle hoPrompt
+        Set phoInvokingObject of hoPrompt to Self
+    End_Procedure
 End_Object
 
 ---
@@ -37,16 +41,32 @@ End_Object
       (keyword)
       (keyword)
       (identifier))
-    (unknown_command_statement
+    (set_statement
+      (keyword)
       (identifier)
-      (identifier)
-      (identifier)
+      (keyword)
       (identifier))
-    (unknown_command_statement
+    (set_statement
+      (keyword)
       (identifier)
-      (identifier)
-      (identifier)
+      (keyword)
       (number_literal))
+    (procedure_definition
+      (procedure_header
+        (keyword)
+        name: (identifier)
+        (parameter
+          type: (identifier)
+          name: (identifier)))
+      (set_statement
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier))
+      (procedure_footer
+        (keyword)))
     (object_footer
       (keyword))))
 

@@ -25,6 +25,10 @@
           "named": true
         },
         {
+          "type": "set_statement",
+          "named": true
+        },
+        {
           "type": "unknown_command_statement",
           "named": true
         }
@@ -154,6 +158,10 @@
           "named": true
         },
         {
+          "type": "set_statement",
+          "named": true
+        },
+        {
           "type": "unknown_command_statement",
           "named": true
         }
@@ -252,6 +260,10 @@
           "named": true
         },
         {
+          "type": "set_statement",
+          "named": true
+        },
+        {
           "type": "unknown_command_statement",
           "named": true
         }
@@ -304,6 +316,33 @@
     }
   },
   {
+    "type": "set_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -334,6 +373,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "set_statement",
           "named": true
         },
         {
