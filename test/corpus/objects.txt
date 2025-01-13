@@ -61,10 +61,9 @@ End_Object
 ---
 
 (source_file
-  (unknown_command_statement
-    (identifier)
-    (identifier)
-    (identifier))
+  (keyword)
+  (identifier)
+  (keyword)
   (object_definition
     (object_header
       (keyword)

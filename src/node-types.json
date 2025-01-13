@@ -126,6 +126,14 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -306,6 +314,14 @@
       "types": [
         {
           "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
           "named": true
         },
         {

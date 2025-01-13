@@ -21,6 +21,7 @@ module.exports = grammar({
         $.function_definition,
         $.procedure_definition,
         $.object_definition,
+        $._deferred_object,
         $._statement,
         $._eol,
       ),
@@ -80,6 +81,14 @@ module.exports = grammar({
     object_footer: ($) =>
       choice(keyword(/End_Object/i, $), keyword(/Cd_End_Object/i, $)),
 
+    _deferred_object: ($) =>
+      seq(
+        keyword(/Deferred_View/i, $),
+        $.identifier,
+        keyword(/for/i, $),
+        $.object_definition,
+      ),
+
     _statement_list: ($) => repeat1($._statement),
 
     _statement: ($) => choice($.move_statement, $.unknown_command_statement),
@@ -93,8 +102,7 @@ module.exports = grammar({
         $._eol,
       ),
 
-    unknown_command_statement: ($) =>
-      seq(repeat1($._expression), optional(/;/), $._eol),
+    unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
     _expression: ($) => choice($.identifier, $._literal),
 
