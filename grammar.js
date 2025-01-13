@@ -10,7 +10,7 @@
 module.exports = grammar({
   name: "dataflex",
 
-  extras: ($) => [$.comment, $.line_comment, /[\s]/],
+  extras: ($) => [$.comment, $.line_comment, /[ \t]/],
   word: ($) => $.identifier,
 
   rules: {
@@ -22,46 +22,50 @@ module.exports = grammar({
         $.procedure_definition,
         $.object_definition,
         $._statement,
+        $._eol,
       ),
 
     function_definition: ($) =>
+      seq($.function_header, optional($._function_body), $.function_footer),
+
+    function_header: ($) =>
       seq(
         keyword(/Function/i, $),
         field("name", $.identifier),
-        optional($.parameter_list),
+        optional($._parameter_list),
         keyword(/Returns/i, $),
         field("return_type", $.identifier),
         $._eol,
-        optional($._statement_list),
-        keyword(/End_Function/i, $),
       ),
 
-    parameter_list: ($) =>
-      repeat1(
-        seq(
-          field("parameter_type", $.identifier),
-          field("parameter_name", $.identifier),
-        ),
-      ),
+    _parameter_list: ($) => repeat1($.parameter),
+
+    parameter: ($) =>
+      seq(field("type", $.identifier), field("name", $.identifier)),
+
+    _function_body: ($) => $._statement_list,
+
+    function_footer: ($) => keyword(/End_Function/i, $),
 
     procedure_definition: ($) =>
+      seq($.procedure_header, optional($._procedure_body), $.procedure_footer),
+
+    procedure_header: ($) =>
       seq(
         keyword(/Procedure/i, $),
         field("name", $.identifier),
-        optional($.parameter_list),
+        optional($._parameter_list),
         $._eol,
-        optional($._statement_list),
-        keyword(/End_Procedure/i, $),
       ),
+
+    _procedure_body: ($) => $._statement_list,
+
+    procedure_footer: ($) => keyword(/End_Procedure/i, $),
 
     object_definition: ($) =>
-      seq(
-        $.object_declarator,
-        repeat($._top_level_code),
-        choice(keyword(/End_Object/i, $), keyword(/Cd_End_Object/i, $)),
-      ),
+      seq($.object_header, optional($._object_body), $.object_footer),
 
-    object_declarator: ($) =>
+    object_header: ($) =>
       seq(
         keyword(/Object/i, $),
         field("name", $.identifier),
@@ -70,6 +74,11 @@ module.exports = grammar({
         $.identifier,
         $._eol,
       ),
+
+    _object_body: ($) => repeat1($._top_level_code),
+
+    object_footer: ($) =>
+      choice(keyword(/End_Object/i, $), keyword(/Cd_End_Object/i, $)),
 
     _statement_list: ($) => repeat1($._statement),
 

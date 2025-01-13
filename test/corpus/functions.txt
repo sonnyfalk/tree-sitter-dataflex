@@ -9,11 +9,13 @@ End_Function
 
 (source_file
   (function_definition
-    (keyword)
-    name: (identifier)
-    (keyword)
-    return_type: (identifier)
-    (keyword)))
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (identifier))
+    (function_footer
+      (keyword))))
 
 ===
 Function with parameters
@@ -26,13 +28,16 @@ End_Function
 
 (source_file
   (function_definition
-    (keyword)
-    name: (identifier)
-    (parameter_list
-      parameter_type: (identifier)
-      parameter_name: (identifier)
-      parameter_type: (identifier)
-      parameter_name: (identifier))
-    (keyword)
-    return_type: (identifier)
-    (keyword)))
+    (function_header
+      (keyword)
+      name: (identifier)
+      (parameter
+        type: (identifier)
+        name: (identifier))
+      (parameter
+        type: (identifier)
+        name: (identifier))
+      (keyword)
+      return_type: (identifier))
+    (function_footer
+      (keyword))))

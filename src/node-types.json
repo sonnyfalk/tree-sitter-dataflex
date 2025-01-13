@@ -7,6 +7,48 @@
   {
     "type": "function_definition",
     "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_footer",
+          "named": true
+        },
+        {
+          "type": "function_header",
+          "named": true
+        },
+        {
+          "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "unknown_command_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_footer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_header",
+    "named": true,
     "fields": {
       "name": {
         "multiple": false,
@@ -38,15 +80,7 @@
           "named": true
         },
         {
-          "type": "move_statement",
-          "named": true
-        },
-        {
-          "type": "parameter_list",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
+          "type": "parameter",
           "named": true
         }
       ]
@@ -80,7 +114,61 @@
     }
   },
   {
-    "type": "object_declarator",
+    "type": "object_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "function_definition",
+          "named": true
+        },
+        {
+          "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "object_definition",
+          "named": true
+        },
+        {
+          "type": "object_footer",
+          "named": true
+        },
+        {
+          "type": "object_header",
+          "named": true
+        },
+        {
+          "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "unknown_command_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "object_footer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "object_header",
     "named": true,
     "fields": {
       "name": {
@@ -110,50 +198,11 @@
     }
   },
   {
-    "type": "object_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "function_definition",
-          "named": true
-        },
-        {
-          "type": "keyword",
-          "named": true
-        },
-        {
-          "type": "move_statement",
-          "named": true
-        },
-        {
-          "type": "object_declarator",
-          "named": true
-        },
-        {
-          "type": "object_definition",
-          "named": true
-        },
-        {
-          "type": "procedure_definition",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "parameter_list",
+    "type": "parameter",
     "named": true,
     "fields": {
-      "parameter_name": {
-        "multiple": true,
+      "name": {
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -162,8 +211,8 @@
           }
         ]
       },
-      "parameter_type": {
-        "multiple": true,
+      "type": {
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -176,6 +225,48 @@
   },
   {
     "type": "procedure_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "procedure_footer",
+          "named": true
+        },
+        {
+          "type": "procedure_header",
+          "named": true
+        },
+        {
+          "type": "unknown_command_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "procedure_footer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "procedure_header",
     "named": true,
     "fields": {
       "name": {
@@ -198,15 +289,7 @@
           "named": true
         },
         {
-          "type": "move_statement",
-          "named": true
-        },
-        {
-          "type": "parameter_list",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
+          "type": "parameter",
           "named": true
         }
       ]

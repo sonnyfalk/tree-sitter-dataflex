@@ -5,6 +5,6 @@
 (string_literal) @string
 (number_literal) @number
 
-(object_declarator name: (identifier) @tag)
-(function_definition name: (identifier) @function)
-(procedure_definition name: (identifier) @function)
+(object_header name: (identifier) @tag)
+(function_header name: (identifier) @function)
+(procedure_header name: (identifier) @function)

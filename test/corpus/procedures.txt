@@ -9,9 +9,11 @@ End_Procedure
 
 (source_file
   (procedure_definition
-    (keyword)
-    name: (identifier)
-    (keyword)))
+    (procedure_header
+      (keyword)
+      name: (identifier))
+    (procedure_footer
+      (keyword))))
 
 ===
 Procedure with parameters
@@ -24,11 +26,14 @@ End_Procedure
 
 (source_file
   (procedure_definition
-    (keyword)
-    name: (identifier)
-    (parameter_list
-      parameter_type: (identifier)
-      parameter_name: (identifier)
-      parameter_type: (identifier)
-      parameter_name: (identifier))
-    (keyword)))
+    (procedure_header
+      (keyword)
+      name: (identifier)
+      (parameter
+        type: (identifier)
+        name: (identifier))
+      (parameter
+        type: (identifier)
+        name: (identifier)))
+    (procedure_footer
+      (keyword))))
