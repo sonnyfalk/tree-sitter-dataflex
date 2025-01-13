@@ -1,0 +1,98 @@
+===
+Get statement
+===
+
+Object oPromptList is a cWebPromptList
+    Procedure Prompt_Callback Handle hoPrompt
+        Get SelectedColumnValues of hoPrompt 0 to selectedCustomers
+    End_Procedure
+End_Object
+
+---
+
+(source_file
+  (object_definition
+    (object_header
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (procedure_definition
+      (procedure_header
+        (keyword)
+        (identifier)
+        (parameter
+          (identifier)
+          (identifier)))
+      (get_statement
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier)
+        (number_literal)
+        (keyword)
+        (identifier))
+      (procedure_footer
+        (keyword)))
+    (object_footer
+      (keyword))))
+
+===
+Set statement
+===
+
+Object oPromptList is a cWebPromptList
+    Set pbFillHeight to True
+    Set piColumnSpan to 6
+    Set Size to 10 10
+
+    Procedure Prompt_Callback Handle hoPrompt
+        Set phoInvokingObject of hoPrompt to Self
+    End_Procedure
+End_Object
+
+---
+
+(source_file
+  (object_definition
+    (object_header
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (set_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier))
+    (set_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (number_literal))
+    (set_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (number_literal)
+      (number_literal))
+    (procedure_definition
+      (procedure_header
+        (keyword)
+        (identifier)
+        (parameter
+          (identifier)
+          (identifier)))
+      (set_statement
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier))
+      (procedure_footer
+        (keyword)))
+    (object_footer
+      (keyword))))

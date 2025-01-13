@@ -92,12 +92,28 @@ module.exports = grammar({
     _statement_list: ($) => repeat1($._statement),
 
     _statement: ($) =>
-      choice($.move_statement, $.set_statement, $.unknown_command_statement),
+      choice(
+        $.move_statement,
+        $.get_statement,
+        $.set_statement,
+        $.unknown_command_statement,
+      ),
 
     move_statement: ($) =>
       seq(
         keyword(/Move/i, $),
         $._expression,
+        keyword(/to/i, $),
+        $.identifier,
+        $._eol,
+      ),
+
+    get_statement: ($) =>
+      seq(
+        keyword(/Get/i, $),
+        $.identifier,
+        optional(seq(keyword(/of/i, $), $._expression)),
+        repeat($._expression),
         keyword(/to/i, $),
         $.identifier,
         $._eol,
