@@ -96,6 +96,7 @@ module.exports = grammar({
         $.move_statement,
         $.get_statement,
         $.set_statement,
+        $.send_statement,
         $.unknown_command_statement,
       ),
 
@@ -126,6 +127,15 @@ module.exports = grammar({
         optional(seq(keyword(/of/i, $), $._expression)),
         keyword(/to/i, $),
         repeat1($._expression),
+        $._eol,
+      ),
+
+    send_statement: ($) =>
+      seq(
+        keyword(/Send/i, $),
+        $.identifier,
+        optional(seq(keyword(/of|to/i, $), $._expression)),
+        repeat($._expression),
         $._eol,
       ),
 

@@ -29,6 +29,10 @@
           "named": true
         },
         {
+          "type": "send_statement",
+          "named": true
+        },
+        {
           "type": "set_statement",
           "named": true
         },
@@ -193,6 +197,10 @@
           "named": true
         },
         {
+          "type": "send_statement",
+          "named": true
+        },
+        {
           "type": "set_statement",
           "named": true
         },
@@ -299,6 +307,10 @@
           "named": true
         },
         {
+          "type": "send_statement",
+          "named": true
+        },
+        {
           "type": "set_statement",
           "named": true
         },
@@ -349,6 +361,33 @@
         },
         {
           "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "send_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -416,6 +455,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "send_statement",
           "named": true
         },
         {

@@ -96,3 +96,49 @@ End_Object
         (keyword)))
     (object_footer
       (keyword))))
+
+===
+Simple send statement
+===
+
+Send Popup
+
+---
+
+(source_file
+  (send_statement
+    (keyword)
+    (identifier)))
+
+===
+Send statement with target object
+===
+
+Send Popup of Customer_sl
+
+---
+
+(source_file
+  (send_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+===
+Send statement with target object and parameters
+===
+
+Send Request_Read of oCustomer_DD FIRST_RECORD iFileNum 3
+
+---
+
+(source_file
+  (send_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (identifier)
+    (identifier)
+    (number_literal)))
