@@ -22,6 +22,7 @@ module.exports = grammar({
         $.procedure_definition,
         $.object_definition,
         $._deferred_object,
+        $.class_definition,
         $._statement,
         $._eol,
       ),
@@ -88,6 +89,23 @@ module.exports = grammar({
         keyword(/for/i, $),
         $.object_definition,
       ),
+
+    class_definition: ($) =>
+      seq($.class_header, optional($._class_body), $.class_footer),
+
+    class_header: ($) =>
+      seq(
+        keyword(/Class/i, $),
+        field("name", $.identifier),
+        keyword(/is/i, $),
+        keyword(/a/i, $),
+        $.identifier,
+        $._eol,
+      ),
+
+    _class_body: ($) => repeat1($._top_level_code),
+
+    class_footer: ($) => keyword(/End_Class/i, $),
 
     _statement_list: ($) => repeat1($._statement),
 

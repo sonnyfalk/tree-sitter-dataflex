@@ -1,0 +1,19 @@
+===
+Simple class
+===
+
+Class cFoo is a cBar
+End_Class
+
+---
+
+(source_file
+  (class_definition
+    (class_header
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (class_footer
+      (keyword))))
