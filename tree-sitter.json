@@ -6,7 +6,8 @@
       "scope": "source.dataflex",
       "file-types": ["pkg"],
       "injection-regex": "^dataflex$",
-      "highlights": "queries/highlights.scm"
+      "highlights": "queries/highlights.scm",
+      "tags": "queries/tags.scm"
     }
   ],
   "metadata": {

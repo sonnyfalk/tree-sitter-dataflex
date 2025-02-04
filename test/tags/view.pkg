@@ -1,0 +1,5 @@
+Use cWebView.pkg
+//   ^ reference.file_dependency
+
+Object oMyView is a cWebView
+End_Object
