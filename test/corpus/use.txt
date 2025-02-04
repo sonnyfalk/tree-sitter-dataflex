@@ -1,0 +1,52 @@
+===
+Simple Use statement
+===
+
+Use Foo.pkg
+
+---
+
+(source_file
+  (use_statement
+    (keyword)
+    (file_name)))
+
+===
+Use statement without extension
+===
+
+Use Foo
+
+---
+
+(source_file
+  (use_statement
+    (keyword)
+    (file_name)))
+
+===
+Use statement with non-alpha characters
+===
+
+Use $Foo_test-bar.dd
+
+---
+
+(source_file
+  (use_statement
+    (keyword)
+    (file_name)))
+
+===
+Use statement with trailing comment
+===
+
+Use Foo.dd // Include the .dd file
+
+---
+
+(source_file
+  (use_statement
+    (keyword)
+    (file_name))
+  (line_comment))

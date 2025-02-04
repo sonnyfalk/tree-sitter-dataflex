@@ -115,6 +115,7 @@ module.exports = grammar({
         $.get_statement,
         $.set_statement,
         $.send_statement,
+        $.use_statement,
         $.unknown_command_statement,
       ),
 
@@ -157,6 +158,8 @@ module.exports = grammar({
         $._eol,
       ),
 
+    use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
+
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
     _expression: ($) => choice($.identifier, $._literal),
@@ -168,6 +171,8 @@ module.exports = grammar({
     number_literal: ($) => /[0-9]+(\.[0-9]+)?/,
 
     string_literal: ($) => /\".*\"/,
+
+    file_name: ($) => /[a-zA-Z_0-9\.\-$@]+/,
 
     _eol: ($) => /[\r\n|\n]/,
 

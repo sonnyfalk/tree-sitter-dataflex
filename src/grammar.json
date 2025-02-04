@@ -507,6 +507,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "use_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "unknown_command_statement"
         }
       ]
@@ -743,6 +747,25 @@
         }
       ]
     },
+    "use_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Use",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "file_name"
+        }
+      ]
+    },
     "unknown_command_statement": {
       "type": "SEQ",
       "members": [
@@ -796,6 +819,10 @@
     "string_literal": {
       "type": "PATTERN",
       "value": "\\\".*\\\""
+    },
+    "file_name": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_0-9\\.\\-$@]+"
     },
     "_eol": {
       "type": "PATTERN",
