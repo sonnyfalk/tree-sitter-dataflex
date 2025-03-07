@@ -1,0 +1,6 @@
+Use cWebView.pkg
+//   ^ reference.file_dependency
+
+Class cTest is a cBaseClass
+//     ^ reference.class_definition
+End_Class
