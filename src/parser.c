@@ -13,10 +13,10 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 32
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 3
+#define FIELD_COUNT 4
 #define MAX_ALIAS_SEQUENCE_LENGTH 8
 #define MAX_RESERVED_WORD_SET_SIZE 0
-#define PRODUCTION_ID_COUNT 5
+#define PRODUCTION_ID_COUNT 6
 #define SUPERTYPE_COUNT 0
 
 enum ts_symbol_identifiers {
@@ -495,13 +495,15 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
 enum ts_field_identifiers {
   field_name = 1,
   field_return_type = 2,
-  field_type = 3,
+  field_superclass = 3,
+  field_type = 4,
 };
 
 static const char * const ts_field_names[] = {
   [0] = NULL,
   [field_name] = "name",
   [field_return_type] = "return_type",
+  [field_superclass] = "superclass",
   [field_type] = "type",
 };
 
@@ -510,6 +512,7 @@ static const TSMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [2] = {.index = 1, .length = 2},
   [3] = {.index = 3, .length = 2},
   [4] = {.index = 5, .length = 2},
+  [5] = {.index = 7, .length = 2},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -524,6 +527,9 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
   [5] =
     {field_name, 1},
     {field_return_type, 4},
+  [7] =
+    {field_name, 1},
+    {field_superclass, 4},
 };
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
@@ -5911,8 +5917,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [327] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_function_definition, 2, 0, 0),
   [329] = {.entry = {.count = 1, .reusable = false}}, REDUCE(aux_sym__object_body, 1, 0, 0),
   [331] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__object_body, 1, 0, 0),
-  [333] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_object_header, 6, 0, 1),
-  [335] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_object_header, 6, 0, 1),
+  [333] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_object_header, 6, 0, 5),
+  [335] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_object_header, 6, 0, 5),
   [337] = {.entry = {.count = 1, .reusable = false}}, REDUCE(aux_sym__class_body, 1, 0, 0),
   [339] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__class_body, 1, 0, 0),
   [341] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_source_file_repeat1, 1, 0, 0),

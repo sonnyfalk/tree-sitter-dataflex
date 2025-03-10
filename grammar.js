@@ -73,7 +73,7 @@ module.exports = grammar({
         field("name", $.identifier),
         keyword(/is/i, $),
         keyword(/a/i, $),
-        $.identifier,
+        field("superclass", $.identifier),
         $._eol,
       ),
 

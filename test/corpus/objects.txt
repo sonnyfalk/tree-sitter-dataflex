@@ -14,7 +14,7 @@ End_Object
       name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (object_footer
       (keyword))))
 
@@ -36,7 +36,7 @@ End_Object
       name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (set_statement
       (keyword)
       (identifier)
@@ -70,6 +70,6 @@ End_Object
       name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (object_footer
       (keyword))))
