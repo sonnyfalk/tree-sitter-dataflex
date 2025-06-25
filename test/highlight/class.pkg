@@ -1,0 +1,7 @@
+Class cMyClass is a cMySuperClass
+// ^ keyword
+//        ^ entity.name.tag.class
+//              ^ keyword
+//                ^ keyword
+End_Class
+// ^ keyword

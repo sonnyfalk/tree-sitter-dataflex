@@ -1,6 +1,6 @@
 Object oLeftWebHost is a cLocalWebControlHost
 // ^ keyword
-//           ^ tag
+//           ^ entity.name.tag.object
 //                  ^ keyword
 //                     ^ keyword
     Set Size to 195 368
@@ -10,7 +10,7 @@ Object oLeftWebHost is a cLocalWebControlHost
 
     Object oInfo is a cWebLabel
     // ^ keyword
-    //       ^ tag
+    //       ^ entity.name.tag.object
     //           ^ keyword
     //              ^ keyword
         Set psCaption to ""
@@ -23,7 +23,7 @@ Object oLeftWebHost is a cLocalWebControlHost
 
     Object oSample1 is a cWebLabel
     // ^ keyword
-    //       ^ tag
+    //       ^ entity.name.tag.object
     //              ^ keyword
     //                 ^ keyword
         Set piColumnSpan to 12
