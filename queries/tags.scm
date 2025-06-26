@@ -4,4 +4,4 @@
 
 (class_definition
   (class_header
-    name: (identifier) @name) @reference.class_definition (#set! index.element class_definition))
+    name: (identifier) @name) @definition.class (#set! index.element class_definition))
