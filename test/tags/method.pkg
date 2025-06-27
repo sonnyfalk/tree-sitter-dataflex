@@ -1,0 +1,7 @@
+Class cTest is a cBaseClass
+//     ^ definition.class
+
+    Procedure SayHello String sName
+//              ^ definition.method
+    End_Procedure
+End_Class
