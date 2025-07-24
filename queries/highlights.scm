@@ -15,3 +15,5 @@
 
 (function_header name: (identifier) @function)
 (procedure_header name: (identifier) @function)
+
+(send_statement name: (identifier) @entity.name.function)

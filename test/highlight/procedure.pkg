@@ -1,5 +1,7 @@
 Procedure test
 // ^ keyword
 //        ^ function
+    Send Foo
+//        ^ entity.name.function 
 End_Procedure
 // ^ keyword

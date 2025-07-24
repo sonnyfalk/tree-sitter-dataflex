@@ -152,7 +152,7 @@ module.exports = grammar({
     send_statement: ($) =>
       seq(
         keyword(/Send/i, $),
-        $.identifier,
+        field("name", $.identifier),
         optional(seq(keyword(/of|to/i, $), $._expression)),
         repeat($._expression),
         $._eol,
