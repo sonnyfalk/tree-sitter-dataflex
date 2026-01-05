@@ -3,5 +3,9 @@ Class cMyClass is a cMySuperClass
 //        ^ entity.name.tag.class
 //              ^ keyword
 //                ^ keyword
+    Procedure Construct_Object
+        Property Integer piTest 0
+//        ^ keyword
+    End_Procedure
 End_Class
 // ^ keyword

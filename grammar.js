@@ -23,6 +23,7 @@ module.exports = grammar({
         $.object_definition,
         $._deferred_object,
         $.class_definition,
+        $.property_definition,
         $._statement,
         $._eol,
       ),
@@ -107,7 +108,17 @@ module.exports = grammar({
 
     class_footer: ($) => keyword(/End_Class/i, $),
 
-    _statement_list: ($) => repeat1($._statement),
+    property_definition: ($) =>
+      seq(
+        keyword(/Property/, $),
+        field("type", $._typedecl),
+        field("name", $.identifier),
+        optional($._expression),
+        $._eol,
+      ),
+
+    _statement_list: ($) =>
+      repeat1(choice($.property_definition, $._statement)),
 
     _statement: ($) =>
       choice(
@@ -163,6 +174,8 @@ module.exports = grammar({
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
     _expression: ($) => choice($.identifier, $._literal),
+
+    _typedecl: ($) => $.identifier,
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z_0-9]*/,
 

@@ -48,6 +48,10 @@
           "named": true
         },
         {
+          "type": "property_definition",
+          "named": true
+        },
+        {
           "type": "send_statement",
           "named": true
         },
@@ -120,6 +124,7 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -144,6 +149,10 @@
         },
         {
           "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "property_definition",
           "named": true
         },
         {
@@ -323,6 +332,10 @@
           "named": true
         },
         {
+          "type": "property_definition",
+          "named": true
+        },
+        {
           "type": "send_statement",
           "named": true
         },
@@ -443,6 +456,10 @@
           "named": true
         },
         {
+          "type": "property_definition",
+          "named": true
+        },
+        {
           "type": "send_statement",
           "named": true
         },
@@ -501,6 +518,54 @@
         },
         {
           "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "property_definition",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "string_literal",
           "named": true
         }
       ]
@@ -610,6 +675,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "property_definition",
           "named": true
         },
         {
