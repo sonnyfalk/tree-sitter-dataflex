@@ -142,7 +142,7 @@ module.exports = grammar({
     get_statement: ($) =>
       seq(
         keyword(/Get/i, $),
-        $.identifier,
+        field("name", $.identifier),
         optional(seq(keyword(/of/i, $), $._expression)),
         repeat($._expression),
         keyword(/to/i, $),
@@ -153,7 +153,7 @@ module.exports = grammar({
     set_statement: ($) =>
       seq(
         keyword(/Set/i, $),
-        $.identifier,
+        field("name", $.identifier),
         optional(seq(keyword(/of/i, $), $._expression)),
         keyword(/to/i, $),
         repeat1($._expression),

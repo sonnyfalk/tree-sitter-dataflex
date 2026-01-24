@@ -39,12 +39,12 @@ End_Object
       superclass: (identifier))
     (set_statement
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (identifier))
     (set_statement
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (number_literal))
     (object_footer
