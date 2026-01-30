@@ -23,7 +23,7 @@
   name: (identifier) @function)
 
 (send_statement
-  name: (identifier) @entity.name.function)
+  name: (identifier) @entity.name.function.dataflex.send)
 
 (get_statement
   name: (identifier) @entity.name.function.dataflex.get)

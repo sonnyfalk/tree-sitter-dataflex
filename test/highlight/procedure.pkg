@@ -2,6 +2,6 @@ Procedure test
 // ^ keyword
 //        ^ function
     Send Foo
-//        ^ entity.name.function 
+//        ^ entity.name.function.dataflex.send
 End_Procedure
 // ^ keyword
