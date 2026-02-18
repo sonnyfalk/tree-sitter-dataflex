@@ -143,7 +143,7 @@ module.exports = grammar({
       seq(
         keyword(/Get/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/of/i, $), $._expression)),
+        optional(seq(keyword(/of/i, $), field("receiver", $._expression))),
         repeat($._expression),
         keyword(/to/i, $),
         $.identifier,
@@ -154,7 +154,7 @@ module.exports = grammar({
       seq(
         keyword(/Set/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/of/i, $), $._expression)),
+        optional(seq(keyword(/of/i, $), field("receiver", $._expression))),
         keyword(/to/i, $),
         repeat1($._expression),
         $._eol,
@@ -164,7 +164,7 @@ module.exports = grammar({
       seq(
         keyword(/Send/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/of|to/i, $), $._expression)),
+        optional(seq(keyword(/of|to/i, $), field("receiver", $._expression))),
         repeat($._expression),
         $._eol,
       ),
