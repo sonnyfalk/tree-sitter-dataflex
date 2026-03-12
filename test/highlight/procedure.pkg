@@ -3,5 +3,8 @@ Procedure test
 //        ^ function
     Send Foo
 //        ^ entity.name.function.dataflex.send
+    Send Foo of oMyObject
+//        ^ entity.name.function.dataflex.send
+//               ^ entity.name.tag.object
 End_Procedure
 // ^ keyword
