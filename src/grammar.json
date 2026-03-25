@@ -39,6 +39,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "global_variable_declaration"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_statement"
         },
         {
@@ -549,6 +553,10 @@
           {
             "type": "SYMBOL",
             "name": "_statement"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_eol"
           }
         ]
       }
@@ -575,6 +583,10 @@
         {
           "type": "SYMBOL",
           "name": "use_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable_declaration"
         },
         {
           "type": "SYMBOL",
@@ -857,6 +869,42 @@
         }
       ]
     },
+    "global_variable_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Global_Variable",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable_declaration"
+        }
+      ]
+    },
+    "variable_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "system_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
     "unknown_command_statement": {
       "type": "SEQ",
       "members": [
@@ -887,8 +935,162 @@
       ]
     },
     "_typedecl": {
-      "type": "SYMBOL",
-      "name": "identifier"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "system_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "system_type": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "Boolean",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Date",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Integer",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Number",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Real",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "RowID",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "String",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Address",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "BigInt",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Char",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Currency",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "DateTime",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Decimal",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "DWord",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Float",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Handle",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "LongPtr",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Pointer",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Short",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Time",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Timespan",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "UBigInt",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "UChar",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "UInteger",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "ULongPtr",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "UShort",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "WString",
+          "flags": "i"
+        },
+        {
+          "type": "PATTERN",
+          "value": "Variant",
+          "flags": "i"
+        }
+      ]
     },
     "identifier": {
       "type": "PATTERN",

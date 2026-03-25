@@ -18,7 +18,7 @@ End_Object
       (identifier))
     (property_definition
       (keyword)
-      (identifier)
+      (system_type)
       (identifier))
     (object_footer
       (keyword))))
@@ -43,7 +43,7 @@ End_Object
       (identifier))
     (property_definition
       (keyword)
-      (identifier)
+      (system_type)
       (identifier)
       (number_literal))
     (object_footer
@@ -75,7 +75,7 @@ End_Class
         (identifier))
       (property_definition
         (keyword)
-        (identifier)
+        (system_type)
         (identifier))
       (procedure_footer
         (keyword)))
@@ -108,7 +108,7 @@ End_Class
         (identifier))
       (property_definition
         (keyword)
-        (identifier)
+        (system_type)
         (identifier)
         (number_literal))
       (procedure_footer

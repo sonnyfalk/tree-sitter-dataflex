@@ -1,0 +1,35 @@
+===
+Global variable
+===
+
+Global_Variable Integer giMyGlobal
+
+---
+
+(source_file
+  (global_variable_declaration
+    (keyword)
+    (variable_declaration
+      (system_type)
+      (identifier))))
+
+===
+Local variable
+===
+
+Procedure TestIt
+    Integer iMyLocalVar
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (procedure_header
+      (keyword)
+      (identifier))
+    (variable_declaration
+      (system_type)
+      (identifier))
+    (procedure_footer
+      (keyword))))

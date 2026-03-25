@@ -24,6 +24,7 @@ module.exports = grammar({
         $._deferred_object,
         $.class_definition,
         $.property_definition,
+        $.global_variable_declaration,
         $._statement,
         $._eol,
       ),
@@ -118,7 +119,7 @@ module.exports = grammar({
       ),
 
     _statement_list: ($) =>
-      repeat1(choice($.property_definition, $._statement)),
+      repeat1(choice($.property_definition, $._statement, $._eol)),
 
     _statement: ($) =>
       choice(
@@ -127,6 +128,7 @@ module.exports = grammar({
         $.set_statement,
         $.send_statement,
         $.use_statement,
+        $.variable_declaration,
         $.unknown_command_statement,
       ),
 
@@ -171,11 +173,48 @@ module.exports = grammar({
 
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
 
+    global_variable_declaration: ($) =>
+      seq(keyword(/Global_Variable/i, $), $.variable_declaration),
+
+    variable_declaration: ($) => seq($.system_type, $.identifier, $._eol),
+
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
     _expression: ($) => choice($.identifier, $._literal),
 
-    _typedecl: ($) => $.identifier,
+    _typedecl: ($) => choice($.system_type, $.identifier),
+
+    system_type: ($) =>
+      choice(
+        /Boolean/i,
+        /Date/i,
+        /Integer/i,
+        /Number/i,
+        /Real/i,
+        /RowID/i,
+        /String/i,
+        /Address/i,
+        /BigInt/i,
+        /Char/i,
+        /Currency/i,
+        /DateTime/i,
+        /Decimal/i,
+        /DWord/i,
+        /Float/i,
+        /Handle/i,
+        /LongPtr/i,
+        /Pointer/i,
+        /Short/i,
+        /Time/i,
+        /Timespan/i,
+        /UBigInt/i,
+        /UChar/i,
+        /UInteger/i,
+        /ULongPtr/i,
+        /UShort/i,
+        /WString/i,
+        /Variant/i,
+      ),
 
     identifier: ($) => /[a-zA-Z_][a-zA-Z_0-9]*/,
 
