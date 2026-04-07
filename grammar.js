@@ -176,7 +176,8 @@ module.exports = grammar({
     global_variable_declaration: ($) =>
       seq(keyword(/Global_Variable/i, $), $.variable_declaration),
 
-    variable_declaration: ($) => seq($.system_type, $.identifier, $._eol),
+    variable_declaration: ($) =>
+      seq($.system_type, repeat1($.identifier), $._eol),
 
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 

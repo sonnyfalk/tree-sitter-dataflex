@@ -896,8 +896,11 @@
           "name": "system_type"
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "SYMBOL",

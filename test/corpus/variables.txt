@@ -33,3 +33,26 @@ End_Procedure
       (identifier))
     (procedure_footer
       (keyword))))
+
+===
+Multiple local variables on same line
+===
+
+Procedure TestIt
+    Integer iMyLocalVar iMyOtherLocalVar iMyThirdLocalVar
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (procedure_header
+      (keyword)
+      (identifier))
+    (variable_declaration
+      (system_type)
+      (identifier)
+      (identifier)
+      (identifier))
+    (procedure_footer
+      (keyword))))
