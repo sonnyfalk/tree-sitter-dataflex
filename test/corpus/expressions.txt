@@ -1,0 +1,367 @@
+===
+Identifier expression
+===
+
+Move foo to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+===
+Literal expression
+===
+
+Move "foo" to bar
+Move 1234 to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (string_literal)
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (number_literal)
+    (keyword)
+    (identifier)))
+
+===
+Paren expression
+===
+
+Move (foo) to bar
+Move ("foo") to bar
+Move (1234) to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (paren_expression
+      (identifier))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (string_literal))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (number_literal))
+    (keyword)
+    (identifier)))
+
+===
+Paren unary expression
+===
+
+Move (-1) to bar
+Move (-1 + 1) to bar
+Move (1 + -1) to bar
+Move (-foo) to bar
+Move (not foo) to bar
+Move (not foo and bar) to bar
+Move (not(foo) and bar) to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (paren_expression
+      (unary_expression
+        (number_literal)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (unary_expression
+          (number_literal))
+        (number_literal)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (number_literal)
+        (unary_expression
+          (number_literal))))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (unary_expression
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (unary_expression
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (unary_expression
+          (keyword)
+          (identifier))
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (unary_expression
+          (keyword)
+          (paren_expression
+            (identifier)))
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier)))
+
+===
+Paren binary expression
+===
+
+Move (foo + bar) to bar
+Move ("foo" + bar) to bar
+Move (1234 + 5678) to bar
+Move (foo + 1234 - 5678) to bar
+Move (foo and bar) to bar
+Move (foo or bar) to bar
+Move (foo = bar) to bar
+Move (foo <> bar) to bar
+Move (foo < bar) to bar
+Move (foo > bar) to bar
+Move (foo <= bar) to bar
+Move (foo >= bar) to bar
+Move (foo contains bar) to bar
+Move (foo matches bar) to bar
+Move (foo iand bar) to bar
+Move (foo ior bar) to bar
+Move (foo max bar) to bar
+Move (foo min bar) to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (string_literal)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (number_literal)
+        (number_literal)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (binary_expression
+          (identifier)
+          (number_literal))
+        (number_literal)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (keyword)
+        (identifier)))
+    (keyword)
+    (identifier)))
+
+===
+Paren call expression
+===
+
+Move (foo()) to bar
+Move (foo(1, 2 + 2, 3)) to bar
+Move (foo(1, bar(), 3)) to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (paren_expression
+      (call_expression
+        (identifier)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (call_expression
+        (identifier)
+        (number_literal)
+        (binary_expression
+          (number_literal)
+          (number_literal))
+        (number_literal)))
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (paren_expression
+      (call_expression
+        (identifier)
+        (number_literal)
+        (call_expression
+          (identifier))
+        (number_literal)))
+    (keyword)
+    (identifier)))

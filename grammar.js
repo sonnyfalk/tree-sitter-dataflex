@@ -181,7 +181,66 @@ module.exports = grammar({
 
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
-    _expression: ($) => choice($.identifier, $._literal),
+    _expression: ($) => choice($.identifier, $._literal, $.paren_expression),
+
+    paren_expression: ($) => seq("(", $._interior_expression, ")"),
+
+    _interior_expression: ($) =>
+      choice(
+        $.unary_expression,
+        $.binary_expression,
+        $.call_expression,
+        $._expression,
+      ),
+
+    unary_expression: ($) =>
+      seq(choice("-", keyword(/not/i, $)), field("operand", $._expression)),
+
+    binary_expression: ($) =>
+      seq(
+        field("operand", $._interior_expression),
+        choice(
+          "+",
+          "-",
+          "*",
+          "/",
+          "^",
+          "=",
+          "<>",
+          "<",
+          ">",
+          "<=",
+          ">=",
+          keyword(/max/i, $),
+          keyword(/min/i, $),
+          keyword(/and/i, $),
+          keyword(/or/i, $),
+          keyword(/contains/i, $),
+          keyword(/matches/i, $),
+          keyword(/iand/i, $),
+          keyword(/ior/i, $),
+        ),
+        field(
+          "operand",
+          choice($.unary_expression, $.call_expression, $._expression),
+        ),
+      ),
+
+    call_expression: ($) =>
+      seq(
+        field("name", $.identifier),
+        "(",
+        field(
+          "argument",
+          optional(
+            seq(
+              $._interior_expression,
+              repeat(seq(",", $._interior_expression)),
+            ),
+          ),
+        ),
+        ")",
+      ),
 
     _typedecl: ($) => choice($.system_type, $.identifier),
 
