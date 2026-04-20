@@ -43,3 +43,6 @@
 
 (set_statement
   receiver: (identifier) @entity.name.tag.object)
+
+(call_expression
+  name: (identifier) @entity.name.function.dataflex.expr)
