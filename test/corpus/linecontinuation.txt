@@ -15,10 +15,12 @@ End_Function
       (keyword)
       (identifier)
       (parameter
-        (identifier)
+        (system_typedecl
+          (system_type))
         (identifier))
       (parameter
-        (identifier)
+        (system_typedecl
+          (system_type))
         (identifier))
       (keyword)
       (identifier))

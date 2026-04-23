@@ -148,7 +148,7 @@
           "name": "type",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "typedecl"
           }
         },
         {
@@ -512,7 +512,7 @@
           "name": "type",
           "content": {
             "type": "SYMBOL",
-            "name": "_typedecl"
+            "name": "typedecl"
           }
         },
         {
@@ -884,7 +884,18 @@
         },
         {
           "type": "SYMBOL",
-          "name": "variable_declaration"
+          "name": "typedecl"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
         }
       ]
     },
@@ -893,7 +904,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "system_type"
+          "name": "system_typedecl"
         },
         {
           "type": "REPEAT1",
@@ -1232,16 +1243,73 @@
         }
       ]
     },
-    "_typedecl": {
+    "typedecl": {
       "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "system_typedecl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "custom_typedecl"
+        }
+      ]
+    },
+    "system_typedecl": {
+      "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
           "name": "system_type"
         },
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "array_decl"
+          }
+        }
+      ]
+    },
+    "custom_typedecl": {
+      "type": "SEQ",
+      "members": [
+        {
           "type": "SYMBOL",
           "name": "identifier"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "array_decl"
+          }
+        }
+      ]
+    },
+    "array_decl": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number_literal"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "]"
         }
       ]
     },
@@ -1479,6 +1547,8 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": [],
+  "supertypes": [
+    "typedecl"
+  ],
   "reserved": {}
 }

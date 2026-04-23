@@ -23,7 +23,8 @@ End_Object
         (keyword)
         (identifier)
         (parameter
-          (identifier)
+          (system_typedecl
+            (system_type))
           (identifier)))
       (get_statement
         (keyword)
@@ -83,7 +84,8 @@ End_Object
         (keyword)
         (identifier)
         (parameter
-          (identifier)
+          (system_typedecl
+            (system_type))
           (identifier)))
       (set_statement
         (keyword)

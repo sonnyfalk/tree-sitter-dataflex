@@ -32,10 +32,12 @@ End_Function
       (keyword)
       name: (identifier)
       (parameter
-        type: (identifier)
+        type: (system_typedecl
+          (system_type))
         name: (identifier))
       (parameter
-        type: (identifier)
+        type: (system_typedecl
+          (system_type))
         name: (identifier))
       (keyword)
       return_type: (identifier))

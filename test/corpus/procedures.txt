@@ -30,10 +30,12 @@ End_Procedure
       (keyword)
       name: (identifier)
       (parameter
-        type: (identifier)
+        type: (system_typedecl
+          (system_type))
         name: (identifier))
       (parameter
-        type: (identifier)
+        type: (system_typedecl
+          (system_type))
         name: (identifier)))
     (procedure_footer
       (keyword))))

@@ -12,6 +12,7 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;[\r\n|\n]/],
   word: ($) => $.identifier,
+  supertypes: ($) => [$.typedecl],
 
   rules: {
     source_file: ($) => repeat($._top_level_code),
@@ -45,7 +46,7 @@ module.exports = grammar({
     _parameter_list: ($) => repeat1($.parameter),
 
     parameter: ($) =>
-      seq(field("type", $.identifier), field("name", $.identifier)),
+      seq(field("type", $.typedecl), field("name", $.identifier)),
 
     _function_body: ($) => $._statement_list,
 
@@ -112,7 +113,7 @@ module.exports = grammar({
     property_definition: ($) =>
       seq(
         keyword(/Property/, $),
-        field("type", $._typedecl),
+        field("type", $.typedecl),
         field("name", $.identifier),
         optional($._expression),
         $._eol,
@@ -174,10 +175,15 @@ module.exports = grammar({
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
 
     global_variable_declaration: ($) =>
-      seq(keyword(/Global_Variable/i, $), $.variable_declaration),
+      seq(
+        keyword(/Global_Variable/i, $),
+        $.typedecl,
+        repeat1($.identifier),
+        $._eol,
+      ),
 
     variable_declaration: ($) =>
-      seq($.system_type, repeat1($.identifier), $._eol),
+      seq($.system_typedecl, repeat1($.identifier), $._eol),
 
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
@@ -242,7 +248,13 @@ module.exports = grammar({
         ")",
       ),
 
-    _typedecl: ($) => choice($.system_type, $.identifier),
+    typedecl: ($) => choice($.system_typedecl, $.custom_typedecl),
+
+    system_typedecl: ($) => seq($.system_type, repeat($.array_decl)),
+
+    custom_typedecl: ($) => seq($.identifier, repeat($.array_decl)),
+
+    array_decl: ($) => seq("[", optional($.number_literal), "]"),
 
     system_type: ($) =>
       choice(

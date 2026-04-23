@@ -9,9 +9,9 @@ Global_Variable Integer giMyGlobal
 (source_file
   (global_variable_declaration
     (keyword)
-    (variable_declaration
-      (system_type)
-      (identifier))))
+    (system_typedecl
+      (system_type))
+    (identifier)))
 
 ===
 Local variable
@@ -29,7 +29,8 @@ End_Procedure
       (keyword)
       (identifier))
     (variable_declaration
-      (system_type)
+      (system_typedecl
+        (system_type))
       (identifier))
     (procedure_footer
       (keyword))))
@@ -50,7 +51,8 @@ End_Procedure
       (keyword)
       (identifier))
     (variable_declaration
-      (system_type)
+      (system_typedecl
+        (system_type))
       (identifier)
       (identifier)
       (identifier))
