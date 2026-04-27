@@ -1,0 +1,36 @@
+===
+Simple struct
+===
+
+Struct tUSAddress
+    String sStreet
+    String sCity
+    String sState
+    Integer iZipCode
+End_Struct
+
+---
+
+(source_file
+  (struct_declaration
+    (struct_header
+      (keyword)
+      (identifier))
+    (struct_member
+      (system_typedecl
+        (system_type))
+      (identifier))
+    (struct_member
+      (system_typedecl
+        (system_type))
+      (identifier))
+    (struct_member
+      (system_typedecl
+        (system_type))
+      (identifier))
+    (struct_member
+      (system_typedecl
+        (system_type))
+      (identifier))
+    (struct_footer
+      (keyword))))

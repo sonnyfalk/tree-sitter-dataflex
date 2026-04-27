@@ -25,6 +25,7 @@ module.exports = grammar({
         $._deferred_object,
         $.class_definition,
         $.property_definition,
+        $.struct_declaration,
         $.global_variable_declaration,
         $._statement,
         $._eol,
@@ -185,6 +186,20 @@ module.exports = grammar({
     variable_declaration: ($) =>
       seq($.system_typedecl, repeat1($.identifier), $._eol),
 
+    struct_declaration: ($) =>
+      seq(
+        $.struct_header,
+        repeat(choice($.struct_member, $._eol)),
+        $.struct_footer,
+      ),
+
+    struct_header: ($) =>
+      seq(keyword(/Struct/i, $), field("name", $.identifier), $._eol),
+
+    struct_member: ($) => seq($.typedecl, $.identifier, $._eol),
+
+    struct_footer: ($) => seq(keyword(/End_Struct/i, $), $._eol),
+
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
     _expression: ($) => choice($.identifier, $._literal, $.paren_expression),
@@ -298,7 +313,7 @@ module.exports = grammar({
 
     file_name: ($) => /[a-zA-Z_0-9\.\-$@]+/,
 
-    _eol: ($) => /[\r\n|\n]/,
+    _eol: ($) => /\r\n|\n/,
 
     line_comment: ($) => token(seq("//", /.*/)),
     comment: ($) => seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
