@@ -20,6 +20,9 @@
 (class_header
   superclass: (identifier) @entity.other.inherited-class)
 
+(struct_header
+  name: (identifier) @entity.name.struct)
+
 (function_header
   name: (identifier) @function)
 

@@ -1,0 +1,8 @@
+Struct tUSAddress
+// ^ keyword
+//        ^ entity.name.struct
+    String sStreet
+    String sCity
+    String sState
+    Integer iZipCode
+End_Struct
