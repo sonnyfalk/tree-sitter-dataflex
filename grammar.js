@@ -13,6 +13,7 @@ module.exports = grammar({
   extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;[\r\n|\n]/],
   word: ($) => $.identifier,
   supertypes: ($) => [$.typedecl],
+  conflicts: ($) => [[$.custom_typedecl, $._expression]],
 
   rules: {
     source_file: ($) => repeat($._top_level_code),
@@ -131,6 +132,7 @@ module.exports = grammar({
         $.send_statement,
         $.use_statement,
         $.variable_declaration,
+        $.potential_variable_declaration,
         $.unknown_command_statement,
       ),
 
@@ -183,9 +185,6 @@ module.exports = grammar({
         $._eol,
       ),
 
-    variable_declaration: ($) =>
-      seq($.system_typedecl, repeat1($.identifier), $._eol),
-
     struct_declaration: ($) =>
       seq(
         $.struct_header,
@@ -199,6 +198,12 @@ module.exports = grammar({
     struct_member: ($) => seq($.typedecl, $.identifier, $._eol),
 
     struct_footer: ($) => seq(keyword(/End_Struct/i, $), $._eol),
+
+    variable_declaration: ($) =>
+      seq($.system_typedecl, repeat1($.identifier), $._eol),
+
+    potential_variable_declaration: ($) =>
+      seq($.custom_typedecl, repeat1($.identifier), $._eol),
 
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 

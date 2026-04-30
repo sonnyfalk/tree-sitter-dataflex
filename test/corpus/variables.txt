@@ -58,3 +58,25 @@ End_Procedure
       (identifier))
     (procedure_footer
       (keyword))))
+
+===
+Struct type variable declaration
+===
+
+Procedure TestIt
+    tMyStruct myStructVar
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (procedure_header
+      (keyword)
+      (identifier))
+    (potential_variable_declaration
+      (custom_typedecl
+        (identifier))
+      (identifier))
+    (procedure_footer
+      (keyword))))

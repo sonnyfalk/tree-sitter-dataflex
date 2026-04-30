@@ -49,3 +49,6 @@
 
 (call_expression
   name: (identifier) @entity.name.function.dataflex.expr)
+
+(custom_typedecl
+  (identifier) @entity.name.type)

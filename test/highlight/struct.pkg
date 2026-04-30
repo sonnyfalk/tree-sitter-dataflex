@@ -6,3 +6,10 @@ Struct tUSAddress
     String sState
     Integer iZipCode
 End_Struct
+
+Procedure test tUSAddress shippingAddress
+//                ^ entity.name.type
+    tUSAddress billingAddress
+//     ^ entity.name.type
+
+End_Procedure

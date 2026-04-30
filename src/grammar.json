@@ -594,6 +594,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "potential_variable_declaration"
+        },
+        {
+          "type": "SYMBOL",
           "name": "unknown_command_statement"
         }
       ]
@@ -903,26 +907,6 @@
         }
       ]
     },
-    "variable_declaration": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "system_typedecl"
-        },
-        {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_eol"
-        }
-      ]
-    },
     "struct_declaration": {
       "type": "SEQ",
       "members": [
@@ -1008,6 +992,46 @@
           },
           "named": true,
           "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "variable_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "system_typedecl"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "potential_variable_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "custom_typedecl"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "SYMBOL",
@@ -1639,7 +1663,12 @@
       "value": ";[\\r\\n|\\n]"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    [
+      "custom_typedecl",
+      "_expression"
+    ]
+  ],
   "precedences": [],
   "externals": [],
   "inline": [],
