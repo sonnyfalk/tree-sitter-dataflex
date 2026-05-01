@@ -10,10 +10,13 @@
 module.exports = grammar({
   name: "dataflex",
 
-  extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;[\r\n|\n]/],
+  extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;(\r\n|\n)/],
   word: ($) => $.identifier,
   supertypes: ($) => [$.typedecl],
-  conflicts: ($) => [[$.custom_typedecl, $._expression]],
+  conflicts: ($) => [
+    [$.custom_typedecl, $._expression],
+    [$.array_decl, $._literal],
+  ],
 
   rules: {
     source_file: ($) => repeat($._top_level_code),
@@ -207,7 +210,13 @@ module.exports = grammar({
 
     unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
 
-    _expression: ($) => choice($.identifier, $._literal, $.paren_expression),
+    _expression: ($) =>
+      choice(
+        $.identifier,
+        $._literal,
+        $.paren_expression,
+        $.postfix_expression,
+      ),
 
     paren_expression: ($) => seq("(", $._interior_expression, ")"),
 
@@ -267,6 +276,13 @@ module.exports = grammar({
         ),
         ")",
       ),
+
+    postfix_expression: ($) =>
+      seq($.identifier, repeat1(choice($.member_access, $.array_access))),
+
+    member_access: ($) => seq(".", $.identifier),
+
+    array_access: ($) => seq("[", $._interior_expression, "]"),
 
     typedecl: ($) => choice($.system_typedecl, $.custom_typedecl),
 

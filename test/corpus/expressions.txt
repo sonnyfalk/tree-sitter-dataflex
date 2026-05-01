@@ -35,6 +35,104 @@ Move 1234 to bar
     (identifier)))
 
 ===
+Postfix expression member access
+===
+
+Move foo.bar to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (postfix_expression
+      (identifier)
+      (member_access
+        (identifier)))
+    (keyword)
+    (identifier)))
+
+===
+Postfix expression nested member access
+===
+
+Move foo.bar.baz to baz
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (postfix_expression
+      (identifier)
+      (member_access
+        (identifier))
+      (member_access
+        (identifier)))
+    (keyword)
+    (identifier)))
+
+===
+Postfix expression array access
+===
+
+Move foo[0] to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (postfix_expression
+      (identifier)
+      (array_access
+        (number_literal)))
+    (keyword)
+    (identifier)))
+
+===
+Postfix expression multi-dim array access
+===
+
+Move foo[0][0] to bar
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (postfix_expression
+      (identifier)
+      (array_access
+        (number_literal))
+      (array_access
+        (number_literal)))
+    (keyword)
+    (identifier)))
+
+===
+Postfix expression nested array member access
+===
+
+Move foo.bar[0].baz to baz
+
+---
+
+(source_file
+  (move_statement
+    (keyword)
+    (postfix_expression
+      (identifier)
+      (member_access
+        (identifier))
+      (array_access
+        (number_literal))
+      (member_access
+        (identifier)))
+    (keyword)
+    (identifier)))
+
+===
 Paren expression
 ===
 
