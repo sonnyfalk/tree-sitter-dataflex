@@ -144,7 +144,7 @@ module.exports = grammar({
         keyword(/Move/i, $),
         $._expression,
         keyword(/to/i, $),
-        $.identifier,
+        $._expression,
         $._eol,
       ),
 
@@ -278,9 +278,12 @@ module.exports = grammar({
       ),
 
     postfix_expression: ($) =>
-      seq($.identifier, repeat1(choice($.member_access, $.array_access))),
+      seq(
+        field("name", $.identifier),
+        repeat1(choice($.member_access, $.array_access)),
+      ),
 
-    member_access: ($) => seq(".", $.identifier),
+    member_access: ($) => seq(".", field("name", $.identifier)),
 
     array_access: ($) => seq("[", $._interior_expression, "]"),
 
