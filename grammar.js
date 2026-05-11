@@ -283,7 +283,8 @@ module.exports = grammar({
         repeat1(choice($.member_access, $.array_access)),
       ),
 
-    member_access: ($) => seq(".", field("name", $.identifier)),
+    member_access: ($) =>
+      prec.left(seq(".", optional(field("name", $.identifier)))),
 
     array_access: ($) => seq("[", $._interior_expression, "]"),
 
