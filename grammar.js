@@ -31,6 +31,9 @@ module.exports = grammar({
         $.property_definition,
         $.struct_declaration,
         $.global_variable_declaration,
+        $.enum_declaration,
+        $.define_declaration,
+        $.replace_declaration,
         $._statement,
         $._eol,
       ),
@@ -179,6 +182,33 @@ module.exports = grammar({
       ),
 
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
+
+    enum_declaration: ($) =>
+      seq(
+        $.enum_header,
+        repeat(choice($.define_declaration, $._eol)),
+        $.enum_footer,
+      ),
+
+    enum_header: ($) => seq(keyword(/Enum_List/i, $), $._eol),
+
+    enum_footer: ($) => seq(keyword(/End_Enum_List/i, $), $._eol),
+
+    define_declaration: ($) =>
+      seq(
+        keyword(/Define/i, $),
+        field("name", $.identifier),
+        optional(seq(keyword(/for/i, $), field("value", $._expression))),
+        $._eol,
+      ),
+
+    replace_declaration: ($) =>
+      seq(
+        keyword(/#REPLACE/i, $),
+        field("name", $._expression),
+        field("value", $._expression),
+        $._eol,
+      ),
 
     global_variable_declaration: ($) =>
       seq(

@@ -1,0 +1,80 @@
+===
+#REPLACE
+===
+
+#REPLACE FOO BAR
+#REPLACE FOO "Hello"
+#REPLACE FOO 1234
+
+---
+
+(source_file
+  (replace_declaration
+    (keyword)
+    (identifier)
+    (identifier))
+  (replace_declaration
+    (keyword)
+    (identifier)
+    (string_literal))
+  (replace_declaration
+    (keyword)
+    (identifier)
+    (number_literal)))
+
+===
+Define
+===
+
+Define Foo
+Define Foo for 1
+Define Foo for "Hello"
+Define Foo for Integer
+
+---
+
+(source_file
+  (define_declaration
+    (keyword)
+    (identifier))
+  (define_declaration
+    (keyword)
+    (identifier)
+    (keyword)
+    (number_literal))
+  (define_declaration
+    (keyword)
+    (identifier)
+    (keyword)
+    (string_literal))
+  (define_declaration
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+===
+Enum_List
+===
+
+Enum_List
+    Define Foo for 1
+    Define Bar
+End_Enum_List
+
+---
+
+(source_file
+  (enum_declaration
+    (enum_header
+      (keyword))
+    (define_declaration
+      (keyword)
+      (identifier)
+      (keyword)
+      (number_literal))
+    (define_declaration
+      (keyword)
+      (identifier))
+    (enum_footer
+      (keyword))))
