@@ -12,9 +12,9 @@ module.exports = grammar({
 
   extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;(\r\n|\n)/],
   word: ($) => $.identifier,
-  supertypes: ($) => [$.typedecl],
+  supertypes: ($) => [$.typedecl, $.expression],
   conflicts: ($) => [
-    [$.custom_typedecl, $._expression],
+    [$.custom_typedecl, $.expression],
     [$.array_decl, $._literal],
   ],
 
@@ -123,7 +123,7 @@ module.exports = grammar({
         keyword(/Property/, $),
         field("type", $.typedecl),
         field("name", $.identifier),
-        optional($._expression),
+        optional($.expression),
         $._eol,
       ),
 
@@ -145,9 +145,9 @@ module.exports = grammar({
     move_statement: ($) =>
       seq(
         keyword(/Move/i, $),
-        $._expression,
+        $.expression,
         keyword(/to/i, $),
-        $._expression,
+        $.expression,
         $._eol,
       ),
 
@@ -155,8 +155,8 @@ module.exports = grammar({
       seq(
         keyword(/Get/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/of/i, $), field("receiver", $._expression))),
-        repeat($._expression),
+        optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
+        repeat($.expression),
         keyword(/to/i, $),
         $.identifier,
         $._eol,
@@ -166,9 +166,9 @@ module.exports = grammar({
       seq(
         keyword(/Set/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/of/i, $), field("receiver", $._expression))),
+        optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
         keyword(/to/i, $),
-        repeat1($._expression),
+        repeat1($.expression),
         $._eol,
       ),
 
@@ -176,8 +176,8 @@ module.exports = grammar({
       seq(
         keyword(/Send/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/of|to/i, $), field("receiver", $._expression))),
-        repeat($._expression),
+        optional(seq(keyword(/of|to/i, $), field("receiver", $.expression))),
+        repeat($.expression),
         $._eol,
       ),
 
@@ -198,15 +198,15 @@ module.exports = grammar({
       seq(
         keyword(/Define/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/for/i, $), field("value", $._expression))),
+        optional(seq(keyword(/for/i, $), field("value", $.expression))),
         $._eol,
       ),
 
     replace_declaration: ($) =>
       seq(
         keyword(/#REPLACE/i, $),
-        field("name", $._expression),
-        field("value", $._expression),
+        field("name", $.expression),
+        field("value", $.expression),
         $._eol,
       ),
 
@@ -238,9 +238,9 @@ module.exports = grammar({
     potential_variable_declaration: ($) =>
       seq($.custom_typedecl, repeat1($.identifier), $._eol),
 
-    unknown_command_statement: ($) => seq(repeat1($._expression), $._eol),
+    unknown_command_statement: ($) => seq(repeat1($.expression), $._eol),
 
-    _expression: ($) =>
+    expression: ($) =>
       choice(
         $.identifier,
         $._literal,
@@ -255,11 +255,11 @@ module.exports = grammar({
         $.unary_expression,
         $.binary_expression,
         $.call_expression,
-        $._expression,
+        $.expression,
       ),
 
     unary_expression: ($) =>
-      seq(choice("-", keyword(/not/i, $)), field("operand", $._expression)),
+      seq(choice("-", keyword(/not/i, $)), field("operand", $.expression)),
 
     binary_expression: ($) =>
       seq(
@@ -287,7 +287,7 @@ module.exports = grammar({
         ),
         field(
           "operand",
-          choice($.unary_expression, $.call_expression, $._expression),
+          choice($.unary_expression, $.call_expression, $.expression),
         ),
       ),
 

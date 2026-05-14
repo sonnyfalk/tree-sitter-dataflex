@@ -32,23 +32,16 @@
 (send_statement
   name: (identifier) @entity.name.function.dataflex.send)
 
-(send_statement
-  receiver: (identifier) @entity.name.tag.object)
-
 (get_statement
   name: (identifier) @entity.name.function.dataflex.get)
 
-(get_statement
-  receiver: (identifier) @entity.name.tag.object)
-
 (set_statement
   name: (identifier) @entity.name.function.dataflex.set)
-
-(set_statement
-  receiver: (identifier) @entity.name.tag.object)
 
 (call_expression
   name: (identifier) @entity.name.function.dataflex.expr)
 
 (custom_typedecl
   (identifier) @entity.name.type)
+
+(expression/identifier) @entity.name
