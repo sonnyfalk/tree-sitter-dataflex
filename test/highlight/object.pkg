@@ -3,6 +3,7 @@ Object oLeftWebHost is a cLocalWebControlHost
 //           ^ entity.name.tag.object
 //                  ^ keyword
 //                     ^ keyword
+//                              ^ entity.other.inherited-class
     Set Size to 195 368
     Set Location to 3 7
     Set piColumnCount to 12

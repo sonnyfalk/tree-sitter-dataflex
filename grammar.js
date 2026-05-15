@@ -114,7 +114,14 @@ module.exports = grammar({
         $._eol,
       ),
 
-    _class_body: ($) => repeat1($._top_level_code),
+    _class_body: ($) => repeat1(choice($.mixin_class, $._top_level_code)),
+
+    mixin_class: ($) =>
+      seq(
+        keyword(/Import_Class_Protocol/i, $),
+        field("name", $.identifier),
+        $._eol,
+      ),
 
     class_footer: ($) => keyword(/End_Class/i, $),
 

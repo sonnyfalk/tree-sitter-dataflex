@@ -17,3 +17,27 @@ End_Class
       (identifier))
     (class_footer
       (keyword))))
+
+===
+Class with mixin
+===
+
+Class cFoo is a cBar
+    Import_Class_Protocol cMyMixin
+End_Class
+
+---
+
+(source_file
+  (class_definition
+    (class_header
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (mixin_class
+      (keyword)
+      (identifier))
+    (class_footer
+      (keyword))))

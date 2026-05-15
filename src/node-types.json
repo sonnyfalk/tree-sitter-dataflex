@@ -210,6 +210,10 @@
           "named": true
         },
         {
+          "type": "mixin_class",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -612,6 +616,32 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "mixin_class",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
     }
   },
   {

@@ -497,9 +497,45 @@
     "_class_body": {
       "type": "REPEAT1",
       "content": {
-        "type": "SYMBOL",
-        "name": "_top_level_code"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "mixin_class"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_top_level_code"
+          }
+        ]
       }
+    },
+    "mixin_class": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Import_Class_Protocol",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
     },
     "class_footer": {
       "type": "ALIAS",

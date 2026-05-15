@@ -20,6 +20,9 @@
 (class_header
   superclass: (identifier) @entity.other.inherited-class)
 
+(mixin_class
+  name: (identifier) @entity.other.inherited-class)
+
 (struct_header
   name: (identifier) @entity.name.struct)
 
