@@ -196,6 +196,7 @@ module.exports = grammar({
         $.get_statement,
         $.set_statement,
         $.send_statement,
+        $.if_statement,
         $.use_statement,
         $.variable_declaration,
         $.potential_variable_declaration,
@@ -240,6 +241,26 @@ module.exports = grammar({
         repeat($.expression),
         $._eol,
       ),
+
+    if_statement: ($) =>
+      prec.right(
+        seq(
+          keyword(/If/i, $),
+          field("condition", $.expression),
+          choice($._statement, $.block_statement, $._eol),
+          optional($.else_statement),
+        ),
+      ),
+
+    else_statement: ($) =>
+      seq(keyword(/Else/i, $), choice($._statement, $.block_statement, $._eol)),
+
+    block_statement: ($) =>
+      seq($.block_header, $._statement_list, $.block_footer),
+
+    block_header: ($) => seq(keyword(/Begin/i, $), $._eol),
+
+    block_footer: ($) => seq(keyword(/End/i, $), $._eol),
 
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
 

@@ -1,0 +1,210 @@
+===
+If statement with Begin/End
+===
+
+If bOk Begin
+    Move 1 to iTest
+    Move 2 to iTest
+End
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (identifier)
+    (block_statement
+      (block_header
+        (keyword))
+      (move_statement
+        (keyword)
+        (number_literal)
+        (keyword)
+        (identifier))
+      (move_statement
+        (keyword)
+        (number_literal)
+        (keyword)
+        (identifier))
+      (block_footer
+        (keyword)))))
+
+===
+If statement with one command
+===
+
+If bOk Move 1 to iTest
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (identifier)
+    (move_statement
+      (keyword)
+      (number_literal)
+      (keyword)
+      (identifier))))
+
+===
+If statement with line continuation
+===
+
+If bOk;
+    Move 1 to iTest
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (identifier)
+    (move_statement
+      (keyword)
+      (number_literal)
+      (keyword)
+      (identifier))))
+
+===
+If statement with expression
+===
+
+If (iTest = 1);
+    Move 1 to iTest
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (paren_expression
+      (binary_expression
+        (identifier)
+        (number_literal)))
+    (move_statement
+      (keyword)
+      (number_literal)
+      (keyword)
+      (identifier))))
+
+===
+If statement with associated Else
+===
+
+If bOk;
+    Move 1 to iTest
+Else;
+    Move 2 to iTest
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (identifier)
+    (move_statement
+      (keyword)
+      (number_literal)
+      (keyword)
+      (identifier))
+    (else_statement
+      (keyword)
+      (move_statement
+        (keyword)
+        (number_literal)
+        (keyword)
+        (identifier)))))
+
+===
+If statement with associated Else If
+===
+
+If bOk;
+    Move 1 to iTest
+Else If bCancel;
+    Move 2 to iTest
+Else;
+    Move 3 to iTest
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (identifier)
+    (move_statement
+      (keyword)
+      (number_literal)
+      (keyword)
+      (identifier))
+    (else_statement
+      (keyword)
+      (if_statement
+        (keyword)
+        (identifier)
+        (move_statement
+          (keyword)
+          (number_literal)
+          (keyword)
+          (identifier))
+        (else_statement
+          (keyword)
+          (move_statement
+            (keyword)
+            (number_literal)
+            (keyword)
+            (identifier)))))))
+
+===
+Nested If statement with associated Else If
+===
+
+If bOk;
+    If bOther;
+        Move 1 to iTest
+    Else If bCancel;
+        Move 2 to iTest
+    Else;
+        Move 3 to iTest
+Else;
+    Move 0 to iTest
+
+---
+
+(source_file
+  (if_statement
+    (keyword)
+    (identifier)
+    (if_statement
+      (keyword)
+      (identifier)
+      (move_statement
+        (keyword)
+        (number_literal)
+        (keyword)
+        (identifier))
+      (else_statement
+        (keyword)
+        (if_statement
+          (keyword)
+          (identifier)
+          (move_statement
+            (keyword)
+            (number_literal)
+            (keyword)
+            (identifier))
+          (else_statement
+            (keyword)
+            (move_statement
+              (keyword)
+              (number_literal)
+              (keyword)
+              (identifier))))))
+    (else_statement
+      (keyword)
+      (move_statement
+        (keyword)
+        (number_literal)
+        (keyword)
+        (identifier)))))
