@@ -30,13 +30,15 @@ module.exports = grammar({
         $.class_definition,
         $.property_definition,
         $.struct_declaration,
-        $.global_variable_declaration,
         $.enum_declaration,
         $.define_declaration,
         $.replace_declaration,
+        $.global_variable_declaration,
         $._statement,
         $._eol,
       ),
+
+    // Definitions / Declarations
 
     function_definition: ($) =>
       seq($.function_header, optional($._function_body), $.function_footer),
@@ -134,6 +136,57 @@ module.exports = grammar({
         $._eol,
       ),
 
+    struct_declaration: ($) =>
+      seq(
+        $.struct_header,
+        repeat(choice($.struct_member, $._eol)),
+        $.struct_footer,
+      ),
+
+    struct_header: ($) =>
+      seq(keyword(/Struct/i, $), field("name", $.identifier), $._eol),
+
+    struct_member: ($) => seq($.typedecl, $.identifier, $._eol),
+
+    struct_footer: ($) => seq(keyword(/End_Struct/i, $), $._eol),
+
+    enum_declaration: ($) =>
+      seq(
+        $.enum_header,
+        repeat(choice($.define_declaration, $._eol)),
+        $.enum_footer,
+      ),
+
+    enum_header: ($) => seq(keyword(/Enum_List/i, $), $._eol),
+
+    enum_footer: ($) => seq(keyword(/End_Enum_List/i, $), $._eol),
+
+    define_declaration: ($) =>
+      seq(
+        keyword(/Define/i, $),
+        field("name", $.identifier),
+        optional(seq(keyword(/for/i, $), field("value", $.expression))),
+        $._eol,
+      ),
+
+    replace_declaration: ($) =>
+      seq(
+        keyword(/#REPLACE/i, $),
+        field("name", $.expression),
+        field("value", $.expression),
+        $._eol,
+      ),
+
+    global_variable_declaration: ($) =>
+      seq(
+        keyword(/Global_Variable/i, $),
+        $.typedecl,
+        repeat1($.identifier),
+        $._eol,
+      ),
+
+    // Statements / Commands
+
     _statement_list: ($) =>
       repeat1(choice($.property_definition, $._statement, $._eol)),
 
@@ -190,55 +243,6 @@ module.exports = grammar({
 
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
 
-    enum_declaration: ($) =>
-      seq(
-        $.enum_header,
-        repeat(choice($.define_declaration, $._eol)),
-        $.enum_footer,
-      ),
-
-    enum_header: ($) => seq(keyword(/Enum_List/i, $), $._eol),
-
-    enum_footer: ($) => seq(keyword(/End_Enum_List/i, $), $._eol),
-
-    define_declaration: ($) =>
-      seq(
-        keyword(/Define/i, $),
-        field("name", $.identifier),
-        optional(seq(keyword(/for/i, $), field("value", $.expression))),
-        $._eol,
-      ),
-
-    replace_declaration: ($) =>
-      seq(
-        keyword(/#REPLACE/i, $),
-        field("name", $.expression),
-        field("value", $.expression),
-        $._eol,
-      ),
-
-    global_variable_declaration: ($) =>
-      seq(
-        keyword(/Global_Variable/i, $),
-        $.typedecl,
-        repeat1($.identifier),
-        $._eol,
-      ),
-
-    struct_declaration: ($) =>
-      seq(
-        $.struct_header,
-        repeat(choice($.struct_member, $._eol)),
-        $.struct_footer,
-      ),
-
-    struct_header: ($) =>
-      seq(keyword(/Struct/i, $), field("name", $.identifier), $._eol),
-
-    struct_member: ($) => seq($.typedecl, $.identifier, $._eol),
-
-    struct_footer: ($) => seq(keyword(/End_Struct/i, $), $._eol),
-
     variable_declaration: ($) =>
       seq($.system_typedecl, repeat1($.identifier), $._eol),
 
@@ -246,6 +250,8 @@ module.exports = grammar({
       seq($.custom_typedecl, repeat1($.identifier), $._eol),
 
     unknown_command_statement: ($) => seq(repeat1($.expression), $._eol),
+
+    // Expressions
 
     expression: ($) =>
       choice(
@@ -325,6 +331,8 @@ module.exports = grammar({
 
     array_access: ($) => seq("[", $._interior_expression, "]"),
 
+    // Variable / Parameter Type Declarations
+
     typedecl: ($) => choice($.system_typedecl, $.custom_typedecl),
 
     system_typedecl: ($) => seq($.system_type, repeat($.array_decl)),
@@ -365,6 +373,8 @@ module.exports = grammar({
         /Variant/i,
       ),
 
+    // Identifier / Literal
+
     identifier: ($) => /[a-zA-Z_][a-zA-Z_0-9]*/,
 
     _literal: ($) => choice($.number_literal, $.string_literal),
@@ -375,10 +385,11 @@ module.exports = grammar({
 
     file_name: ($) => /[a-zA-Z_0-9\.\-$@]+/,
 
-    _eol: ($) => /\r\n|\n/,
+    // Comments / EOL
 
     line_comment: ($) => token(seq("//", /.*/)),
     comment: ($) => seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
+    _eol: ($) => /\r\n|\n/,
   },
 });
 
