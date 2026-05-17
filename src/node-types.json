@@ -166,6 +166,10 @@
           "named": true
         },
         {
+          "type": "case_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -263,6 +267,164 @@
     }
   },
   {
+    "type": "case_break",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "case_footer",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "case_header",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "case_member",
+    "named": true,
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          },
+          {
+            "type": "keyword",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "case_break",
+          "named": true
+        },
+        {
+          "type": "case_statement",
+          "named": true
+        },
+        {
+          "type": "for_statement",
+          "named": true
+        },
+        {
+          "type": "get_statement",
+          "named": true
+        },
+        {
+          "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "move_statement",
+          "named": true
+        },
+        {
+          "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "property_definition",
+          "named": true
+        },
+        {
+          "type": "repeat_statement",
+          "named": true
+        },
+        {
+          "type": "send_statement",
+          "named": true
+        },
+        {
+          "type": "set_statement",
+          "named": true
+        },
+        {
+          "type": "unknown_command_statement",
+          "named": true
+        },
+        {
+          "type": "use_statement",
+          "named": true
+        },
+        {
+          "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "while_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "case_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "case_footer",
+          "named": true
+        },
+        {
+          "type": "case_header",
+          "named": true
+        },
+        {
+          "type": "case_member",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "class_definition",
     "named": true,
     "fields": {},
@@ -270,6 +432,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "case_statement",
+          "named": true
+        },
         {
           "type": "class_definition",
           "named": true
@@ -506,6 +672,10 @@
           "named": true
         },
         {
+          "type": "case_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -683,6 +853,10 @@
       "required": true,
       "types": [
         {
+          "type": "case_statement",
+          "named": true
+        },
+        {
           "type": "for_footer",
           "named": true
         },
@@ -753,6 +927,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "case_statement",
+          "named": true
+        },
         {
           "type": "for_statement",
           "named": true
@@ -958,6 +1136,10 @@
           "named": true
         },
         {
+          "type": "case_statement",
+          "named": true
+        },
+        {
           "type": "else_statement",
           "named": true
         },
@@ -1085,6 +1267,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "case_statement",
+          "named": true
+        },
         {
           "type": "class_definition",
           "named": true
@@ -1354,6 +1540,10 @@
       "required": true,
       "types": [
         {
+          "type": "case_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -1551,6 +1741,10 @@
       "required": true,
       "types": [
         {
+          "type": "case_statement",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -1738,6 +1932,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "case_statement",
+          "named": true
+        },
         {
           "type": "class_definition",
           "named": true
@@ -2072,6 +2270,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "case_statement",
+          "named": true
+        },
         {
           "type": "for_statement",
           "named": true

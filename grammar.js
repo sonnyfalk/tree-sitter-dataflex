@@ -16,6 +16,7 @@ module.exports = grammar({
   conflicts: ($) => [
     [$.custom_typedecl, $.expression],
     [$.array_decl, $._literal],
+    [$.case_member],
   ],
 
   rules: {
@@ -200,6 +201,7 @@ module.exports = grammar({
         $.for_statement,
         $.while_statement,
         $.repeat_statement,
+        $.case_statement,
         $.use_statement,
         $.variable_declaration,
         $.potential_variable_declaration,
@@ -294,6 +296,24 @@ module.exports = grammar({
         ),
         $._eol,
       ),
+
+    case_statement: ($) =>
+      seq($.case_header, repeat(choice($.case_member, $._eol)), $.case_footer),
+
+    case_header: ($) => seq(keyword(/Case/i, $), keyword(/Begin/i, $), $._eol),
+
+    case_member: ($) =>
+      seq(
+        keyword(/Case/i, $),
+        field("condition", choice($.expression, keyword(/Else/i, $))),
+        $._eol,
+        $._statement_list,
+        optional($.case_break),
+      ),
+
+    case_break: ($) => seq(keyword(/Case/i, $), keyword(/Break/i, $), $._eol),
+
+    case_footer: ($) => seq(keyword(/Case/i, $), keyword(/End/i, $), $._eol),
 
     block_statement: ($) =>
       seq($.block_header, $._statement_list, $.block_footer),

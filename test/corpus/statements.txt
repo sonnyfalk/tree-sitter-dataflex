@@ -303,3 +303,178 @@ Loop
       (identifier))
     (repeat_footer
       (keyword))))
+
+===
+Case statement
+===
+
+Case Begin
+    Case (sAnimal = "Cat")
+        Move ("Meow") To sNoise
+        Case Break
+    Case (sAnimal = "Dog")
+        Move ("Arf")  To sNoise
+        Case Break
+    Case (sAnimal = "Bird")
+        Move ("Tweet") To sNoise
+        Case Break
+    Case Else
+        Move ("") To sNoise
+Case End
+
+---
+
+(source_file
+  (case_statement
+    (case_header
+      (keyword)
+      (keyword))
+    (case_member
+      (keyword)
+      (paren_expression
+        (binary_expression
+          (identifier)
+          (string_literal)))
+      (move_statement
+        (keyword)
+        (paren_expression
+          (string_literal))
+        (keyword)
+        (identifier))
+      (case_break
+        (keyword)
+        (keyword)))
+    (case_member
+      (keyword)
+      (paren_expression
+        (binary_expression
+          (identifier)
+          (string_literal)))
+      (move_statement
+        (keyword)
+        (paren_expression
+          (string_literal))
+        (keyword)
+        (identifier))
+      (case_break
+        (keyword)
+        (keyword)))
+    (case_member
+      (keyword)
+      (paren_expression
+        (binary_expression
+          (identifier)
+          (string_literal)))
+      (move_statement
+        (keyword)
+        (paren_expression
+          (string_literal))
+        (keyword)
+        (identifier))
+      (case_break
+        (keyword)
+        (keyword)))
+    (case_member
+      (keyword)
+      (keyword)
+      (move_statement
+        (keyword)
+        (paren_expression
+          (string_literal))
+        (keyword)
+        (identifier)))
+    (case_footer
+      (keyword)
+      (keyword))))
+
+===
+Nested Case statement
+===
+
+Case Begin
+    Case (sAnimal = "Cat")
+        Move ("Meow") To sNoise
+        Case Break
+    Case (sAnimal = "Dog")
+        Case Begin
+            Case (bSomething)
+                Move 1 to iSomething
+                Case Break
+            Case Else
+                Move 2 to iSomething
+        Case End
+        Case Break
+    Case Else
+        Move ("") To sNoise
+Case End
+
+---
+
+(source_file
+  (case_statement
+    (case_header
+      (keyword)
+      (keyword))
+    (case_member
+      (keyword)
+      (paren_expression
+        (binary_expression
+          (identifier)
+          (string_literal)))
+      (move_statement
+        (keyword)
+        (paren_expression
+          (string_literal))
+        (keyword)
+        (identifier))
+      (case_break
+        (keyword)
+        (keyword)))
+    (case_member
+      (keyword)
+      (paren_expression
+        (binary_expression
+          (identifier)
+          (string_literal)))
+      (case_statement
+        (case_header
+          (keyword)
+          (keyword))
+        (case_member
+          (keyword)
+          (paren_expression
+            (identifier))
+          (move_statement
+            (keyword)
+            (number_literal)
+            (keyword)
+            (identifier))
+          (case_break
+            (keyword)
+            (keyword)))
+        (case_member
+          (keyword)
+          (keyword)
+          (move_statement
+            (keyword)
+            (number_literal)
+            (keyword)
+            (identifier)))
+        (case_footer
+          (keyword)
+          (keyword)))
+      (case_break
+        (keyword)
+        (keyword)))
+    (case_member
+      (keyword)
+      (keyword)
+      (move_statement
+        (keyword)
+        (paren_expression
+          (string_literal))
+        (keyword)
+        (identifier)))
+    (case_footer
+      (keyword)
+      (keyword))))
