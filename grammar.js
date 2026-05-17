@@ -39,6 +39,27 @@ module.exports = grammar({
         $._eol,
       ),
 
+    _statement: ($) =>
+      choice(
+        $.move_statement,
+        $.get_statement,
+        $.set_statement,
+        $.send_statement,
+        $.if_statement,
+        $.for_statement,
+        $.while_statement,
+        $.repeat_statement,
+        $.break_statement,
+        $.case_statement,
+        $.use_statement,
+        $.variable_declaration,
+        $.potential_variable_declaration,
+        $.other_command_statement,
+      ),
+
+    _statement_list: ($) =>
+      repeat1(choice($.property_definition, $._statement, $._eol)),
+
     // Definitions / Declarations
 
     function_definition: ($) =>
@@ -188,27 +209,6 @@ module.exports = grammar({
 
     // Statements / Commands
 
-    _statement_list: ($) =>
-      repeat1(choice($.property_definition, $._statement, $._eol)),
-
-    _statement: ($) =>
-      choice(
-        $.move_statement,
-        $.get_statement,
-        $.set_statement,
-        $.send_statement,
-        $.if_statement,
-        $.for_statement,
-        $.while_statement,
-        $.repeat_statement,
-        $.break_statement,
-        $.case_statement,
-        $.use_statement,
-        $.variable_declaration,
-        $.potential_variable_declaration,
-        $.unknown_command_statement,
-      ),
-
     move_statement: ($) =>
       seq(
         keyword(/Move/i, $),
@@ -334,7 +334,7 @@ module.exports = grammar({
     potential_variable_declaration: ($) =>
       seq($.custom_typedecl, repeat1($.identifier), $._eol),
 
-    unknown_command_statement: ($) => seq(repeat1($.expression), $._eol),
+    other_command_statement: ($) => seq(repeat1($.expression), $._eol),
 
     // Expressions
 

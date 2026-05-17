@@ -190,6 +190,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -207,10 +211,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -386,6 +386,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -403,10 +407,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -524,6 +524,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -553,10 +557,6 @@
         },
         {
           "type": "struct_declaration",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -727,6 +727,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -740,10 +744,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -916,6 +916,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -933,10 +937,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -995,6 +995,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -1012,10 +1016,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -1207,6 +1207,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -1220,10 +1224,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -1375,6 +1375,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -1404,10 +1408,6 @@
         },
         {
           "type": "struct_declaration",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -1471,6 +1471,21 @@
       "types": [
         {
           "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "other_command_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
           "named": true
         }
       ]
@@ -1611,6 +1626,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -1636,10 +1655,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -1816,6 +1831,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -1841,10 +1860,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -2044,6 +2059,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -2073,10 +2092,6 @@
         },
         {
           "type": "struct_declaration",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
@@ -2228,21 +2243,6 @@
     }
   },
   {
-    "type": "unknown_command_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "use_statement",
     "named": true,
     "fields": {},
@@ -2354,6 +2354,10 @@
           "named": true
         },
         {
+          "type": "other_command_statement",
+          "named": true
+        },
+        {
           "type": "potential_variable_declaration",
           "named": true
         },
@@ -2371,10 +2375,6 @@
         },
         {
           "type": "set_statement",
-          "named": true
-        },
-        {
-          "type": "unknown_command_statement",
           "named": true
         },
         {
