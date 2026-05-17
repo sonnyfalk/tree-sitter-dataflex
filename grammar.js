@@ -201,6 +201,7 @@ module.exports = grammar({
         $.for_statement,
         $.while_statement,
         $.repeat_statement,
+        $.break_statement,
         $.case_statement,
         $.use_statement,
         $.variable_declaration,
@@ -321,6 +322,9 @@ module.exports = grammar({
     block_header: ($) => seq(keyword(/Begin/i, $), $._eol),
 
     block_footer: ($) => seq(keyword(/End/i, $), $._eol),
+
+    break_statement: ($) =>
+      seq(keyword(/Break/i, $), optional(keyword(/Begin/i, $)), $._eol),
 
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
 

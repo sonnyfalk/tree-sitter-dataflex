@@ -288,6 +288,8 @@ Repeat unconditional loop
 
 Repeat
     Move i to iTest
+    if bStop;
+        Break
 Loop
 
 ---
@@ -301,6 +303,11 @@ Loop
       (identifier)
       (keyword)
       (identifier))
+    (if_statement
+      (keyword)
+      (identifier)
+      (break_statement
+        (keyword)))
     (repeat_footer
       (keyword))))
 

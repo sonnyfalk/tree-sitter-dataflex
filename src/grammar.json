@@ -932,6 +932,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "break_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "case_statement"
         },
         {
@@ -1763,6 +1767,43 @@
           },
           "named": true,
           "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "break_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Break",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "Begin",
+                "flags": "i"
+              },
+              "named": true,
+              "value": "keyword"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
