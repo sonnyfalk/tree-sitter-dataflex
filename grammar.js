@@ -45,6 +45,8 @@ module.exports = grammar({
         $.get_statement,
         $.set_statement,
         $.send_statement,
+        $.web_get_statement,
+        $.web_set_statement,
         $.if_statement,
         $.for_statement,
         $.while_statement,
@@ -262,6 +264,27 @@ module.exports = grammar({
           ),
           optional(keyword(/No_Stop/i, $)),
         ),
+      ),
+
+    web_get_statement: ($) =>
+      seq(
+        keyword(/WebGet/i, $),
+        field("name", $.identifier),
+        optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
+        repeat($.expression),
+        keyword(/to/i, $),
+        $.identifier,
+        $._eol,
+      ),
+
+    web_set_statement: ($) =>
+      seq(
+        keyword(/WebSet/i, $),
+        field("name", $.identifier),
+        optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
+        keyword(/to/i, $),
+        repeat1($.expression),
+        $._eol,
       ),
 
     if_statement: ($) =>

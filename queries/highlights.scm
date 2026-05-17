@@ -41,6 +41,12 @@
 (set_statement
   name: (identifier) @entity.name.function.dataflex.set)
 
+(web_get_statement
+  name: (identifier) @entity.name.function.dataflex.get)
+
+(web_set_statement
+  name: (identifier) @entity.name.function.dataflex.set)
+
 (call_expression
   name: (identifier) @entity.name.function.dataflex.expr)
 

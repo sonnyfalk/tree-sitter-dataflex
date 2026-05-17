@@ -222,6 +222,14 @@
           "named": true
         },
         {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -433,6 +441,14 @@
           "named": true
         },
         {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -580,6 +596,14 @@
         },
         {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
           "named": true
         },
         {
@@ -767,6 +791,14 @@
         },
         {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
           "named": true
         },
         {
@@ -963,6 +995,14 @@
           "named": true
         },
         {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -1039,6 +1079,14 @@
         },
         {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
           "named": true
         },
         {
@@ -1254,6 +1302,14 @@
           "named": true
         },
         {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -1435,6 +1491,14 @@
         },
         {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
           "named": true
         },
         {
@@ -1685,6 +1749,14 @@
           "named": true
         },
         {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -1887,6 +1959,14 @@
         },
         {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
           "named": true
         },
         {
@@ -2130,6 +2210,14 @@
           "named": true
         },
         {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
+          "named": true
+        },
+        {
           "type": "while_statement",
           "named": true
         }
@@ -2308,6 +2396,86 @@
     }
   },
   {
+    "type": "web_get_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "receiver": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "web_set_statement",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "receiver": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "while_footer",
     "named": true,
     "fields": {},
@@ -2410,6 +2578,14 @@
         },
         {
           "type": "variable_declaration",
+          "named": true
+        },
+        {
+          "type": "web_get_statement",
+          "named": true
+        },
+        {
+          "type": "web_set_statement",
           "named": true
         },
         {

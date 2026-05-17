@@ -281,3 +281,40 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (identifier)
     (keyword)
     (identifier)))
+
+===
+WebGet/WebSet statement
+===
+
+WebGet psValue to sValue
+WebGet psValue of oWebForm1 to sValue
+WebSet psValue to sValue
+WebSet psValue of oWebForm1 to sValue
+
+---
+
+(source_file
+  (web_get_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (web_get_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (web_set_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (web_set_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
