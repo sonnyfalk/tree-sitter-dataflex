@@ -198,6 +198,8 @@ module.exports = grammar({
         $.send_statement,
         $.if_statement,
         $.for_statement,
+        $.while_statement,
+        $.repeat_statement,
         $.use_statement,
         $.variable_declaration,
         $.potential_variable_declaration,
@@ -270,6 +272,28 @@ module.exports = grammar({
       ),
 
     for_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
+
+    while_statement: ($) =>
+      seq($.while_header, $._statement_list, $.while_footer),
+
+    while_header: ($) =>
+      seq(keyword(/While/i, $), field("condition", $.expression), $._eol),
+
+    while_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
+
+    repeat_statement: ($) =>
+      seq($.repeat_header, $._statement_list, $.repeat_footer),
+
+    repeat_header: ($) => seq(keyword(/Repeat/i, $), $._eol),
+
+    repeat_footer: ($) =>
+      seq(
+        choice(
+          seq(keyword(/Until/i, $), field("condition", $.expression)),
+          keyword(/Loop/i, $),
+        ),
+        $._eol,
+      ),
 
     block_statement: ($) =>
       seq($.block_header, $._statement_list, $.block_footer),

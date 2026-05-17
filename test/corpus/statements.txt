@@ -235,3 +235,71 @@ Loop
       (identifier))
     (for_footer
       (keyword))))
+
+===
+While loop
+===
+
+While bContinue
+    Move i to iTest
+Loop
+
+---
+
+(source_file
+  (while_statement
+    (while_header
+      (keyword)
+      (identifier))
+    (move_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier))
+    (while_footer
+      (keyword))))
+
+===
+Repeat until loop
+===
+
+Repeat
+    Move i to iTest
+Until bStop
+
+---
+
+(source_file
+  (repeat_statement
+    (repeat_header
+      (keyword))
+    (move_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier))
+    (repeat_footer
+      (keyword)
+      (identifier))))
+
+===
+Repeat unconditional loop
+===
+
+Repeat
+    Move i to iTest
+Loop
+
+---
+
+(source_file
+  (repeat_statement
+    (repeat_header
+      (keyword))
+    (move_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier))
+    (repeat_footer
+      (keyword))))
