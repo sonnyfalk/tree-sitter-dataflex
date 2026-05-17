@@ -197,6 +197,7 @@ module.exports = grammar({
         $.set_statement,
         $.send_statement,
         $.if_statement,
+        $.for_statement,
         $.use_statement,
         $.variable_declaration,
         $.potential_variable_declaration,
@@ -254,6 +255,21 @@ module.exports = grammar({
 
     else_statement: ($) =>
       seq(keyword(/Else/i, $), choice($._statement, $.block_statement, $._eol)),
+
+    for_statement: ($) => seq($.for_header, $._statement_list, $.for_footer),
+
+    for_header: ($) =>
+      seq(
+        keyword(/For/i, $),
+        field("counter", $.identifier),
+        keyword(/from/i, $),
+        field("from", $.expression),
+        keyword(/to/i, $),
+        field("to", $.expression),
+        $._eol,
+      ),
+
+    for_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
 
     block_statement: ($) =>
       seq($.block_header, $._statement_list, $.block_footer),
