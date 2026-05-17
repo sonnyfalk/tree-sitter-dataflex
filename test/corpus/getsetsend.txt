@@ -144,3 +144,140 @@ Send Request_Read of oCustomer_DD FIRST_RECORD iFileNum 3
     (identifier)
     (identifier)
     (number_literal)))
+
+===
+Forward send/get/set statement
+===
+
+Forward Send Popup
+Forward Get SelectedColumnValues to selectedCustomers
+Forward Set pbEnabled to bEnabled
+
+---
+
+(source_file
+  (send_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier))
+  (get_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (set_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+===
+Delegate send/get/set statement
+===
+
+Delegate Send Popup
+Delegate Get SelectedColumnValues to selectedCustomers
+Delegate Set pbEnabled to bEnabled
+
+---
+
+(source_file
+  (send_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier))
+  (get_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (set_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+===
+Broadcast send/get/set statement
+===
+
+Broadcast Send Popup
+Broadcast Get SelectedColumnValues to selectedCustomers
+Broadcast Set pbEnabled to bEnabled
+
+---
+
+(source_file
+  (send_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier))
+  (get_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (set_statement
+    (call_modifier
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))
+
+===
+Broadcast send/get/set statement
+===
+
+Broadcast Recursive Send Popup
+Broadcast Recursive_Up Get SelectedColumnValues to selectedCustomers
+Broadcast No_Stop Set pbEnabled to bEnabled
+Broadcast Recursive No_Stop Set pbEnabled to bEnabled
+
+---
+
+(source_file
+  (send_statement
+    (call_modifier
+      (keyword)
+      (keyword))
+    (keyword)
+    (identifier))
+  (get_statement
+    (call_modifier
+      (keyword)
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (set_statement
+    (call_modifier
+      (keyword)
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier))
+  (set_statement
+    (call_modifier
+      (keyword)
+      (keyword)
+      (keyword))
+    (keyword)
+    (identifier)
+    (keyword)
+    (identifier)))

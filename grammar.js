@@ -220,6 +220,7 @@ module.exports = grammar({
 
     get_statement: ($) =>
       seq(
+        optional($.call_modifier),
         keyword(/Get/i, $),
         field("name", $.identifier),
         optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
@@ -231,6 +232,7 @@ module.exports = grammar({
 
     set_statement: ($) =>
       seq(
+        optional($.call_modifier),
         keyword(/Set/i, $),
         field("name", $.identifier),
         optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
@@ -241,11 +243,25 @@ module.exports = grammar({
 
     send_statement: ($) =>
       seq(
+        optional($.call_modifier),
         keyword(/Send/i, $),
         field("name", $.identifier),
         optional(seq(keyword(/of|to/i, $), field("receiver", $.expression))),
         repeat($.expression),
         $._eol,
+      ),
+
+    call_modifier: ($) =>
+      choice(
+        keyword(/Forward/i, $),
+        keyword(/Delegate/i, $),
+        seq(
+          choice(keyword(/Broadcast/i, $), keyword(/Broadcast_Focus/i, $)),
+          optional(
+            choice(keyword(/Recursive/i, $), keyword(/Recursive_Up/i, $)),
+          ),
+          optional(keyword(/No_Stop/i, $)),
+        ),
       ),
 
     if_statement: ($) =>

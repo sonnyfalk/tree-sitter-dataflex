@@ -286,6 +286,21 @@
     }
   },
   {
+    "type": "call_modifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "case_break",
     "named": true,
     "fields": {},
@@ -1118,6 +1133,10 @@
       "required": true,
       "types": [
         {
+          "type": "call_modifier",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
@@ -1943,6 +1962,10 @@
       "required": true,
       "types": [
         {
+          "type": "call_modifier",
+          "named": true
+        },
+        {
           "type": "expression",
           "named": true
         },
@@ -1982,6 +2005,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "call_modifier",
+          "named": true
+        },
         {
           "type": "expression",
           "named": true
