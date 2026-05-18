@@ -41,3 +41,59 @@ End_Class
       (identifier))
     (class_footer
       (keyword))))
+
+===
+Composite with objects and mixin
+===
+
+Composite cFoo is a cBar
+    Import_Class_Protocol cMyMixin
+
+    Set pbEnabled to True
+
+    Object oPromptList is a cWebPromptList
+        Set pbFillHeight to True
+        Set piColumnSpan to 6
+    End_Object
+
+End_Composite
+
+---
+
+(source_file
+  (composite_definition
+    (composite_header
+      (keyword)
+      (identifier)
+      (keyword)
+      (keyword)
+      (identifier))
+    (mixin_class
+      (keyword)
+      (identifier))
+    (set_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier))
+    (object_definition
+      (object_header
+        (keyword)
+        (identifier)
+        (keyword)
+        (keyword)
+        (identifier))
+      (set_statement
+        (keyword)
+        (identifier)
+        (keyword)
+        (identifier))
+      (set_statement
+        (keyword)
+        (identifier)
+        (keyword)
+        (number_literal))
+      (object_footer
+        (keyword)))
+    (composite_footer
+      (keyword))))

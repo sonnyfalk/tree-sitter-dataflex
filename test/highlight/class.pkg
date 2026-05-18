@@ -13,3 +13,28 @@ Class cMyClass is a cMySuperClass
     End_Procedure
 End_Class
 // ^ keyword
+
+Composite cMyCompositeClass is a cMySuperClass
+// ^ keyword
+//          ^ entity.name.tag.class
+//                          ^ keyword
+//                             ^ keyword
+//                                     ^ entity.other.inherited-class
+    Import_Class_Protocol cMyMixin
+//          ^ keyword
+//                          ^ entity.other.inherited-class
+    Procedure Construct_Object
+        Property Integer piTest 0
+//        ^ keyword
+    End_Procedure
+
+    Object oLeftWebHost is a cLocalWebControlHost
+//    ^ keyword
+//               ^ entity.name.tag.object
+//                      ^ keyword
+//                         ^ keyword
+//                               ^ entity.other.inherited-class
+    End_Object
+//    ^ keyword
+End_Composite
+// ^ keyword

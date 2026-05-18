@@ -35,6 +35,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "composite_definition"
+        },
+        {
+          "type": "SYMBOL",
           "name": "property_definition"
         },
         {
@@ -631,6 +635,96 @@
       "content": {
         "type": "PATTERN",
         "value": "End_Class",
+        "flags": "i"
+      },
+      "named": true,
+      "value": "keyword"
+    },
+    "composite_definition": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "composite_header"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_class_body"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "composite_footer"
+        }
+      ]
+    },
+    "composite_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Composite",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "is",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "a",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "superclass",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "composite_footer": {
+      "type": "ALIAS",
+      "content": {
+        "type": "PATTERN",
+        "value": "End_Composite",
         "flags": "i"
       },
       "named": true,

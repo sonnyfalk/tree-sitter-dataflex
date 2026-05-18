@@ -29,6 +29,7 @@ module.exports = grammar({
         $.object_definition,
         $._deferred_object,
         $.class_definition,
+        $.composite_definition,
         $.property_definition,
         $.struct_declaration,
         $.enum_declaration,
@@ -150,6 +151,21 @@ module.exports = grammar({
       ),
 
     class_footer: ($) => keyword(/End_Class/i, $),
+
+    composite_definition: ($) =>
+      seq($.composite_header, optional($._class_body), $.composite_footer),
+
+    composite_header: ($) =>
+      seq(
+        keyword(/Composite/i, $),
+        field("name", $.identifier),
+        keyword(/is/i, $),
+        keyword(/a/i, $),
+        field("superclass", $.identifier),
+        $._eol,
+      ),
+
+    composite_footer: ($) => keyword(/End_Composite/i, $),
 
     property_definition: ($) =>
       seq(

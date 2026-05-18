@@ -20,6 +20,12 @@
 (class_header
   superclass: (identifier) @entity.other.inherited-class)
 
+(composite_header
+  name: (identifier) @entity.name.tag.class)
+
+(composite_header
+  superclass: (identifier) @entity.other.inherited-class)
+
 (mixin_class
   name: (identifier) @entity.other.inherited-class)
 
