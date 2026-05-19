@@ -13,17 +13,17 @@ End_Function
   (function_definition
     (function_header
       (keyword)
-      (identifier)
+      name: (identifier)
       (parameter
-        (system_typedecl
+        type: (system_typedecl
           (system_type))
-        (identifier))
+        name: (identifier))
       (parameter
-        (system_typedecl
+        type: (system_typedecl
           (system_type))
-        (identifier))
+        name: (identifier))
       (keyword)
-      (system_typedecl
+      return_type: (system_typedecl
         (system_type)))
     (function_footer
       (keyword))))

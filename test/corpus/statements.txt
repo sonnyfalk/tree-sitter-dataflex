@@ -12,7 +12,7 @@ End
 (source_file
   (if_statement
     (keyword)
-    (identifier)
+    condition: (identifier)
     (block_statement
       (block_header
         (keyword))
@@ -40,7 +40,7 @@ If bOk Move 1 to iTest
 (source_file
   (if_statement
     (keyword)
-    (identifier)
+    condition: (identifier)
     (move_statement
       (keyword)
       (number_literal)
@@ -59,7 +59,7 @@ If bOk;
 (source_file
   (if_statement
     (keyword)
-    (identifier)
+    condition: (identifier)
     (move_statement
       (keyword)
       (number_literal)
@@ -78,10 +78,10 @@ If (iTest = 1);
 (source_file
   (if_statement
     (keyword)
-    (paren_expression
+    condition: (paren_expression
       (binary_expression
-        (identifier)
-        (number_literal)))
+        operand: (identifier)
+        operand: (number_literal)))
     (move_statement
       (keyword)
       (number_literal)
@@ -102,7 +102,7 @@ Else;
 (source_file
   (if_statement
     (keyword)
-    (identifier)
+    condition: (identifier)
     (move_statement
       (keyword)
       (number_literal)
@@ -132,7 +132,7 @@ Else;
 (source_file
   (if_statement
     (keyword)
-    (identifier)
+    condition: (identifier)
     (move_statement
       (keyword)
       (number_literal)
@@ -142,7 +142,7 @@ Else;
       (keyword)
       (if_statement
         (keyword)
-        (identifier)
+        condition: (identifier)
         (move_statement
           (keyword)
           (number_literal)
@@ -175,10 +175,10 @@ Else;
 (source_file
   (if_statement
     (keyword)
-    (identifier)
+    condition: (identifier)
     (if_statement
       (keyword)
-      (identifier)
+      condition: (identifier)
       (move_statement
         (keyword)
         (number_literal)
@@ -188,7 +188,7 @@ Else;
         (keyword)
         (if_statement
           (keyword)
-          (identifier)
+          condition: (identifier)
           (move_statement
             (keyword)
             (number_literal)
@@ -223,11 +223,11 @@ Loop
   (for_statement
     (for_header
       (keyword)
-      (identifier)
+      counter: (identifier)
       (keyword)
-      (number_literal)
+      from: (number_literal)
       (keyword)
-      (number_literal))
+      to: (number_literal))
     (move_statement
       (keyword)
       (identifier)
@@ -250,7 +250,7 @@ Loop
   (while_statement
     (while_header
       (keyword)
-      (identifier))
+      condition: (identifier))
     (move_statement
       (keyword)
       (identifier)
@@ -280,7 +280,7 @@ Until bStop
       (identifier))
     (repeat_footer
       (keyword)
-      (identifier))))
+      condition: (identifier))))
 
 ===
 Repeat unconditional loop
@@ -305,7 +305,7 @@ Loop
       (identifier))
     (if_statement
       (keyword)
-      (identifier)
+      condition: (identifier)
       (break_statement
         (keyword)))
     (repeat_footer
@@ -338,10 +338,10 @@ Case End
       (keyword))
     (case_member
       (keyword)
-      (paren_expression
+      condition: (paren_expression
         (binary_expression
-          (identifier)
-          (string_literal)))
+          operand: (identifier)
+          operand: (string_literal)))
       (move_statement
         (keyword)
         (paren_expression
@@ -353,10 +353,10 @@ Case End
         (keyword)))
     (case_member
       (keyword)
-      (paren_expression
+      condition: (paren_expression
         (binary_expression
-          (identifier)
-          (string_literal)))
+          operand: (identifier)
+          operand: (string_literal)))
       (move_statement
         (keyword)
         (paren_expression
@@ -368,10 +368,10 @@ Case End
         (keyword)))
     (case_member
       (keyword)
-      (paren_expression
+      condition: (paren_expression
         (binary_expression
-          (identifier)
-          (string_literal)))
+          operand: (identifier)
+          operand: (string_literal)))
       (move_statement
         (keyword)
         (paren_expression
@@ -383,7 +383,7 @@ Case End
         (keyword)))
     (case_member
       (keyword)
-      (keyword)
+      condition: (keyword)
       (move_statement
         (keyword)
         (paren_expression
@@ -424,10 +424,10 @@ Case End
       (keyword))
     (case_member
       (keyword)
-      (paren_expression
+      condition: (paren_expression
         (binary_expression
-          (identifier)
-          (string_literal)))
+          operand: (identifier)
+          operand: (string_literal)))
       (move_statement
         (keyword)
         (paren_expression
@@ -439,17 +439,17 @@ Case End
         (keyword)))
     (case_member
       (keyword)
-      (paren_expression
+      condition: (paren_expression
         (binary_expression
-          (identifier)
-          (string_literal)))
+          operand: (identifier)
+          operand: (string_literal)))
       (case_statement
         (case_header
           (keyword)
           (keyword))
         (case_member
           (keyword)
-          (paren_expression
+          condition: (paren_expression
             (identifier))
           (move_statement
             (keyword)
@@ -461,7 +461,7 @@ Case End
             (keyword)))
         (case_member
           (keyword)
-          (keyword)
+          condition: (keyword)
           (move_statement
             (keyword)
             (number_literal)
@@ -475,7 +475,7 @@ Case End
         (keyword)))
     (case_member
       (keyword)
-      (keyword)
+      condition: (keyword)
       (move_statement
         (keyword)
         (paren_expression

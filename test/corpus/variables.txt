@@ -27,7 +27,7 @@ End_Procedure
   (procedure_definition
     (procedure_header
       (keyword)
-      (identifier))
+      name: (identifier))
     (variable_declaration
       (system_typedecl
         (system_type))
@@ -49,7 +49,7 @@ End_Procedure
   (procedure_definition
     (procedure_header
       (keyword)
-      (identifier))
+      name: (identifier))
     (variable_declaration
       (system_typedecl
         (system_type))
@@ -73,7 +73,7 @@ End_Procedure
   (procedure_definition
     (procedure_header
       (keyword)
-      (identifier))
+      name: (identifier))
     (potential_variable_declaration
       (custom_typedecl
         (identifier))

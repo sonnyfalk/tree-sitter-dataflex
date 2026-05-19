@@ -11,10 +11,10 @@ End_Class
   (class_definition
     (class_header
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (class_footer
       (keyword))))
 
@@ -32,13 +32,13 @@ End_Class
   (class_definition
     (class_header
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (mixin_class
       (keyword)
-      (identifier))
+      name: (identifier))
     (class_footer
       (keyword))))
 
@@ -64,33 +64,33 @@ End_Composite
   (composite_definition
     (composite_header
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (mixin_class
       (keyword)
-      (identifier))
+      name: (identifier))
     (set_statement
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (identifier))
     (object_definition
       (object_header
         (keyword)
-        (identifier)
+        name: (identifier)
         (keyword)
+        (keyword)
+        superclass: (identifier))
+      (set_statement
+        (keyword)
+        name: (identifier)
         (keyword)
         (identifier))
       (set_statement
         (keyword)
-        (identifier)
-        (keyword)
-        (identifier))
-      (set_statement
-        (keyword)
-        (identifier)
+        name: (identifier)
         (keyword)
         (number_literal))
       (object_footer

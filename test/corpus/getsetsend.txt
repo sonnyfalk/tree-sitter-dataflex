@@ -14,23 +14,23 @@ End_Object
   (object_definition
     (object_header
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (keyword)
-      (identifier))
+      superclass: (identifier))
     (procedure_definition
       (procedure_header
         (keyword)
-        (identifier)
+        name: (identifier)
         (parameter
-          (system_typedecl
+          type: (system_typedecl
             (system_type))
-          (identifier)))
+          name: (identifier)))
       (get_statement
         (keyword)
-        (identifier)
+        name: (identifier)
         (keyword)
-        (identifier)
+        receiver: (identifier)
         (number_literal)
         (keyword)
         (identifier))
@@ -59,39 +59,39 @@ End_Object
   (object_definition
     (object_header
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
+      (keyword)
+      superclass: (identifier))
+    (set_statement
+      (keyword)
+      name: (identifier)
       (keyword)
       (identifier))
     (set_statement
       (keyword)
-      (identifier)
-      (keyword)
-      (identifier))
-    (set_statement
-      (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (number_literal))
     (set_statement
       (keyword)
-      (identifier)
+      name: (identifier)
       (keyword)
       (number_literal)
       (number_literal))
     (procedure_definition
       (procedure_header
         (keyword)
-        (identifier)
+        name: (identifier)
         (parameter
-          (system_typedecl
+          type: (system_typedecl
             (system_type))
-          (identifier)))
+          name: (identifier)))
       (set_statement
         (keyword)
-        (identifier)
+        name: (identifier)
         (keyword)
-        (identifier)
+        receiver: (identifier)
         (keyword)
         (identifier))
       (procedure_footer
@@ -110,7 +110,7 @@ Send Popup
 (source_file
   (send_statement
     (keyword)
-    (identifier)))
+    name: (identifier)))
 
 ===
 Send statement with target object
@@ -123,9 +123,9 @@ Send Popup of Customer_sl
 (source_file
   (send_statement
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
-    (identifier)))
+    receiver: (identifier)))
 
 ===
 Send statement with target object and parameters
@@ -138,9 +138,9 @@ Send Request_Read of oCustomer_DD FIRST_RECORD iFileNum 3
 (source_file
   (send_statement
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
-    (identifier)
+    receiver: (identifier)
     (identifier)
     (identifier)
     (number_literal)))
@@ -160,19 +160,19 @@ Forward Set pbEnabled to bEnabled
     (call_modifier
       (keyword))
     (keyword)
-    (identifier))
+    name: (identifier))
   (get_statement
     (call_modifier
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier))
   (set_statement
     (call_modifier
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier)))
 
@@ -191,19 +191,19 @@ Delegate Set pbEnabled to bEnabled
     (call_modifier
       (keyword))
     (keyword)
-    (identifier))
+    name: (identifier))
   (get_statement
     (call_modifier
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier))
   (set_statement
     (call_modifier
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier)))
 
@@ -222,19 +222,19 @@ Broadcast Set pbEnabled to bEnabled
     (call_modifier
       (keyword))
     (keyword)
-    (identifier))
+    name: (identifier))
   (get_statement
     (call_modifier
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier))
   (set_statement
     (call_modifier
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier)))
 
@@ -255,13 +255,13 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
       (keyword)
       (keyword))
     (keyword)
-    (identifier))
+    name: (identifier))
   (get_statement
     (call_modifier
       (keyword)
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier))
   (set_statement
@@ -269,7 +269,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
       (keyword)
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier))
   (set_statement
@@ -278,7 +278,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
       (keyword)
       (keyword))
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier)))
 
@@ -296,25 +296,25 @@ WebSet psValue of oWebForm1 to sValue
 (source_file
   (web_get_statement
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
     (identifier))
   (web_get_statement
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
-    (identifier)
-    (keyword)
-    (identifier))
-  (web_set_statement
-    (keyword)
-    (identifier)
+    receiver: (identifier)
     (keyword)
     (identifier))
   (web_set_statement
     (keyword)
-    (identifier)
+    name: (identifier)
     (keyword)
-    (identifier)
+    (identifier))
+  (web_set_statement
+    (keyword)
+    name: (identifier)
+    (keyword)
+    receiver: (identifier)
     (keyword)
     (identifier)))

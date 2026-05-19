@@ -46,9 +46,9 @@ Move foo.bar to bar
   (move_statement
     (keyword)
     (postfix_expression
-      (identifier)
+      name: (identifier)
       (member_access
-        (identifier)))
+        name: (identifier)))
     (keyword)
     (identifier)))
 
@@ -64,11 +64,11 @@ Move foo.bar.baz to baz
   (move_statement
     (keyword)
     (postfix_expression
-      (identifier)
+      name: (identifier)
       (member_access
-        (identifier))
+        name: (identifier))
       (member_access
-        (identifier)))
+        name: (identifier)))
     (keyword)
     (identifier)))
 
@@ -84,7 +84,7 @@ Move foo. to baz
   (move_statement
     (keyword)
     (postfix_expression
-      (identifier)
+      name: (identifier)
       (member_access))
     (keyword)
     (identifier)))
@@ -101,7 +101,7 @@ Move foo[0] to bar
   (move_statement
     (keyword)
     (postfix_expression
-      (identifier)
+      name: (identifier)
       (array_access
         (number_literal)))
     (keyword)
@@ -119,7 +119,7 @@ Move foo[0][0] to bar
   (move_statement
     (keyword)
     (postfix_expression
-      (identifier)
+      name: (identifier)
       (array_access
         (number_literal))
       (array_access
@@ -139,13 +139,13 @@ Move foo.bar[0].baz to baz
   (move_statement
     (keyword)
     (postfix_expression
-      (identifier)
+      name: (identifier)
       (member_access
-        (identifier))
+        name: (identifier))
       (array_access
         (number_literal))
       (member_access
-        (identifier)))
+        name: (identifier)))
     (keyword)
     (identifier)))
 
@@ -198,32 +198,32 @@ Move (not(foo) and bar) to bar
     (keyword)
     (paren_expression
       (unary_expression
-        (number_literal)))
+        operand: (number_literal)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (unary_expression
-          (number_literal))
-        (number_literal)))
+        operand: (unary_expression
+          operand: (number_literal))
+        operand: (number_literal)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (number_literal)
-        (unary_expression
-          (number_literal))))
+        operand: (number_literal)
+        operand: (unary_expression
+          operand: (number_literal))))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (unary_expression
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
@@ -231,30 +231,30 @@ Move (not(foo) and bar) to bar
     (paren_expression
       (unary_expression
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (unary_expression
+        operand: (unary_expression
           (keyword)
-          (identifier))
+          operand: (identifier))
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (unary_expression
+        operand: (unary_expression
           (keyword)
-          (paren_expression
+          operand: (paren_expression
             (identifier)))
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier)))
 
@@ -288,154 +288,154 @@ Move (foo min bar) to bar
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (string_literal)
-        (identifier)))
+        operand: (string_literal)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (number_literal)
-        (number_literal)))
+        operand: (number_literal)
+        operand: (number_literal)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (binary_expression
-          (identifier)
-          (number_literal))
-        (number_literal)))
+        operand: (binary_expression
+          operand: (identifier)
+          operand: (number_literal))
+        operand: (number_literal)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
-        (identifier)))
+        operand: (identifier)
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        (identifier)
+        operand: (identifier)
         (keyword)
-        (identifier)))
+        operand: (identifier)))
     (keyword)
     (identifier)))
 
@@ -454,29 +454,29 @@ Move (foo(1, bar(), 3)) to bar
     (keyword)
     (paren_expression
       (call_expression
-        (identifier)))
+        name: (identifier)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (call_expression
-        (identifier)
-        (number_literal)
-        (binary_expression
-          (number_literal)
-          (number_literal))
-        (number_literal)))
+        name: (identifier)
+        argument: (number_literal)
+        argument: (binary_expression
+          operand: (number_literal)
+          operand: (number_literal))
+        argument: (number_literal)))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (call_expression
-        (identifier)
-        (number_literal)
-        (call_expression
-          (identifier))
-        (number_literal)))
+        name: (identifier)
+        argument: (number_literal)
+        argument: (call_expression
+          name: (identifier))
+        argument: (number_literal)))
     (keyword)
     (identifier)))

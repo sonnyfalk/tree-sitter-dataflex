@@ -15,7 +15,7 @@ End_Struct
   (struct_declaration
     (struct_header
       (keyword)
-      (identifier))
+      name: (identifier))
     (struct_member
       (system_typedecl
         (system_type))
