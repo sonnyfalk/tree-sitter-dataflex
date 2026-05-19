@@ -233,7 +233,7 @@
           "name": "return_type",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "typedecl"
           }
         },
         {

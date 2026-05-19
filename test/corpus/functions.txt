@@ -13,7 +13,8 @@ End_Function
       (keyword)
       name: (identifier)
       (keyword)
-      return_type: (identifier))
+      return_type: (system_typedecl
+        (system_type)))
     (function_footer
       (keyword))))
 
@@ -40,6 +41,7 @@ End_Function
           (system_type))
         name: (identifier))
       (keyword)
-      return_type: (identifier))
+      return_type: (system_typedecl
+        (system_type)))
     (function_footer
       (keyword))))

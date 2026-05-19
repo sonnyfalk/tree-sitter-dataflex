@@ -1324,7 +1324,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "typedecl",
             "named": true
           }
         ]

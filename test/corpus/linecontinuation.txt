@@ -23,6 +23,7 @@ End_Function
           (system_type))
         (identifier))
       (keyword)
-      (identifier))
+      (system_typedecl
+        (system_type)))
     (function_footer
       (keyword))))

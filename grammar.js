@@ -74,7 +74,7 @@ module.exports = grammar({
         field("name", $.identifier),
         optional($._parameter_list),
         keyword(/Returns/i, $),
-        field("return_type", $.identifier),
+        field("return_type", $.typedecl),
         $._eol,
       ),
 
