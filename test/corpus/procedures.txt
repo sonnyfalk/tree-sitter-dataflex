@@ -31,11 +31,11 @@ End_Procedure
       name: (identifier)
       (parameter
         type: (system_typedecl
-          (system_type))
+          name: (system_type))
         name: (identifier))
       (parameter
         type: (system_typedecl
-          (system_type))
+          name: (system_type))
         name: (identifier)))
     (procedure_footer
       (keyword))))

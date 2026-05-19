@@ -18,19 +18,19 @@ End_Struct
       name: (identifier))
     (struct_member
       (system_typedecl
-        (system_type))
+        name: (system_type))
       (identifier))
     (struct_member
       (system_typedecl
-        (system_type))
+        name: (system_type))
       (identifier))
     (struct_member
       (system_typedecl
-        (system_type))
+        name: (system_type))
       (identifier))
     (struct_member
       (system_typedecl
-        (system_type))
+        name: (system_type))
       (identifier))
     (struct_footer
       (keyword))))

@@ -19,7 +19,7 @@ End_Object
     (property_definition
       (keyword)
       type: (system_typedecl
-        (system_type))
+        name: (system_type))
       name: (identifier))
     (object_footer
       (keyword))))
@@ -45,7 +45,7 @@ End_Object
     (property_definition
       (keyword)
       type: (system_typedecl
-        (system_type))
+        name: (system_type))
       name: (identifier)
       (number_literal))
     (object_footer
@@ -78,7 +78,7 @@ End_Class
       (property_definition
         (keyword)
         type: (system_typedecl
-          (system_type))
+          name: (system_type))
         name: (identifier))
       (procedure_footer
         (keyword)))
@@ -112,7 +112,7 @@ End_Class
       (property_definition
         (keyword)
         type: (system_typedecl
-          (system_type))
+          name: (system_type))
         name: (identifier)
         (number_literal))
       (procedure_footer

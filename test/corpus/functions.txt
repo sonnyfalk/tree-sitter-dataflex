@@ -14,7 +14,7 @@ End_Function
       name: (identifier)
       (keyword)
       return_type: (system_typedecl
-        (system_type)))
+        name: (system_type)))
     (function_footer
       (keyword))))
 
@@ -34,14 +34,14 @@ End_Function
       name: (identifier)
       (parameter
         type: (system_typedecl
-          (system_type))
+          name: (system_type))
         name: (identifier))
       (parameter
         type: (system_typedecl
-          (system_type))
+          name: (system_type))
         name: (identifier))
       (keyword)
       return_type: (system_typedecl
-        (system_type)))
+        name: (system_type)))
     (function_footer
       (keyword))))

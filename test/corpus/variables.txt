@@ -10,7 +10,7 @@ Global_Variable Integer giMyGlobal
   (global_variable_declaration
     (keyword)
     (system_typedecl
-      (system_type))
+      name: (system_type))
     (identifier)))
 
 ===
@@ -30,7 +30,7 @@ End_Procedure
       name: (identifier))
     (variable_declaration
       (system_typedecl
-        (system_type))
+        name: (system_type))
       (identifier))
     (procedure_footer
       (keyword))))
@@ -52,7 +52,7 @@ End_Procedure
       name: (identifier))
     (variable_declaration
       (system_typedecl
-        (system_type))
+        name: (system_type))
       (identifier)
       (identifier)
       (identifier))
@@ -76,7 +76,7 @@ End_Procedure
       name: (identifier))
     (potential_variable_declaration
       (custom_typedecl
-        (identifier))
+        name: (identifier))
       (identifier))
     (procedure_footer
       (keyword))))

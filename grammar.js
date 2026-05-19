@@ -475,9 +475,11 @@ module.exports = grammar({
 
     typedecl: ($) => choice($.system_typedecl, $.custom_typedecl),
 
-    system_typedecl: ($) => seq($.system_type, repeat($.array_decl)),
+    system_typedecl: ($) =>
+      seq(field("name", $.system_type), repeat(field("array", $.array_decl))),
 
-    custom_typedecl: ($) => seq($.identifier, repeat($.array_decl)),
+    custom_typedecl: ($) =>
+      seq(field("name", $.identifier), repeat(field("array", $.array_decl))),
 
     array_decl: ($) => seq("[", optional($.number_literal), "]"),
 
