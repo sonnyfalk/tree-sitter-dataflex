@@ -41,12 +41,12 @@ End_Object
       (keyword)
       name: (identifier)
       (keyword)
-      (identifier))
+      argument: (identifier))
     (set_statement
       (keyword)
       name: (identifier)
       (keyword)
-      (number_literal))
+      argument: (number_literal))
     (object_footer
       (keyword))))
 

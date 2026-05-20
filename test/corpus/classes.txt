@@ -75,7 +75,7 @@ End_Composite
       (keyword)
       name: (identifier)
       (keyword)
-      (identifier))
+      argument: (identifier))
     (object_definition
       (object_header
         (keyword)
@@ -87,12 +87,12 @@ End_Composite
         (keyword)
         name: (identifier)
         (keyword)
-        (identifier))
+        argument: (identifier))
       (set_statement
         (keyword)
         name: (identifier)
         (keyword)
-        (number_literal))
+        argument: (number_literal))
       (object_footer
         (keyword)))
     (composite_footer

@@ -31,7 +31,7 @@ End_Object
         name: (identifier)
         (keyword)
         receiver: (identifier)
-        (number_literal)
+        argument: (number_literal)
         (keyword)
         (identifier))
       (procedure_footer
@@ -67,18 +67,18 @@ End_Object
       (keyword)
       name: (identifier)
       (keyword)
-      (identifier))
+      argument: (identifier))
     (set_statement
       (keyword)
       name: (identifier)
       (keyword)
-      (number_literal))
+      argument: (number_literal))
     (set_statement
       (keyword)
       name: (identifier)
       (keyword)
-      (number_literal)
-      (number_literal))
+      argument: (number_literal)
+      argument: (number_literal))
     (procedure_definition
       (procedure_header
         (keyword)
@@ -93,7 +93,7 @@ End_Object
         (keyword)
         receiver: (identifier)
         (keyword)
-        (identifier))
+        argument: (identifier))
       (procedure_footer
         (keyword)))
     (object_footer
@@ -141,9 +141,9 @@ Send Request_Read of oCustomer_DD FIRST_RECORD iFileNum 3
     name: (identifier)
     (keyword)
     receiver: (identifier)
-    (identifier)
-    (identifier)
-    (number_literal)))
+    argument: (identifier)
+    argument: (identifier)
+    argument: (number_literal)))
 
 ===
 Forward send/get/set statement
@@ -174,7 +174,7 @@ Forward Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier)))
+    argument: (identifier)))
 
 ===
 Delegate send/get/set statement
@@ -205,7 +205,7 @@ Delegate Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier)))
+    argument: (identifier)))
 
 ===
 Broadcast send/get/set statement
@@ -236,7 +236,7 @@ Broadcast Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier)))
+    argument: (identifier)))
 
 ===
 Broadcast send/get/set statement
@@ -271,7 +271,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    argument: (identifier))
   (set_statement
     (call_modifier
       (keyword)
@@ -280,7 +280,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier)))
+    argument: (identifier)))
 
 ===
 WebGet/WebSet statement
@@ -310,11 +310,11 @@ WebSet psValue of oWebForm1 to sValue
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    argument: (identifier))
   (web_set_statement
     (keyword)
     name: (identifier)
     (keyword)
     receiver: (identifier)
     (keyword)
-    (identifier)))
+    argument: (identifier)))
