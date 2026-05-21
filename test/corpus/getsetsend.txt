@@ -33,7 +33,7 @@ End_Object
         receiver: (identifier)
         argument: (number_literal)
         (keyword)
-        (identifier))
+        result: (identifier))
       (procedure_footer
         (keyword)))
     (object_footer
@@ -167,7 +167,7 @@ Forward Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    result: (identifier))
   (set_statement
     (call_modifier
       (keyword))
@@ -198,7 +198,7 @@ Delegate Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    result: (identifier))
   (set_statement
     (call_modifier
       (keyword))
@@ -229,7 +229,7 @@ Broadcast Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    result: (identifier))
   (set_statement
     (call_modifier
       (keyword))
@@ -263,7 +263,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    result: (identifier))
   (set_statement
     (call_modifier
       (keyword)
@@ -298,14 +298,14 @@ WebSet psValue of oWebForm1 to sValue
     (keyword)
     name: (identifier)
     (keyword)
-    (identifier))
+    result: (identifier))
   (web_get_statement
     (keyword)
     name: (identifier)
     (keyword)
     receiver: (identifier)
     (keyword)
-    (identifier))
+    result: (identifier))
   (web_set_statement
     (keyword)
     name: (identifier)
