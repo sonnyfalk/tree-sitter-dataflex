@@ -39,3 +39,29 @@ End_Procedure
         name: (identifier)))
     (procedure_footer
       (keyword))))
+
+===
+Procedure with byref parameters
+===
+
+Procedure test Integer iArg1 String ByRef sArg2
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (procedure_header
+      (keyword)
+      name: (identifier)
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        (keyword)
+        name: (identifier)))
+    (procedure_footer
+      (keyword))))

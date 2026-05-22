@@ -81,7 +81,11 @@ module.exports = grammar({
     _parameter_list: ($) => repeat1($.parameter),
 
     parameter: ($) =>
-      seq(field("type", $.typedecl), field("name", $.identifier)),
+      seq(
+        field("type", $.typedecl),
+        optional(keyword(/ByRef/i, $)),
+        field("name", $.identifier),
+      ),
 
     _function_body: ($) => $._statement_list,
 
