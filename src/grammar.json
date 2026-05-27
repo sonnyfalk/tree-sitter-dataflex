@@ -1752,8 +1752,16 @@
           "name": "for_header"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statement_list"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -1851,8 +1859,16 @@
           "name": "while_header"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statement_list"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -1914,8 +1930,16 @@
           "name": "repeat_header"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statement_list"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -2088,8 +2112,16 @@
           "name": "_eol"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statement_list"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -2171,8 +2203,16 @@
           "name": "block_header"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statement_list"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_statement_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",

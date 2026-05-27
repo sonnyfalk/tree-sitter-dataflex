@@ -320,7 +320,7 @@ module.exports = grammar({
     else_statement: ($) =>
       seq(keyword(/Else/i, $), choice($._statement, $.block_statement, $._eol)),
 
-    for_statement: ($) => seq($.for_header, $._statement_list, $.for_footer),
+    for_statement: ($) => seq($.for_header, optional($._statement_list), $.for_footer),
 
     for_header: ($) =>
       seq(
@@ -336,7 +336,7 @@ module.exports = grammar({
     for_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
 
     while_statement: ($) =>
-      seq($.while_header, $._statement_list, $.while_footer),
+      seq($.while_header, optional($._statement_list), $.while_footer),
 
     while_header: ($) =>
       seq(keyword(/While/i, $), field("condition", $.expression), $._eol),
@@ -344,7 +344,7 @@ module.exports = grammar({
     while_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
 
     repeat_statement: ($) =>
-      seq($.repeat_header, $._statement_list, $.repeat_footer),
+      seq($.repeat_header, optional($._statement_list), $.repeat_footer),
 
     repeat_header: ($) => seq(keyword(/Repeat/i, $), $._eol),
 
@@ -367,7 +367,7 @@ module.exports = grammar({
         keyword(/Case/i, $),
         field("condition", choice($.expression, keyword(/Else/i, $))),
         $._eol,
-        $._statement_list,
+        optional($._statement_list),
         optional($.case_break),
       ),
 
@@ -376,7 +376,7 @@ module.exports = grammar({
     case_footer: ($) => seq(keyword(/Case/i, $), keyword(/End/i, $), $._eol),
 
     block_statement: ($) =>
-      seq($.block_header, $._statement_list, $.block_footer),
+      seq($.block_header, optional($._statement_list), $.block_footer),
 
     block_header: ($) => seq(keyword(/Begin/i, $), $._eol),
 
