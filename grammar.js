@@ -334,7 +334,10 @@ module.exports = grammar({
         $._eol,
       ),
 
-    for_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
+    for_footer: ($) => seq(choice(
+      keyword(/Loop/i, $),
+      seq(keyword(/Until/i, $), field("condition", $.expression)),
+    ), $._eol),
 
     while_statement: ($) =>
       seq($.while_header, optional($._statement_list), $.while_footer),
@@ -342,7 +345,10 @@ module.exports = grammar({
     while_header: ($) =>
       seq(keyword(/While/i, $), field("condition", $.expression), $._eol),
 
-    while_footer: ($) => seq(keyword(/Loop/i, $), $._eol),
+    while_footer: ($) => seq(choice(
+      keyword(/Loop/i, $),
+      seq(keyword(/Until/i, $), field("condition", $.expression)),
+    ), $._eol),
 
     repeat_statement: ($) =>
       seq($.repeat_header, optional($._statement_list), $.repeat_footer),

@@ -1065,7 +1065,18 @@
   {
     "type": "for_footer",
     "named": true,
-    "fields": {},
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,
@@ -2758,7 +2769,18 @@
   {
     "type": "while_footer",
     "named": true,
-    "fields": {},
+    "fields": {
+      "condition": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": false,
       "required": true,
