@@ -440,7 +440,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "a",
+            "value": "a|an",
             "flags": "i"
           },
           "named": true,
@@ -585,7 +585,7 @@
           "type": "ALIAS",
           "content": {
             "type": "PATTERN",
-            "value": "a",
+            "value": "a|an",
             "flags": "i"
           },
           "named": true,
@@ -1284,6 +1284,17 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "FIELD",
+            "name": "argument",
+            "content": {
+              "type": "SYMBOL",
+              "name": "expression"
+            }
+          }
         },
         {
           "type": "ALIAS",
