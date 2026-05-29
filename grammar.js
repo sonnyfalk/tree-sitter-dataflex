@@ -217,7 +217,7 @@ module.exports = grammar({
       seq(
         keyword(/#REPLACE/i, $),
         field("name", $.expression),
-        field("value", $.expression),
+        field("value", choice($.expression, $.icode_argument)),
         $._eol,
       ),
 
@@ -471,7 +471,7 @@ module.exports = grammar({
       ),
 
     member_access: ($) =>
-      prec.left(seq(".", optional(field("name", $.identifier)))),
+      prec.right(seq(".", optional(field("name", $.identifier)))),
 
     array_access: ($) => seq("[", $._interior_expression, "]"),
 
@@ -521,13 +521,15 @@ module.exports = grammar({
 
     // Identifier / Literal
 
-    identifier: ($) => /[a-zA-Z_][a-zA-Z_0-9]*/,
+    identifier: ($) => /[a-zA-Z_@#$][a-zA-Z_0-9@#$]*/,
 
     _literal: ($) => choice($.number_literal, $.string_literal),
 
     number_literal: ($) => /[0-9]+(\.[0-9]+)?/,
 
     string_literal: ($) => /\".*\"/,
+
+    icode_argument: ($) => /\|[^ \t\r\n]*/,
 
     file_name: ($) => /[a-zA-Z_0-9\.\-$@]+/,
 

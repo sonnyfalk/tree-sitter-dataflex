@@ -1036,8 +1036,17 @@
           "type": "FIELD",
           "name": "value",
           "content": {
-            "type": "SYMBOL",
-            "name": "expression"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "expression"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "icode_argument"
+              }
+            ]
           }
         },
         {
@@ -2712,7 +2721,7 @@
       ]
     },
     "member_access": {
-      "type": "PREC_LEFT",
+      "type": "PREC_RIGHT",
       "value": 0,
       "content": {
         "type": "SEQ",
@@ -2990,7 +2999,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_][a-zA-Z_0-9]*"
+      "value": "[a-zA-Z_@#$][a-zA-Z_0-9@#$]*"
     },
     "_literal": {
       "type": "CHOICE",
@@ -3012,6 +3021,10 @@
     "string_literal": {
       "type": "PATTERN",
       "value": "\\\".*\\\""
+    },
+    "icode_argument": {
+      "type": "PATTERN",
+      "value": "\\|[^ \\t\\r\\n]*"
     },
     "file_name": {
       "type": "PATTERN",

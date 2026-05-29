@@ -5,6 +5,7 @@
 #REPLACE FOO BAR
 #REPLACE FOO "Hello"
 #REPLACE FOO 1234
+#REPLACE MYTABLE.MYFIELD |FN2,0
 
 ---
 
@@ -20,7 +21,14 @@
   (replace_declaration
     (keyword)
     name: (identifier)
-    value: (number_literal)))
+    value: (number_literal))
+  (replace_declaration
+    (keyword)
+    name: (postfix_expression
+      name: (identifier)
+      (member_access
+        name: (identifier)))
+    value: (icode_argument)))
 
 ===
 Define

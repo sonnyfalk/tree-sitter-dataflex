@@ -2228,6 +2228,10 @@
           {
             "type": "expression",
             "named": true
+          },
+          {
+            "type": "icode_argument",
+            "named": true
           }
         ]
       }
@@ -2953,6 +2957,10 @@
   },
   {
     "type": "file_name",
+    "named": true
+  },
+  {
+    "type": "icode_argument",
     "named": true
   },
   {
