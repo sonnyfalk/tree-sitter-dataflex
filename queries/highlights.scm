@@ -60,3 +60,9 @@
   (identifier) @entity.name.type)
 
 (expression/identifier) @entity.name
+
+(postfix_expression
+ name: (identifier) @entity.name)
+
+(member_access
+ name: (identifier) @entity.name.member)
