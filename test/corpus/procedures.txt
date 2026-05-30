@@ -65,3 +65,25 @@ End_Procedure
         name: (identifier)))
     (procedure_footer
       (keyword))))
+
+===
+Procedure Set
+===
+
+Procedure Set Server String sName
+End_Procedure
+
+---
+
+(source_file
+  (procedure_definition
+    (procedure_header
+      (keyword)
+      (keyword)
+      name: (identifier)
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier)))
+    (procedure_footer
+      (keyword))))

@@ -97,6 +97,7 @@ module.exports = grammar({
     procedure_header: ($) =>
       seq(
         keyword(/Procedure/i, $),
+        optional(keyword(/Set/i, $)),
         field("name", $.identifier),
         optional($._parameter_list),
         $._eol,
