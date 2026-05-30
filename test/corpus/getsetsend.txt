@@ -146,6 +146,30 @@ Send Request_Read of oCustomer_DD FIRST_RECORD iFileNum 3
     argument: (number_literal)))
 
 ===
+Set statement with field and file_field parameters
+===
+
+Set Field_Auto_Increment Field MyFile.MyField to File_Field OtherFile.OtherField
+
+---
+
+(source_file
+  (set_statement
+    (keyword)
+    name: (identifier)
+    (keyword)
+    argument: (postfix_expression
+      name: (identifier)
+      (member_access
+        name: (identifier)))
+    (keyword)
+    (keyword)
+    argument: (postfix_expression
+      name: (identifier)
+      (member_access
+        name: (identifier)))))
+
+===
 Forward send/get/set statement
 ===
 

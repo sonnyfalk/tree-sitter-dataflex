@@ -247,7 +247,7 @@ module.exports = grammar({
         keyword(/Get/i, $),
         field("name", $.identifier),
         optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
-        repeat(field("argument", $.expression)),
+        repeat($._call_argument),
         keyword(/to/i, $),
         field("result", $.identifier),
         $._eol,
@@ -259,9 +259,9 @@ module.exports = grammar({
         keyword(/Set/i, $),
         field("name", $.identifier),
         optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
-        repeat(field("argument", $.expression)),
+        repeat($._call_argument),
         keyword(/to/i, $),
-        repeat1(field("argument", $.expression)),
+        repeat($._call_argument),
         $._eol,
       ),
 
@@ -271,9 +271,11 @@ module.exports = grammar({
         keyword(/Send/i, $),
         field("name", $.identifier),
         optional(seq(keyword(/of|to/i, $), field("receiver", $.expression))),
-        repeat(field("argument", $.expression)),
+        repeat($._call_argument),
         $._eol,
       ),
+
+    _call_argument: ($) => seq(optional(keyword(/Item|Field|File_Field/i, $)), field("argument", $.expression)),
 
     call_modifier: ($) =>
       choice(

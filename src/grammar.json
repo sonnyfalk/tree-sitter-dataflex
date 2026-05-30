@@ -1207,12 +1207,8 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "FIELD",
-            "name": "argument",
-            "content": {
-              "type": "SYMBOL",
-              "name": "expression"
-            }
+            "type": "SYMBOL",
+            "name": "_call_argument"
           }
         },
         {
@@ -1306,12 +1302,8 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "FIELD",
-            "name": "argument",
-            "content": {
-              "type": "SYMBOL",
-              "name": "expression"
-            }
+            "type": "SYMBOL",
+            "name": "_call_argument"
           }
         },
         {
@@ -1325,14 +1317,10 @@
           "value": "keyword"
         },
         {
-          "type": "REPEAT1",
+          "type": "REPEAT",
           "content": {
-            "type": "FIELD",
-            "name": "argument",
-            "content": {
-              "type": "SYMBOL",
-              "name": "expression"
-            }
+            "type": "SYMBOL",
+            "name": "_call_argument"
           }
         },
         {
@@ -1408,17 +1396,44 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "FIELD",
-            "name": "argument",
-            "content": {
-              "type": "SYMBOL",
-              "name": "expression"
-            }
+            "type": "SYMBOL",
+            "name": "_call_argument"
           }
         },
         {
           "type": "SYMBOL",
           "name": "_eol"
+        }
+      ]
+    },
+    "_call_argument": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "Item|Field|File_Field",
+                "flags": "i"
+              },
+              "named": true,
+              "value": "keyword"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "FIELD",
+          "name": "argument",
+          "content": {
+            "type": "SYMBOL",
+            "name": "expression"
+          }
         }
       ]
     },
