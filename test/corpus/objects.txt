@@ -64,6 +64,7 @@ End_Object
   (keyword)
   (identifier)
   (keyword)
+  (line_continuation)
   (object_definition
     (object_header
       (keyword)

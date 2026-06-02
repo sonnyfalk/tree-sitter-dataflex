@@ -3141,25 +3141,57 @@
           },
           {
             "type": "PATTERN",
-            "value": ".*"
+            "value": "[^\\r\\n]*"
           }
         ]
       }
     },
     "comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "/*"
+          },
+          {
+            "type": "PATTERN",
+            "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+          },
+          {
+            "type": "STRING",
+            "value": "/"
+          }
+        ]
+      }
+    },
+    "line_continuation": {
       "type": "SEQ",
       "members": [
         {
           "type": "STRING",
-          "value": "/*"
+          "value": ";"
         },
         {
-          "type": "PATTERN",
-          "value": "[^*]*\\*+([^/*][^*]*\\*+)*"
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "comment"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "line_comment"
+              }
+            ]
+          }
         },
         {
-          "type": "STRING",
-          "value": "/"
+          "type": "SYMBOL",
+          "name": "_eol"
         }
       ]
     },
@@ -3178,12 +3210,12 @@
       "name": "line_comment"
     },
     {
-      "type": "PATTERN",
-      "value": "[ \\t]"
+      "type": "SYMBOL",
+      "name": "line_continuation"
     },
     {
       "type": "PATTERN",
-      "value": ";(\\r\\n|\\n)"
+      "value": "[ \\t]"
     }
   ],
   "conflicts": [

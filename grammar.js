@@ -10,7 +10,7 @@
 module.exports = grammar({
   name: "dataflex",
 
-  extras: ($) => [$.comment, $.line_comment, /[ \t]/, /;(\r\n|\n)/],
+  extras: ($) => [$.comment, $.line_comment, $.line_continuation, /[ \t]/],
   word: ($) => $.identifier,
   supertypes: ($) => [$.typedecl, $.expression],
   conflicts: ($) => [
@@ -545,8 +545,9 @@ module.exports = grammar({
 
     // Comments / EOL
 
-    line_comment: ($) => token(seq("//", /.*/)),
-    comment: ($) => seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/"),
+    line_comment: ($) => token(seq("//", /[^\r\n]*/)),
+    comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
+    line_continuation: ($) => seq(";", repeat(choice($.comment, $.line_comment)), $._eol),
     _eol: ($) => /\r\n|\n/,
   },
 });

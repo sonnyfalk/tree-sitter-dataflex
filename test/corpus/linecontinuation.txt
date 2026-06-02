@@ -18,10 +18,12 @@ End_Function
         type: (system_typedecl
           name: (system_type))
         name: (identifier))
+      (line_continuation)
       (parameter
         type: (system_typedecl
           name: (system_type))
         name: (identifier))
+      (line_continuation)
       (keyword)
       return_type: (system_typedecl
         name: (system_type)))
