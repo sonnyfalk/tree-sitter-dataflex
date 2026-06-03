@@ -186,6 +186,10 @@
           "named": true
         },
         {
+          "type": "metadata_tag_group",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -405,6 +409,10 @@
           "named": true
         },
         {
+          "type": "metadata_tag_group",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -544,6 +552,10 @@
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "metadata_tag_group",
           "named": true
         },
         {
@@ -734,6 +746,10 @@
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "metadata_tag_group",
           "named": true
         },
         {
@@ -1165,6 +1181,10 @@
           "named": true
         },
         {
+          "type": "metadata_tag_group",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -1249,6 +1269,10 @@
         },
         {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "metadata_tag_group",
           "named": true
         },
         {
@@ -1575,6 +1599,72 @@
     }
   },
   {
+    "type": "metadata_tag",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "metadata_tag_group",
+    "named": true,
+    "fields": {
+      "tag_set": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "metadata_tag_set",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "metadata_tag_set",
+    "named": true,
+    "fields": {
+      "tag": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "metadata_tag",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "mixin_class",
     "named": true,
     "fields": {
@@ -1677,6 +1767,10 @@
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "metadata_tag_group",
           "named": true
         },
         {
@@ -1961,6 +2055,10 @@
           "named": true
         },
         {
+          "type": "metadata_tag_group",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -2171,6 +2269,10 @@
         },
         {
           "type": "if_statement",
+          "named": true
+        },
+        {
+          "type": "metadata_tag_group",
           "named": true
         },
         {
@@ -2431,6 +2533,10 @@
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "metadata_tag_group",
           "named": true
         },
         {
@@ -2861,6 +2967,10 @@
           "named": true
         },
         {
+          "type": "metadata_tag_group",
+          "named": true
+        },
+        {
           "type": "move_statement",
           "named": true
         },
@@ -3024,5 +3134,13 @@
   {
     "type": "string_literal",
     "named": true
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
   }
 ]

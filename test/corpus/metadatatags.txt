@@ -1,0 +1,60 @@
+===
+Metadata tag set associated with class
+===
+
+{ Visibility = Private ClassType = Abstract }
+Class cFoo is a cBar
+End_Class
+
+---
+
+(source_file
+  (metadata_tag_group
+    tag_set: (metadata_tag_set
+      tag: (metadata_tag
+        name: (identifier)
+        value: (identifier))
+      tag: (metadata_tag
+        name: (identifier)
+        value: (identifier))))
+  (class_definition
+    (class_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      (keyword)
+      superclass: (identifier))
+    (class_footer
+      (keyword))))
+
+===
+Multi-line metadata tag set associated with class
+===
+
+{
+    Visibility = Private
+    ClassType = Abstract
+}
+Class cFoo is a cBar
+End_Class
+
+---
+
+(source_file
+  (metadata_tag_group
+    tag_set: (metadata_tag_set
+      tag: (metadata_tag
+        name: (identifier)
+        value: (identifier))
+      tag: (metadata_tag
+        name: (identifier)
+        value: (identifier))))
+  (class_definition
+    (class_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      (keyword)
+      superclass: (identifier))
+    (class_footer
+      (keyword))))

@@ -36,6 +36,7 @@ module.exports = grammar({
         $.define_declaration,
         $.replace_declaration,
         $.global_variable_declaration,
+        $.metadata_tag_group,
         $._statement,
         $._eol,
       ),
@@ -61,7 +62,14 @@ module.exports = grammar({
       ),
 
     _statement_list: ($) =>
-      repeat1(choice($.property_definition, $._statement, $._eol)),
+      repeat1(
+        choice(
+          $.property_definition,
+          $.metadata_tag_group,
+          $._statement,
+          $._eol,
+        ),
+      ),
 
     // Definitions / Declarations
 
@@ -230,6 +238,24 @@ module.exports = grammar({
         $._eol,
       ),
 
+    metadata_tag_group: ($) =>
+      prec.right(
+        seq(field("tag_set", $.metadata_tag_set), repeat(choice(field("tag_set", $.metadata_tag_set), $._eol))),
+      ),
+
+    metadata_tag_set: ($) =>
+      seq("{", repeat(choice(field("tag", $.metadata_tag), $._eol)), "}"),
+
+    metadata_tag: ($) =>
+      seq(
+        field("name", $.identifier),
+        "=",
+        field(
+          "value",
+          choice($.identifier, $.string_literal, $.number_literal),
+        ),
+      ),
+
     // Statements / Commands
 
     move_statement: ($) =>
@@ -275,7 +301,11 @@ module.exports = grammar({
         $._eol,
       ),
 
-    _call_argument: ($) => seq(optional(keyword(/Item|Field|File_Field/i, $)), field("argument", $.expression)),
+    _call_argument: ($) =>
+      seq(
+        optional(keyword(/Item|Field|File_Field/i, $)),
+        field("argument", $.expression),
+      ),
 
     call_modifier: ($) =>
       choice(
@@ -324,7 +354,8 @@ module.exports = grammar({
     else_statement: ($) =>
       seq(keyword(/Else/i, $), choice($._statement, $.block_statement, $._eol)),
 
-    for_statement: ($) => seq($.for_header, optional($._statement_list), $.for_footer),
+    for_statement: ($) =>
+      seq($.for_header, optional($._statement_list), $.for_footer),
 
     for_header: ($) =>
       seq(
@@ -337,10 +368,14 @@ module.exports = grammar({
         $._eol,
       ),
 
-    for_footer: ($) => seq(choice(
-      keyword(/Loop/i, $),
-      seq(keyword(/Until/i, $), field("condition", $.expression)),
-    ), $._eol),
+    for_footer: ($) =>
+      seq(
+        choice(
+          keyword(/Loop/i, $),
+          seq(keyword(/Until/i, $), field("condition", $.expression)),
+        ),
+        $._eol,
+      ),
 
     while_statement: ($) =>
       seq($.while_header, optional($._statement_list), $.while_footer),
@@ -348,10 +383,14 @@ module.exports = grammar({
     while_header: ($) =>
       seq(keyword(/While/i, $), field("condition", $.expression), $._eol),
 
-    while_footer: ($) => seq(choice(
-      keyword(/Loop/i, $),
-      seq(keyword(/Until/i, $), field("condition", $.expression)),
-    ), $._eol),
+    while_footer: ($) =>
+      seq(
+        choice(
+          keyword(/Loop/i, $),
+          seq(keyword(/Until/i, $), field("condition", $.expression)),
+        ),
+        $._eol,
+      ),
 
     repeat_statement: ($) =>
       seq($.repeat_header, optional($._statement_list), $.repeat_footer),
@@ -547,7 +586,8 @@ module.exports = grammar({
 
     line_comment: ($) => token(seq("//", /[^\r\n]*/)),
     comment: ($) => token(seq("/*", /[^*]*\*+([^/*][^*]*\*+)*/, "/")),
-    line_continuation: ($) => seq(";", repeat(choice($.comment, $.line_comment)), $._eol),
+    line_continuation: ($) =>
+      seq(";", repeat(choice($.comment, $.line_comment)), $._eol),
     _eol: ($) => /\r\n|\n/,
   },
 });
