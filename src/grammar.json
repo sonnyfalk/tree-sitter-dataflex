@@ -352,14 +352,18 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "ALIAS",
+              "type": "FIELD",
+              "name": "set",
               "content": {
-                "type": "PATTERN",
-                "value": "Set",
-                "flags": "i"
-              },
-              "named": true,
-              "value": "keyword"
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "Set",
+                  "flags": "i"
+                },
+                "named": true,
+                "value": "keyword"
+              }
             },
             {
               "type": "BLANK"

@@ -2145,6 +2145,16 @@
             "named": true
           }
         ]
+      },
+      "set": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          }
+        ]
       }
     },
     "children": {

@@ -79,7 +79,7 @@ End_Procedure
   (procedure_definition
     (procedure_header
       (keyword)
-      (keyword)
+      set: (keyword)
       name: (identifier)
       (parameter
         type: (system_typedecl
