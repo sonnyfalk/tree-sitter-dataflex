@@ -1,5 +1,5 @@
 (use_statement
-  (file_name) @name) @reference.file_dependency
+  (file_path) @name) @reference.file_dependency
 
 (class_definition
   (class_header

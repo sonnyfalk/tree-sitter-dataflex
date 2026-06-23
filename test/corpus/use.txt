@@ -9,7 +9,7 @@ Use Foo.pkg
 (source_file
   (use_statement
     (keyword)
-    (file_name)))
+    (file_path)))
 
 ===
 Use statement without extension
@@ -22,7 +22,7 @@ Use Foo
 (source_file
   (use_statement
     (keyword)
-    (file_name)))
+    (file_path)))
 
 ===
 Use statement with non-alpha characters
@@ -35,7 +35,20 @@ Use $Foo_test-bar.dd
 (source_file
   (use_statement
     (keyword)
-    (file_name)))
+    (file_path)))
+
+===
+Use statement with path
+===
+
+Use System\Foo.pkg
+
+---
+
+(source_file
+  (use_statement
+    (keyword)
+    (file_path)))
 
 ===
 Use statement with trailing comment
@@ -48,5 +61,5 @@ Use Foo.dd // Include the .dd file
 (source_file
   (use_statement
     (keyword)
-    (file_name))
+    (file_path))
   (line_comment))

@@ -434,7 +434,7 @@ module.exports = grammar({
     break_statement: ($) =>
       seq(keyword(/Break/i, $), optional(keyword(/Begin/i, $)), $._eol),
 
-    use_statement: ($) => seq(keyword(/Use/i, $), $.file_name),
+    use_statement: ($) => seq(keyword(/Use/i, $), $.file_path),
 
     variable_declaration: ($) =>
       seq($.system_typedecl, repeat1($.identifier), $._eol),
@@ -580,7 +580,7 @@ module.exports = grammar({
 
     icode_argument: ($) => /\|[^ \t\r\n]*/,
 
-    file_name: ($) => /[a-zA-Z_0-9\.\-$@]+/,
+    file_path: ($) => /[a-zA-Z_0-9\.\-$@\/\\]+/,
 
     // Comments / EOL
 

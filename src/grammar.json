@@ -2539,7 +2539,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "file_name"
+          "name": "file_path"
         }
       ]
     },
@@ -3246,9 +3246,9 @@
       "type": "PATTERN",
       "value": "\\|[^ \\t\\r\\n]*"
     },
-    "file_name": {
+    "file_path": {
       "type": "PATTERN",
-      "value": "[a-zA-Z_0-9\\.\\-$@]+"
+      "value": "[a-zA-Z_0-9\\.\\-$@\\/\\\\]+"
     },
     "line_comment": {
       "type": "TOKEN",
