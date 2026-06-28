@@ -97,7 +97,7 @@ module.exports = grammar({
 
     _function_body: ($) => $._statement_list,
 
-    function_footer: ($) => keyword(/End_Function/i, $),
+    function_footer: ($) => choice(keyword(/End_Function/i, $), keyword(/End_Procedure/i, $)),
 
     procedure_definition: ($) =>
       seq($.procedure_header, optional($._procedure_body), $.procedure_footer),
@@ -113,7 +113,7 @@ module.exports = grammar({
 
     _procedure_body: ($) => $._statement_list,
 
-    procedure_footer: ($) => keyword(/End_Procedure/i, $),
+    procedure_footer: ($) => choice(keyword(/End_Procedure/i, $), keyword(/End_Function/i, $)),
 
     object_definition: ($) =>
       seq($.object_header, optional($._object_body), $.object_footer),

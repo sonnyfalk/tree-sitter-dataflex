@@ -301,14 +301,29 @@
       "name": "_statement_list"
     },
     "function_footer": {
-      "type": "ALIAS",
-      "content": {
-        "type": "PATTERN",
-        "value": "End_Function",
-        "flags": "i"
-      },
-      "named": true,
-      "value": "keyword"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "End_Function",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "End_Procedure",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        }
+      ]
     },
     "procedure_definition": {
       "type": "SEQ",
@@ -401,14 +416,29 @@
       "name": "_statement_list"
     },
     "procedure_footer": {
-      "type": "ALIAS",
-      "content": {
-        "type": "PATTERN",
-        "value": "End_Procedure",
-        "flags": "i"
-      },
-      "named": true,
-      "value": "keyword"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "End_Procedure",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "End_Function",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        }
+      ]
     },
     "object_definition": {
       "type": "SEQ",
