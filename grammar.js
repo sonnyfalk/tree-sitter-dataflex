@@ -80,6 +80,7 @@ module.exports = grammar({
       seq(
         keyword(/Function/i, $),
         field("name", $.identifier),
+        optional(field("global", keyword(/Global/i, $))),
         optional($._parameter_list),
         keyword(/Returns/i, $),
         field("return_type", $.typedecl),
@@ -107,6 +108,7 @@ module.exports = grammar({
         keyword(/Procedure/i, $),
         optional(field("set", keyword(/Set/i, $))),
         field("name", $.identifier),
+        optional(field("global", keyword(/Global/i, $))),
         optional($._parameter_list),
         $._eol,
       ),

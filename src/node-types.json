@@ -1345,6 +1345,16 @@
     "type": "function_header",
     "named": true,
     "fields": {
+      "global": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
@@ -2136,6 +2146,16 @@
     "type": "procedure_header",
     "named": true,
     "fields": {
+      "global": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "keyword",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,

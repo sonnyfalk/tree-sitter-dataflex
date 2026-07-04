@@ -218,6 +218,28 @@
           "type": "CHOICE",
           "members": [
             {
+              "type": "FIELD",
+              "name": "global",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "Global",
+                  "flags": "i"
+                },
+                "named": true,
+                "value": "keyword"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
               "type": "SYMBOL",
               "name": "_parameter_list"
             },
@@ -392,6 +414,28 @@
             "type": "SYMBOL",
             "name": "identifier"
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "global",
+              "content": {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "Global",
+                  "flags": "i"
+                },
+                "named": true,
+                "value": "keyword"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "CHOICE",
