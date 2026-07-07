@@ -1286,11 +1286,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "string_literal"
-              },
-              {
-                "type": "SYMBOL",
-                "name": "number_literal"
+                "name": "_literal"
               }
             ]
           }
@@ -3305,6 +3301,10 @@
         {
           "type": "SYMBOL",
           "name": "string_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "multiline_string_literal"
         }
       ]
     },
@@ -3314,7 +3314,11 @@
     },
     "string_literal": {
       "type": "PATTERN",
-      "value": "\\\".*\\\""
+      "value": "(\"[^\"\\r\\n]*\")|('[^'\\r\\n]*')"
+    },
+    "multiline_string_literal": {
+      "type": "PATTERN",
+      "value": "(@\"[^\"]*\")|(\"\"\"([^\"]|\"[^\"]|\"\"[^\"])*\"\"\")"
     },
     "icode_argument": {
       "type": "PATTERN",

@@ -254,7 +254,7 @@ module.exports = grammar({
         "=",
         field(
           "value",
-          choice($.identifier, $.string_literal, $.number_literal),
+          choice($.identifier, $._literal),
         ),
       ),
 
@@ -574,11 +574,13 @@ module.exports = grammar({
 
     identifier: ($) => /[a-zA-Z_@#$][a-zA-Z_0-9@#$]*/,
 
-    _literal: ($) => choice($.number_literal, $.string_literal),
+    _literal: ($) => choice($.number_literal, $.string_literal, $.multiline_string_literal),
 
     number_literal: ($) => /[0-9]+(\.[0-9]+)?/,
 
-    string_literal: ($) => /\".*\"/,
+    string_literal: ($) => /("[^"\r\n]*")|('[^'\r\n]*')/,
+
+    multiline_string_literal: ($) => /(@"[^"]*")|("""([^"]|"[^"]|""[^"])*""")/,
 
     icode_argument: ($) => /\|[^ \t\r\n]*/,
 

@@ -8,6 +8,10 @@
         "named": true
       },
       {
+        "type": "multiline_string_literal",
+        "named": true
+      },
+      {
         "type": "number_literal",
         "named": true
       },
@@ -1631,6 +1635,10 @@
             "named": true
           },
           {
+            "type": "multiline_string_literal",
+            "named": true
+          },
+          {
             "type": "number_literal",
             "named": true
           },
@@ -3156,6 +3164,10 @@
     "type": "line_comment",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "multiline_string_literal",
+    "named": true
   },
   {
     "type": "number_literal",

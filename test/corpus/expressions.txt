@@ -19,6 +19,10 @@ Literal expression
 
 Move "foo" to bar
 Move 1234 to bar
+Move @"multi-line
+string literal" to bar
+Move """multi-line
+string literal""" to bar
 
 ---
 
@@ -31,6 +35,16 @@ Move 1234 to bar
   (move_statement
     (keyword)
     (number_literal)
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (multiline_string_literal)
+    (keyword)
+    (identifier))
+  (move_statement
+    (keyword)
+    (multiline_string_literal)
     (keyword)
     (identifier)))
 
