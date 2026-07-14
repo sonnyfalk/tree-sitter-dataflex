@@ -2113,6 +2113,16 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "End",
+                "flags": "i"
+              },
+              "named": true,
+              "value": "keyword"
             }
           ]
         },
@@ -2212,6 +2222,16 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "End",
+                "flags": "i"
+              },
+              "named": true,
+              "value": "keyword"
             }
           ]
         },
@@ -2299,6 +2319,16 @@
               "content": {
                 "type": "PATTERN",
                 "value": "Loop",
+                "flags": "i"
+              },
+              "named": true,
+              "value": "keyword"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "PATTERN",
+                "value": "End",
                 "flags": "i"
               },
               "named": true,

@@ -249,6 +249,33 @@ Loop
       (keyword))))
 
 ===
+For loop terminating with End
+===
+
+For i from 0 to 10
+    Move i to iTest
+End
+
+---
+
+(source_file
+  (for_statement
+    (for_header
+      (keyword)
+      counter: (identifier)
+      (keyword)
+      from: (number_literal)
+      (keyword)
+      to: (number_literal))
+    (move_statement
+      (keyword)
+      (identifier)
+      (keyword)
+      (identifier))
+    (for_footer
+      (keyword))))
+
+===
 While loop
 ===
 

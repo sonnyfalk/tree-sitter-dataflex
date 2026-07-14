@@ -375,6 +375,7 @@ module.exports = grammar({
         choice(
           keyword(/Loop/i, $),
           seq(keyword(/Until/i, $), field("condition", $.expression)),
+          keyword(/End/i, $),
         ),
         $._eol,
       ),
@@ -390,6 +391,7 @@ module.exports = grammar({
         choice(
           keyword(/Loop/i, $),
           seq(keyword(/Until/i, $), field("condition", $.expression)),
+          keyword(/End/i, $),
         ),
         $._eol,
       ),
@@ -404,6 +406,7 @@ module.exports = grammar({
         choice(
           seq(keyword(/Until/i, $), field("condition", $.expression)),
           keyword(/Loop/i, $),
+          keyword(/End/i, $),
         ),
         $._eol,
       ),
