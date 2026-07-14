@@ -251,7 +251,7 @@ module.exports = grammar({
     metadata_tag: ($) =>
       seq(
         field("name", $.identifier),
-        "=",
+        choice("=", "+="),
         field(
           "value",
           choice($.identifier, $._literal),
