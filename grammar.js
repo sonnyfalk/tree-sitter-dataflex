@@ -277,7 +277,7 @@ module.exports = grammar({
         optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
         repeat($._call_argument),
         keyword(/to/i, $),
-        field("result", $.identifier),
+        field("result", $.expression),
         $._eol,
       ),
 
@@ -329,7 +329,7 @@ module.exports = grammar({
         optional(seq(keyword(/of/i, $), field("receiver", $.expression))),
         repeat(field("argument", $.expression)),
         keyword(/to/i, $),
-        field("result", $.identifier),
+        field("result", $.expression),
         $._eol,
       ),
 

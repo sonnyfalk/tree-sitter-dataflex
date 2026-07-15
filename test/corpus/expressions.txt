@@ -53,6 +53,8 @@ Postfix expression member access
 ===
 
 Move foo.bar to bar
+Move bar to foo.bar
+Get bar to foo.bar
 
 ---
 
@@ -64,7 +66,23 @@ Move foo.bar to bar
       (member_access
         name: (identifier)))
     (keyword)
-    (identifier)))
+    (identifier))
+  (move_statement
+    (keyword)
+    (identifier)
+    (keyword)
+    (postfix_expression
+      name: (identifier)
+      (member_access
+        name: (identifier))))
+  (get_statement
+    (keyword)
+    name: (identifier)
+    (keyword)
+    result: (postfix_expression
+      name: (identifier)
+      (member_access
+        name: (identifier)))))
 
 ===
 Postfix expression nested member access
