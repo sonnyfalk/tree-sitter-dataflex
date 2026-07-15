@@ -579,7 +579,7 @@ module.exports = grammar({
 
     _literal: ($) => choice($.number_literal, $.string_literal, $.multiline_string_literal),
 
-    number_literal: ($) => /[0-9]+(\.[0-9]+)?/,
+    number_literal: ($) => /-?[0-9]+(\.[0-9]+)?/,
 
     string_literal: ($) => /("[^"\r\n]*")|('[^'\r\n]*')/,
 

@@ -229,16 +229,14 @@ Move (not(foo) and bar) to bar
   (move_statement
     (keyword)
     (paren_expression
-      (unary_expression
-        operand: (number_literal)))
+      (number_literal))
     (keyword)
     (identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (unary_expression
-          operand: (number_literal))
+        operand: (number_literal)
         operand: (number_literal)))
     (keyword)
     (identifier))
@@ -247,8 +245,7 @@ Move (not(foo) and bar) to bar
     (paren_expression
       (binary_expression
         operand: (number_literal)
-        operand: (unary_expression
-          operand: (number_literal))))
+        operand: (number_literal)))
     (keyword)
     (identifier))
   (move_statement
