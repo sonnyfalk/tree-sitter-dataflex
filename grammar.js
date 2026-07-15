@@ -220,7 +220,7 @@ module.exports = grammar({
       seq(
         keyword(/Define/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/for/i, $), field("value", $.expression))),
+        optional(seq(keyword(/for/i, $), field("value", choice($.expression, $.icode_argument)))),
         $._eol,
       ),
 

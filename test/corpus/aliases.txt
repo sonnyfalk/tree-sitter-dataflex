@@ -38,6 +38,7 @@ Define Foo
 Define Foo for 1
 Define Foo for "Hello"
 Define Foo for Integer
+Define Foo for |CI$00100000
 
 ---
 
@@ -59,7 +60,12 @@ Define Foo for Integer
     (keyword)
     name: (identifier)
     (keyword)
-    value: (identifier)))
+    value: (identifier))
+  (define_declaration
+    (keyword)
+    name: (identifier)
+    (keyword)
+    value: (icode_argument)))
 
 ===
 Enum_List

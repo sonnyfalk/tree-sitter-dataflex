@@ -925,6 +925,10 @@
           {
             "type": "expression",
             "named": true
+          },
+          {
+            "type": "icode_argument",
+            "named": true
           }
         ]
       }
