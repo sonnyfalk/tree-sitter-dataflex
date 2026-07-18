@@ -41,7 +41,7 @@ End_Object
       (keyword)
       name: (identifier)
       (keyword)
-      argument: (identifier))
+      argument: (simple_identifier))
     (set_statement
       (keyword)
       name: (identifier)

@@ -8,3 +8,9 @@ Procedure test
 //               ^ entity.name
 End_Procedure
 // ^ keyword
+
+Procedure private.test
+// ^ keyword
+//        ^ function
+End_Procedure
+// ^ keyword

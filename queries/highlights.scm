@@ -54,15 +54,15 @@
   name: (identifier) @entity.name.function.dataflex.set)
 
 (call_expression
-  name: (identifier) @entity.name.function.dataflex.expr)
+  name: (_) @entity.name.function.dataflex.expr)
 
 (custom_typedecl
   (identifier) @entity.name.type)
 
-(expression/identifier) @entity.name
+(expression/simple_identifier) @entity.name
 
 (postfix_expression
- name: (identifier) @entity.name)
+ name: (simple_identifier) @entity.name)
 
 (member_access
- name: (identifier) @entity.name.member)
+ name: (simple_identifier) @entity.name.member)

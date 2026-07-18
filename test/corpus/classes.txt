@@ -75,7 +75,7 @@ End_Composite
       (keyword)
       name: (identifier)
       (keyword)
-      argument: (identifier))
+      argument: (simple_identifier))
     (object_definition
       (object_header
         (keyword)
@@ -87,7 +87,7 @@ End_Composite
         (keyword)
         name: (identifier)
         (keyword)
-        argument: (identifier))
+        argument: (simple_identifier))
       (set_statement
         (keyword)
         name: (identifier)

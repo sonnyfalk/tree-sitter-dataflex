@@ -9,9 +9,9 @@ Move foo to bar
 (source_file
   (move_statement
     (keyword)
-    (identifier)
+    (simple_identifier)
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Literal expression
@@ -31,22 +31,22 @@ string literal""" to bar
     (keyword)
     (string_literal)
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (number_literal)
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (multiline_string_literal)
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (multiline_string_literal)
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Postfix expression member access
@@ -62,27 +62,27 @@ Get bar to foo.bar
   (move_statement
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier)))
+        name: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
-    (identifier)
+    (simple_identifier)
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier))))
+        name: (simple_identifier))))
   (get_statement
     (keyword)
     name: (identifier)
     (keyword)
     result: (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier)))))
+        name: (simple_identifier)))))
 
 ===
 Postfix expression nested member access
@@ -96,13 +96,13 @@ Move foo.bar.baz to baz
   (move_statement
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier))
+        name: (simple_identifier))
       (member_access
-        name: (identifier)))
+        name: (simple_identifier)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Postfix expression incomplete member access
@@ -116,10 +116,10 @@ Move foo. to baz
   (move_statement
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Postfix expression array access
@@ -133,11 +133,11 @@ Move foo[0] to bar
   (move_statement
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (array_access
         (number_literal)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Postfix expression multi-dim array access
@@ -151,13 +151,13 @@ Move foo[0][0] to bar
   (move_statement
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (array_access
         (number_literal))
       (array_access
         (number_literal)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Postfix expression nested array member access
@@ -171,15 +171,15 @@ Move foo.bar[0].baz to baz
   (move_statement
     (keyword)
     (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier))
+        name: (simple_identifier))
       (array_access
         (number_literal))
       (member_access
-        name: (identifier)))
+        name: (simple_identifier)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Paren expression
@@ -195,21 +195,21 @@ Move (1234) to bar
   (move_statement
     (keyword)
     (paren_expression
-      (identifier))
+      (simple_identifier))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (string_literal))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (number_literal))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Paren unary expression
@@ -231,7 +231,7 @@ Move (not(foo) and bar) to bar
     (paren_expression
       (number_literal))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
@@ -239,7 +239,7 @@ Move (not(foo) and bar) to bar
         operand: (number_literal)
         operand: (number_literal)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
@@ -247,33 +247,33 @@ Move (not(foo) and bar) to bar
         operand: (number_literal)
         operand: (number_literal)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (unary_expression
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (unary_expression
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
         operand: (unary_expression
           (keyword)
-          operand: (identifier))
+          operand: (simple_identifier))
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
@@ -281,11 +281,11 @@ Move (not(foo) and bar) to bar
         operand: (unary_expression
           (keyword)
           operand: (paren_expression
-            (identifier)))
+            (simple_identifier)))
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Paren binary expression
@@ -317,18 +317,18 @@ Move (foo min bar) to bar
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
         operand: (string_literal)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
@@ -336,137 +336,137 @@ Move (foo min bar) to bar
         operand: (number_literal)
         operand: (number_literal)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
         operand: (binary_expression
-          operand: (identifier)
+          operand: (simple_identifier)
           operand: (number_literal))
         operand: (number_literal)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
-        operand: (identifier)))
+        operand: (simple_identifier)
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (binary_expression
-        operand: (identifier)
+        operand: (simple_identifier)
         (keyword)
-        operand: (identifier)))
+        operand: (simple_identifier)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))
 
 ===
 Paren call expression
@@ -483,29 +483,29 @@ Move (foo(1, bar(), 3)) to bar
     (keyword)
     (paren_expression
       (call_expression
-        name: (identifier)))
+        name: (simple_identifier)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (call_expression
-        name: (identifier)
+        name: (simple_identifier)
         argument: (number_literal)
         argument: (binary_expression
           operand: (number_literal)
           operand: (number_literal))
         argument: (number_literal)))
     (keyword)
-    (identifier))
+    (simple_identifier))
   (move_statement
     (keyword)
     (paren_expression
       (call_expression
-        name: (identifier)
+        name: (simple_identifier)
         argument: (number_literal)
         argument: (call_expression
-          name: (identifier))
+          name: (simple_identifier))
         argument: (number_literal)))
     (keyword)
-    (identifier)))
+    (simple_identifier)))

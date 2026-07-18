@@ -2722,7 +2722,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "simple_identifier"
         },
         {
           "type": "SYMBOL",
@@ -2979,7 +2979,7 @@
           "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "expression"
           }
         },
         {
@@ -3037,7 +3037,7 @@
           "name": "name",
           "content": {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "simple_identifier"
           }
         },
         {
@@ -3076,7 +3076,7 @@
                 "name": "name",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "identifier"
+                  "name": "simple_identifier"
                 }
               },
               {
@@ -3337,6 +3337,10 @@
     },
     "identifier": {
       "type": "PATTERN",
+      "value": "[a-zA-Z_@#$][a-zA-Z_0-9@#$.]*"
+    },
+    "simple_identifier": {
+      "type": "PATTERN",
       "value": "[a-zA-Z_@#$][a-zA-Z_0-9@#$]*"
     },
     "_literal": {
@@ -3465,14 +3469,6 @@
     }
   ],
   "conflicts": [
-    [
-      "custom_typedecl",
-      "expression"
-    ],
-    [
-      "array_decl",
-      "_literal"
-    ],
     [
       "case_member"
     ]

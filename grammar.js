@@ -14,8 +14,6 @@ module.exports = grammar({
   word: ($) => $.identifier,
   supertypes: ($) => [$.typedecl, $.expression],
   conflicts: ($) => [
-    [$.custom_typedecl, $.expression],
-    [$.array_decl, $._literal],
     [$.case_member],
   ],
 
@@ -453,7 +451,7 @@ module.exports = grammar({
 
     expression: ($) =>
       choice(
-        $.identifier,
+        $.simple_identifier,
         $._literal,
         $.paren_expression,
         $.postfix_expression,
@@ -504,7 +502,7 @@ module.exports = grammar({
 
     call_expression: ($) =>
       seq(
-        field("name", $.identifier),
+        field("name", $.expression),
         "(",
         field(
           "argument",
@@ -520,12 +518,12 @@ module.exports = grammar({
 
     postfix_expression: ($) =>
       seq(
-        field("name", $.identifier),
+        field("name", $.simple_identifier),
         repeat1(choice($.member_access, $.array_access)),
       ),
 
     member_access: ($) =>
-      prec.right(seq(".", optional(field("name", $.identifier)))),
+      prec.right(seq(".", optional(field("name", $.simple_identifier)))),
 
     array_access: ($) => seq("[", $._interior_expression, "]"),
 
@@ -575,7 +573,9 @@ module.exports = grammar({
 
     // Identifier / Literal
 
-    identifier: ($) => /[a-zA-Z_@#$][a-zA-Z_0-9@#$]*/,
+    identifier: ($) => /[a-zA-Z_@#$][a-zA-Z_0-9@#$.]*/,
+
+    simple_identifier: ($) => /[a-zA-Z_@#$][a-zA-Z_0-9@#$]*/,
 
     _literal: ($) => choice($.number_literal, $.string_literal, $.multiline_string_literal),
 

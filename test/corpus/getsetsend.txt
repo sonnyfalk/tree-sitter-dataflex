@@ -30,10 +30,10 @@ End_Object
         (keyword)
         name: (identifier)
         (keyword)
-        receiver: (identifier)
+        receiver: (simple_identifier)
         argument: (number_literal)
         (keyword)
-        result: (identifier))
+        result: (simple_identifier))
       (procedure_footer
         (keyword)))
     (object_footer
@@ -67,7 +67,7 @@ End_Object
       (keyword)
       name: (identifier)
       (keyword)
-      argument: (identifier))
+      argument: (simple_identifier))
     (set_statement
       (keyword)
       name: (identifier)
@@ -91,9 +91,9 @@ End_Object
         (keyword)
         name: (identifier)
         (keyword)
-        receiver: (identifier)
+        receiver: (simple_identifier)
         (keyword)
-        argument: (identifier))
+        argument: (simple_identifier))
       (procedure_footer
         (keyword)))
     (object_footer
@@ -125,7 +125,7 @@ Send Popup of Customer_sl
     (keyword)
     name: (identifier)
     (keyword)
-    receiver: (identifier)))
+    receiver: (simple_identifier)))
 
 ===
 Send statement with target object and parameters
@@ -140,9 +140,9 @@ Send Request_Read of oCustomer_DD FIRST_RECORD iFileNum 3
     (keyword)
     name: (identifier)
     (keyword)
-    receiver: (identifier)
-    argument: (identifier)
-    argument: (identifier)
+    receiver: (simple_identifier)
+    argument: (simple_identifier)
+    argument: (simple_identifier)
     argument: (number_literal)))
 
 ===
@@ -159,15 +159,15 @@ Set Field_Auto_Increment Field MyFile.MyField to File_Field OtherFile.OtherField
     name: (identifier)
     (keyword)
     argument: (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier)))
+        name: (simple_identifier)))
     (keyword)
     (keyword)
     argument: (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier)))))
+        name: (simple_identifier)))))
 
 ===
 Forward send/get/set statement
@@ -191,14 +191,14 @@ Forward Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    result: (identifier))
+    result: (simple_identifier))
   (set_statement
     (call_modifier
       (keyword))
     (keyword)
     name: (identifier)
     (keyword)
-    argument: (identifier)))
+    argument: (simple_identifier)))
 
 ===
 Delegate send/get/set statement
@@ -222,14 +222,14 @@ Delegate Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    result: (identifier))
+    result: (simple_identifier))
   (set_statement
     (call_modifier
       (keyword))
     (keyword)
     name: (identifier)
     (keyword)
-    argument: (identifier)))
+    argument: (simple_identifier)))
 
 ===
 Broadcast send/get/set statement
@@ -253,14 +253,14 @@ Broadcast Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    result: (identifier))
+    result: (simple_identifier))
   (set_statement
     (call_modifier
       (keyword))
     (keyword)
     name: (identifier)
     (keyword)
-    argument: (identifier)))
+    argument: (simple_identifier)))
 
 ===
 Broadcast send/get/set statement
@@ -287,7 +287,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    result: (identifier))
+    result: (simple_identifier))
   (set_statement
     (call_modifier
       (keyword)
@@ -295,7 +295,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    argument: (identifier))
+    argument: (simple_identifier))
   (set_statement
     (call_modifier
       (keyword)
@@ -304,7 +304,7 @@ Broadcast Recursive No_Stop Set pbEnabled to bEnabled
     (keyword)
     name: (identifier)
     (keyword)
-    argument: (identifier)))
+    argument: (simple_identifier)))
 
 ===
 WebGet/WebSet statement
@@ -322,23 +322,36 @@ WebSet psValue of oWebForm1 to sValue
     (keyword)
     name: (identifier)
     (keyword)
-    result: (identifier))
+    result: (simple_identifier))
   (web_get_statement
     (keyword)
     name: (identifier)
     (keyword)
-    receiver: (identifier)
+    receiver: (simple_identifier)
     (keyword)
-    result: (identifier))
+    result: (simple_identifier))
   (web_set_statement
     (keyword)
     name: (identifier)
     (keyword)
-    argument: (identifier))
+    argument: (simple_identifier))
   (web_set_statement
     (keyword)
     name: (identifier)
     (keyword)
-    receiver: (identifier)
+    receiver: (simple_identifier)
     (keyword)
-    argument: (identifier)))
+    argument: (simple_identifier)))
+
+===
+Method call with embedded dot
+===
+
+Send Private.Popup
+
+---
+
+(source_file
+  (send_statement
+    (keyword)
+    name: (identifier)))

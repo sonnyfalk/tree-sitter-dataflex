@@ -4,10 +4,6 @@
     "named": true,
     "subtypes": [
       {
-        "type": "identifier",
-        "named": true
-      },
-      {
         "type": "multiline_string_literal",
         "named": true
       },
@@ -21,6 +17,10 @@
       },
       {
         "type": "postfix_expression",
+        "named": true
+      },
+      {
+        "type": "simple_identifier",
         "named": true
       },
       {
@@ -294,7 +294,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "expression",
             "named": true
           }
         ]
@@ -1609,7 +1609,7 @@
         "required": false,
         "types": [
           {
-            "type": "identifier",
+            "type": "simple_identifier",
             "named": true
           }
         ]
@@ -2008,7 +2008,7 @@
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "simple_identifier",
             "named": true
           }
         ]
@@ -3179,6 +3179,10 @@
   },
   {
     "type": "number_literal",
+    "named": true
+  },
+  {
+    "type": "simple_identifier",
     "named": true
   },
   {

@@ -12,22 +12,22 @@
 (source_file
   (replace_declaration
     (keyword)
-    name: (identifier)
-    value: (identifier))
+    name: (simple_identifier)
+    value: (simple_identifier))
   (replace_declaration
     (keyword)
-    name: (identifier)
+    name: (simple_identifier)
     value: (string_literal))
   (replace_declaration
     (keyword)
-    name: (identifier)
+    name: (simple_identifier)
     value: (number_literal))
   (replace_declaration
     (keyword)
     name: (postfix_expression
-      name: (identifier)
+      name: (simple_identifier)
       (member_access
-        name: (identifier)))
+        name: (simple_identifier)))
     value: (icode_argument)))
 
 ===
@@ -60,7 +60,7 @@ Define Foo for |CI$00100000
     (keyword)
     name: (identifier)
     (keyword)
-    value: (identifier))
+    value: (simple_identifier))
   (define_declaration
     (keyword)
     name: (identifier)
