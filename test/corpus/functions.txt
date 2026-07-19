@@ -3,6 +3,7 @@ Simple function
 ===
 
 Function test Returns Integer
+    Function_Return 1
 End_Function
 
 ---
@@ -15,6 +16,9 @@ End_Function
       (keyword)
       return_type: (system_typedecl
         name: (system_type)))
+    (function_return_statement
+      (keyword)
+      result: (number_literal))
     (function_footer
       (keyword))))
 

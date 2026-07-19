@@ -51,6 +51,8 @@ module.exports = grammar({
         $.repeat_statement,
         $.break_statement,
         $.case_statement,
+        $.function_return_statement,
+        $.procedure_return_statement,
         $.use_statement,
         $.ifdef_directive,
         $.ifndef_directive,
@@ -436,6 +438,20 @@ module.exports = grammar({
     case_break: ($) => seq(keyword(/Case/i, $), keyword(/Break/i, $), $._eol),
 
     case_footer: ($) => seq(keyword(/Case/i, $), keyword(/End/i, $), $._eol),
+
+    function_return_statement: ($) =>
+      seq(
+        keyword(/Function_Return/i, $),
+        field("result", $.expression),
+        $._eol,
+      ),
+
+    procedure_return_statement: ($) =>
+      seq(
+        keyword(/Procedure_Return/i, $),
+        optional(field("result", $.expression)),
+        $._eol,
+      ),
 
     block_statement: ($) =>
       seq($.block_header, optional($._statement_list), $.block_footer),

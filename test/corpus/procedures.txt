@@ -3,6 +3,7 @@ Simple procedure
 ===
 
 Procedure test
+    Procedure_Return
 End_Procedure
 
 ---
@@ -12,6 +13,8 @@ End_Procedure
     (procedure_header
       (keyword)
       name: (identifier))
+    (procedure_return_statement
+      (keyword))
     (procedure_footer
       (keyword))))
 

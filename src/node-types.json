@@ -190,6 +190,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -223,6 +227,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -429,6 +437,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -466,6 +478,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -587,6 +603,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -644,6 +664,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -801,6 +825,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -858,6 +886,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -1072,6 +1104,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -1105,6 +1141,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -1319,6 +1359,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -1352,6 +1396,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -1430,6 +1478,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -1463,6 +1515,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -1564,6 +1620,32 @@
         },
         {
           "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_return_statement",
+    "named": true,
+    "fields": {
+      "result": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
           "named": true
         }
       ]
@@ -1726,6 +1808,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -1759,6 +1845,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -2048,6 +2138,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -2109,6 +2203,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -2365,6 +2463,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -2406,6 +2508,10 @@
         },
         {
           "type": "procedure_header",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -2507,6 +2613,32 @@
         },
         {
           "type": "parameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "procedure_return_statement",
+    "named": true,
+    "fields": {
+      "result": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
           "named": true
         }
       ]
@@ -2622,6 +2754,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -2655,6 +2791,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -2894,6 +3034,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -2947,6 +3091,10 @@
         },
         {
           "type": "procedure_definition",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
@@ -3357,6 +3505,10 @@
           "named": true
         },
         {
+          "type": "function_return_statement",
+          "named": true
+        },
+        {
           "type": "get_statement",
           "named": true
         },
@@ -3390,6 +3542,10 @@
         },
         {
           "type": "potential_variable_declaration",
+          "named": true
+        },
+        {
+          "type": "procedure_return_statement",
           "named": true
         },
         {
