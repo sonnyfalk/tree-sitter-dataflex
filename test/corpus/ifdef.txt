@@ -1,0 +1,149 @@
+===
+Simple #ifdef
+===
+
+#IFDEF IS$WEBAPP
+Function test Returns Integer
+End_Function
+#ENDIF
+
+---
+
+(source_file
+  (ifdef_directive
+    (keyword)
+    name: (identifier))
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword)))
+  (endif_directive
+    (keyword)))
+
+===
+#ifdef with #else
+===
+
+#IFDEF IS$WEBAPP
+Function test Returns Integer
+End_Function
+#ELSE
+Function test Returns Integer
+End_Function
+#ENDIF
+
+---
+
+(source_file
+  (ifdef_directive
+    (keyword)
+    name: (identifier))
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword)))
+  (else_directive
+    (keyword))
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword)))
+  (endif_directive
+    (keyword)))
+
+===
+Simple #ifndef
+===
+
+#IFNDEF IS$WEBAPP
+Function test Returns Integer
+End_Function
+#ENDIF
+
+---
+
+(source_file
+  (ifndef_directive
+    (keyword)
+    name: (identifier))
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword)))
+  (endif_directive
+    (keyword)))
+
+===
+Simple #if
+===
+
+#IF IS_FOO_ENABLED
+Function test Returns Integer
+End_Function
+#ENDIF
+
+---
+
+(source_file
+  (if_directive
+    (keyword)
+    condition: (simple_identifier))
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword)))
+  (endif_directive
+    (keyword)))
+
+===
+Simple #if with paren
+===
+
+#IF (IS_FOO_ENABLED)
+Function test Returns Integer
+End_Function
+#ENDIF
+
+---
+
+(source_file
+  (if_directive
+    (keyword)
+    condition: (paren_expression
+      (simple_identifier)))
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword)))
+  (endif_directive
+    (keyword)))

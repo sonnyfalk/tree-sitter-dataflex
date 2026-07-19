@@ -13,9 +13,7 @@ module.exports = grammar({
   extras: ($) => [$.comment, $.line_comment, $.line_continuation, /[ \t]/],
   word: ($) => $.identifier,
   supertypes: ($) => [$.typedecl, $.expression],
-  conflicts: ($) => [
-    [$.case_member],
-  ],
+  conflicts: ($) => [[$.case_member]],
 
   rules: {
     source_file: ($) => repeat($._top_level_code),
@@ -54,6 +52,11 @@ module.exports = grammar({
         $.break_statement,
         $.case_statement,
         $.use_statement,
+        $.ifdef_directive,
+        $.ifndef_directive,
+        $.if_directive,
+        $.else_directive,
+        $.endif_directive,
         $.variable_declaration,
         $.potential_variable_declaration,
         $.other_command_statement,
@@ -96,7 +99,8 @@ module.exports = grammar({
 
     _function_body: ($) => $._statement_list,
 
-    function_footer: ($) => choice(keyword(/End_Function/i, $), keyword(/End_Procedure/i, $)),
+    function_footer: ($) =>
+      choice(keyword(/End_Function/i, $), keyword(/End_Procedure/i, $)),
 
     procedure_definition: ($) =>
       seq($.procedure_header, optional($._procedure_body), $.procedure_footer),
@@ -113,7 +117,8 @@ module.exports = grammar({
 
     _procedure_body: ($) => $._statement_list,
 
-    procedure_footer: ($) => choice(keyword(/End_Procedure/i, $), keyword(/End_Function/i, $)),
+    procedure_footer: ($) =>
+      choice(keyword(/End_Procedure/i, $), keyword(/End_Function/i, $)),
 
     object_definition: ($) =>
       seq($.object_header, optional($._object_body), $.object_footer),
@@ -218,7 +223,12 @@ module.exports = grammar({
       seq(
         keyword(/Define/i, $),
         field("name", $.identifier),
-        optional(seq(keyword(/for/i, $), field("value", choice($.expression, $.icode_argument)))),
+        optional(
+          seq(
+            keyword(/for/i, $),
+            field("value", choice($.expression, $.icode_argument)),
+          ),
+        ),
         $._eol,
       ),
 
@@ -240,7 +250,10 @@ module.exports = grammar({
 
     metadata_tag_group: ($) =>
       prec.right(
-        seq(field("tag_set", $.metadata_tag_set), repeat(choice(field("tag_set", $.metadata_tag_set), $._eol))),
+        seq(
+          field("tag_set", $.metadata_tag_set),
+          repeat(choice(field("tag_set", $.metadata_tag_set), $._eol)),
+        ),
       ),
 
     metadata_tag_set: ($) =>
@@ -250,10 +263,7 @@ module.exports = grammar({
       seq(
         field("name", $.identifier),
         choice("=", "+="),
-        field(
-          "value",
-          choice($.identifier, $._literal),
-        ),
+        field("value", choice($.identifier, $._literal)),
       ),
 
     // Statements / Commands
@@ -439,6 +449,19 @@ module.exports = grammar({
 
     use_statement: ($) => seq(keyword(/Use/i, $), $.file_path),
 
+    ifdef_directive: ($) =>
+      seq(keyword(/#IFDEF/i, $), field("name", $.identifier), $._eol),
+
+    ifndef_directive: ($) =>
+      seq(keyword(/#IFNDEF/i, $), field("name", $.identifier), $._eol),
+
+    if_directive: ($) =>
+      seq(keyword(/#IF/i, $), field("condition", $.expression), $._eol),
+
+    else_directive: ($) => seq(keyword(/#ELSE/i, $), $._eol),
+
+    endif_directive: ($) => seq(keyword(/#ENDIF/i, $), $._eol),
+
     variable_declaration: ($) =>
       seq($.system_typedecl, repeat1($.identifier), $._eol),
 
@@ -577,7 +600,8 @@ module.exports = grammar({
 
     simple_identifier: ($) => /[a-zA-Z_@#$][a-zA-Z_0-9@#$]*/,
 
-    _literal: ($) => choice($.number_literal, $.string_literal, $.multiline_string_literal),
+    _literal: ($) =>
+      choice($.number_literal, $.string_literal, $.multiline_string_literal),
 
     number_literal: ($) => /-?[0-9]+(\.[0-9]+)?/,
 
