@@ -507,7 +507,7 @@ module.exports = grammar({
       ),
 
     unary_expression: ($) =>
-      seq(choice("-", keyword(/not/i, $)), field("operand", $.expression)),
+      seq(choice("-", "&", keyword(/not/i, $)), field("operand", $.expression)),
 
     binary_expression: ($) =>
       seq(

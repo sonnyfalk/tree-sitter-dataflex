@@ -222,6 +222,7 @@ Move (-foo) to bar
 Move (not foo) to bar
 Move (not foo and bar) to bar
 Move (not(foo) and bar) to bar
+Send Foo (&arg)
 
 ---
 
@@ -285,7 +286,13 @@ Move (not(foo) and bar) to bar
         (keyword)
         operand: (simple_identifier)))
     (keyword)
-    (simple_identifier)))
+    (simple_identifier))
+  (send_statement
+    (keyword)
+    name: (identifier)
+    argument: (paren_expression
+      (unary_expression
+        operand: (simple_identifier)))))
 
 ===
 Paren binary expression
