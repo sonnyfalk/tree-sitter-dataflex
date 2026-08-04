@@ -34,3 +34,42 @@ End_Struct
       (identifier))
     (struct_footer
       (keyword))))
+
+===
+Struct members with wire-annotation metadata tags
+===
+
+Struct tMyRequest
+    {Name="someField"}
+    String sSomeField
+    {Name="count"}
+    Integer iCount
+End_Struct
+
+---
+
+(source_file
+  (struct_declaration
+    (struct_header
+      (keyword)
+      name: (identifier))
+    (metadata_tag_group
+      tag_set: (metadata_tag_set
+        tag: (metadata_tag
+          name: (identifier)
+          value: (string_literal))))
+    (struct_member
+      (system_typedecl
+        name: (system_type))
+      (identifier))
+    (metadata_tag_group
+      tag_set: (metadata_tag_set
+        tag: (metadata_tag
+          name: (identifier)
+          value: (string_literal))))
+    (struct_member
+      (system_typedecl
+        name: (system_type))
+      (identifier))
+    (struct_footer
+      (keyword))))

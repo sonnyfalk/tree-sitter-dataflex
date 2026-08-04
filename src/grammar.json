@@ -944,6 +944,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "metadata_tag_group"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "_eol"
               }
             ]

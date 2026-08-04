@@ -199,7 +199,9 @@ module.exports = grammar({
     struct_declaration: ($) =>
       seq(
         $.struct_header,
-        repeat(choice($.struct_member, $._eol)),
+        // Serialization structs annotate members with metadata tags
+        // (`{Name="..."}` lines between the member declarations).
+        repeat(choice($.struct_member, $.metadata_tag_group, $._eol)),
         $.struct_footer,
       ),
 
