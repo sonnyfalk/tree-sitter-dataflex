@@ -3153,6 +3153,10 @@
       "required": true,
       "types": [
         {
+          "type": "metadata_tag_group",
+          "named": true
+        },
+        {
           "type": "struct_footer",
           "named": true
         },
