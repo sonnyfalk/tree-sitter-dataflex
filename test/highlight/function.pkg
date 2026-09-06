@@ -3,3 +3,7 @@ Function test Returns Integer
 //        ^ function
 End_Function
 // ^ keyword
+
+External_Function MyTestFunc "MyTestFunc" Test.dll Integer iArg1 String iArg2 Returns Integer
+// ^ keyword
+//                  ^ function

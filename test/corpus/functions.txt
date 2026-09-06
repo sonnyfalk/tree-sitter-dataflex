@@ -49,3 +49,83 @@ End_Function
         name: (system_type)))
     (function_footer
       (keyword))))
+
+===
+Global Function
+===
+
+Function test Global Integer iArg1 String iArg2 Returns Integer
+End_Function
+
+---
+
+(source_file
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      global: (keyword)
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword))))
+
+===
+External Function
+===
+
+External_Function MyTestFunc "MyTestFunc" Test.dll Integer iArg1 String sArg2 Returns Integer
+
+---
+
+(source_file
+  (external_function_declaration
+    (keyword)
+    name: (identifier)
+    link_name: (string_literal)
+    lib: (file_path)
+    (parameter
+      type: (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (parameter
+      type: (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (keyword)
+    return_type: (system_typedecl
+      name: (system_type))))
+
+===
+External Function without link name
+===
+
+External_Function MyTestFunc Test.dll Integer iArg1 String sArg2 Returns Integer
+
+---
+
+(source_file
+  (external_function_declaration
+    (keyword)
+    name: (identifier)
+    lib: (file_path)
+    (parameter
+      type: (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (parameter
+      type: (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (keyword)
+    return_type: (system_typedecl
+      name: (system_type))))

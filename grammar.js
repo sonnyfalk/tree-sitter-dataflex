@@ -31,6 +31,7 @@ module.exports = grammar({
         $.enum_declaration,
         $.define_declaration,
         $.replace_declaration,
+        $.external_function_declaration,
         $.global_variable_declaration,
         $.metadata_tag_group,
         $._statement,
@@ -243,6 +244,17 @@ module.exports = grammar({
         field("value", choice($.expression, $.icode_argument)),
         $._eol,
       ),
+
+    external_function_declaration: ($) => seq(
+      keyword(/External_Function/i, $),
+      field("name", $.identifier),
+      optional(field("link_name", $.string_literal)),
+      field("lib", $.file_path),
+      optional($._parameter_list),
+      keyword(/Returns/i, $),
+      field("return_type", $.typedecl),
+      $._eol,
+    ),
 
     global_variable_declaration: ($) =>
       seq(

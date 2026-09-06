@@ -38,6 +38,9 @@
 (procedure_header
   name: (identifier) @function)
 
+(external_function_declaration
+  name: (identifier) @function)
+
 (send_statement
   name: (identifier) @entity.name.function.dataflex.send)
 

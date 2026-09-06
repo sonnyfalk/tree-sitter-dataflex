@@ -595,6 +595,10 @@
           "named": true
         },
         {
+          "type": "external_function_declaration",
+          "named": true
+        },
+        {
           "type": "for_statement",
           "named": true
         },
@@ -814,6 +818,10 @@
         },
         {
           "type": "enum_declaration",
+          "named": true
+        },
+        {
+          "type": "external_function_declaration",
           "named": true
         },
         {
@@ -1245,6 +1253,66 @@
       "types": [
         {
           "type": "keyword",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "external_function_declaration",
+    "named": true,
+    "fields": {
+      "lib": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "file_path",
+            "named": true
+          }
+        ]
+      },
+      "link_name": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "string_literal",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "return_type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "typedecl",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "parameter",
           "named": true
         }
       ]
@@ -2127,6 +2195,10 @@
         },
         {
           "type": "enum_declaration",
+          "named": true
+        },
+        {
+          "type": "external_function_declaration",
           "named": true
         },
         {
@@ -3023,6 +3095,10 @@
         },
         {
           "type": "enum_declaration",
+          "named": true
+        },
+        {
+          "type": "external_function_declaration",
           "named": true
         },
         {
