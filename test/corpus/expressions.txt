@@ -188,6 +188,7 @@ Paren expression
 Move (foo) to bar
 Move ("foo") to bar
 Move (1234) to bar
+Move () to bar
 
 ---
 
@@ -208,6 +209,11 @@ Move (1234) to bar
     (keyword)
     (paren_expression
       (number_literal))
+    (keyword)
+    (simple_identifier))
+  (move_statement
+    (keyword)
+    (paren_expression)
     (keyword)
     (simple_identifier)))
 

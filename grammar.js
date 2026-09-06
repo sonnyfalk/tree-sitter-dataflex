@@ -506,7 +506,7 @@ module.exports = grammar({
         $.postfix_expression,
       ),
 
-    paren_expression: ($) => seq("(", $._interior_expression, ")"),
+    paren_expression: ($) => seq("(", optional($._interior_expression), ")"),
 
     _interior_expression: ($) =>
       choice(
