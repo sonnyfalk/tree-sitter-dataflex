@@ -51,6 +51,40 @@ End_Function
       (keyword))))
 
 ===
+Function across multiple lines
+===
+
+Function test;
+  Integer iArg1;
+  String iArg2;
+  Returns Integer
+End_Function
+
+---
+
+(source_file
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      (line_continuation)
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (line_continuation)
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (line_continuation)
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword))))
+
+===
 Global Function
 ===
 
@@ -101,6 +135,38 @@ External_Function MyTestFunc "MyTestFunc" Test.dll Integer iArg1 String sArg2 Re
       type: (system_typedecl
         name: (system_type))
       name: (identifier))
+    (keyword)
+    return_type: (system_typedecl
+      name: (system_type))))
+
+===
+External Function across multiple lines
+===
+
+External_Function MyTestFunc "MyTestFunc" Test.dll;
+  Integer iArg1;
+  String sArg2;
+  Returns Integer
+
+---
+
+(source_file
+  (external_function_declaration
+    (keyword)
+    name: (identifier)
+    link_name: (string_literal)
+    lib: (file_path)
+    (line_continuation)
+    (parameter
+      type: (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (line_continuation)
+    (parameter
+      type: (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (line_continuation)
     (keyword)
     return_type: (system_typedecl
       name: (system_type))))
