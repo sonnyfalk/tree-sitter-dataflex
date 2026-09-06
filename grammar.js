@@ -85,13 +85,11 @@ module.exports = grammar({
         keyword(/Function/i, $),
         field("name", $.identifier),
         optional(field("global", keyword(/Global/i, $))),
-        optional($._parameter_list),
+        repeat($.parameter),
         keyword(/Returns/i, $),
         field("return_type", $.typedecl),
         $._eol,
       ),
-
-    _parameter_list: ($) => repeat1($.parameter),
 
     parameter: ($) =>
       seq(
@@ -114,7 +112,7 @@ module.exports = grammar({
         optional(field("set", keyword(/Set/i, $))),
         field("name", $.identifier),
         optional(field("global", keyword(/Global/i, $))),
-        optional($._parameter_list),
+        repeat($.parameter),
         $._eol,
       ),
 
@@ -200,8 +198,6 @@ module.exports = grammar({
     struct_declaration: ($) =>
       seq(
         $.struct_header,
-        // Serialization structs annotate members with metadata tags
-        // (`{Name="..."}` lines between the member declarations).
         repeat(choice($.struct_member, $.metadata_tag_group, $._eol)),
         $.struct_footer,
       ),
@@ -250,7 +246,7 @@ module.exports = grammar({
       field("name", $.identifier),
       optional(field("link_name", $.string_literal)),
       field("lib", $.file_path),
-      optional($._parameter_list),
+      repeat($.parameter),
       keyword(/Returns/i, $),
       field("return_type", $.typedecl),
       $._eol,
