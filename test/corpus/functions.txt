@@ -114,6 +114,35 @@ End_Function
       (keyword))))
 
 ===
+Desktop Function
+===
+
+Function test Desktop Integer iArg1 String iArg2 Returns Integer
+End_Function
+
+---
+
+(source_file
+  (function_definition
+    (function_header
+      (keyword)
+      name: (identifier)
+      desktop: (keyword)
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (parameter
+        type: (system_typedecl
+          name: (system_type))
+        name: (identifier))
+      (keyword)
+      return_type: (system_typedecl
+        name: (system_type)))
+    (function_footer
+      (keyword))))
+
+===
 External Function
 ===
 

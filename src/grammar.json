@@ -250,18 +250,37 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "global",
-              "content": {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "Global",
-                  "flags": "i"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "global",
+                  "content": {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "Global",
+                      "flags": "i"
+                    },
+                    "named": true,
+                    "value": "keyword"
+                  }
                 },
-                "named": true,
-                "value": "keyword"
-              }
+                {
+                  "type": "FIELD",
+                  "name": "desktop",
+                  "content": {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "Desktop",
+                      "flags": "i"
+                    },
+                    "named": true,
+                    "value": "keyword"
+                  }
+                }
+              ]
             },
             {
               "type": "BLANK"
@@ -439,18 +458,37 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "FIELD",
-              "name": "global",
-              "content": {
-                "type": "ALIAS",
-                "content": {
-                  "type": "PATTERN",
-                  "value": "Global",
-                  "flags": "i"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "FIELD",
+                  "name": "global",
+                  "content": {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "Global",
+                      "flags": "i"
+                    },
+                    "named": true,
+                    "value": "keyword"
+                  }
                 },
-                "named": true,
-                "value": "keyword"
-              }
+                {
+                  "type": "FIELD",
+                  "name": "desktop",
+                  "content": {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "PATTERN",
+                      "value": "Desktop",
+                      "flags": "i"
+                    },
+                    "named": true,
+                    "value": "keyword"
+                  }
+                }
+              ]
             },
             {
               "type": "BLANK"

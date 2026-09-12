@@ -84,7 +84,12 @@ module.exports = grammar({
       seq(
         keyword(/Function/i, $),
         field("name", $.identifier),
-        optional(field("global", keyword(/Global/i, $))),
+        optional(
+          choice(
+            field("global", keyword(/Global/i, $)),
+            field("desktop", keyword(/Desktop/i, $)),
+          ),
+        ),
         repeat($.parameter),
         keyword(/Returns/i, $),
         field("return_type", $.typedecl),
@@ -111,7 +116,12 @@ module.exports = grammar({
         keyword(/Procedure/i, $),
         optional(field("set", keyword(/Set/i, $))),
         field("name", $.identifier),
-        optional(field("global", keyword(/Global/i, $))),
+        optional(
+          choice(
+            field("global", keyword(/Global/i, $)),
+            field("desktop", keyword(/Desktop/i, $)),
+          ),
+        ),
         repeat($.parameter),
         $._eol,
       ),
@@ -241,16 +251,17 @@ module.exports = grammar({
         $._eol,
       ),
 
-    external_function_declaration: ($) => seq(
-      keyword(/External_Function/i, $),
-      field("name", $.identifier),
-      optional(field("link_name", $.string_literal)),
-      field("lib", $.file_path),
-      repeat($.parameter),
-      keyword(/Returns/i, $),
-      field("return_type", $.typedecl),
-      $._eol,
-    ),
+    external_function_declaration: ($) =>
+      seq(
+        keyword(/External_Function/i, $),
+        field("name", $.identifier),
+        optional(field("link_name", $.string_literal)),
+        field("lib", $.file_path),
+        repeat($.parameter),
+        keyword(/Returns/i, $),
+        field("return_type", $.typedecl),
+        $._eol,
+      ),
 
     global_variable_declaration: ($) =>
       seq(
