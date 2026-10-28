@@ -1,0 +1,96 @@
+===
+Simple Entity
+===
+
+Entity Room
+    Integer RoomId
+    String Name
+End_Entity
+
+---
+
+(source_file
+  (entity_declaration
+    (entity_header
+      (keyword)
+      name: (identifier))
+    (entity_field
+      (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (entity_field
+      (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (entity_footer
+      (keyword))))
+
+===
+Entity with index
+===
+
+Entity Room
+    Integer RoomId
+    String Name
+
+    Add_Index RoomId Asc
+End_Entity
+
+---
+
+(source_file
+  (entity_declaration
+    (entity_header
+      (keyword)
+      name: (identifier))
+    (entity_field
+      (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (entity_field
+      (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (entity_index
+      (keyword)
+      field: (identifier)
+      (keyword))
+    (entity_footer
+      (keyword))))
+
+===
+Entity with relation
+===
+
+Entity Presenation
+    Integer RoomId
+    String Title
+
+    Add_Relation RoomId to Room.RoomId
+End_Entity
+
+---
+
+(source_file
+  (entity_declaration
+    (entity_header
+      (keyword)
+      name: (identifier))
+    (entity_field
+      (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (entity_field
+      (system_typedecl
+        name: (system_type))
+      name: (identifier))
+    (entity_relation
+      (keyword)
+      field: (identifier)
+      (keyword)
+      parent_field: (postfix_expression
+        name: (simple_identifier)
+        (member_access
+          name: (simple_identifier))))
+    (entity_footer
+      (keyword))))

@@ -28,6 +28,7 @@ module.exports = grammar({
         $.composite_definition,
         $.property_definition,
         $.struct_declaration,
+        $.entity_declaration,
         $.enum_declaration,
         $.define_declaration,
         $.replace_declaration,
@@ -218,6 +219,48 @@ module.exports = grammar({
     struct_member: ($) => seq($.typedecl, $.identifier, $._eol),
 
     struct_footer: ($) => seq(keyword(/End_Struct/i, $), $._eol),
+
+    entity_declaration: ($) =>
+      seq(
+        $.entity_header,
+        repeat(
+          choice(
+            $.entity_field,
+            $.entity_index,
+            $.entity_relation,
+            $.metadata_tag_group,
+            $._eol,
+          ),
+        ),
+        $.entity_footer,
+      ),
+
+    entity_header: ($) =>
+      seq(keyword(/Entity/i, $), field("name", $.identifier), $._eol),
+
+    entity_field: ($) => seq($.typedecl, field("name", $.identifier), $._eol),
+
+    entity_index: ($) =>
+      seq(
+        keyword(/Add_Index/i, $),
+        repeat(seq(field("field", $.identifier), keyword(/Asc|Desc/i, $))),
+        $._eol,
+      ),
+
+    entity_relation: ($) =>
+      seq(
+        keyword(/Add_Relation/i, $),
+        field("field", $.identifier),
+        repeat(seq(keyword(/and/i, $), field("field", $.identifier))),
+        keyword(/to/i, $),
+        field("parent_field", $.postfix_expression),
+        repeat(
+          seq(keyword(/and/i, $), field("parent_field", $.postfix_expression)),
+        ),
+        $._eol,
+      ),
+
+    entity_footer: ($) => seq(keyword(/End_Entity/i, $), $._eol),
 
     enum_declaration: ($) =>
       seq(

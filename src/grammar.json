@@ -47,6 +47,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "entity_declaration"
+        },
+        {
+          "type": "SYMBOL",
           "name": "enum_declaration"
         },
         {
@@ -1036,6 +1040,256 @@
           "content": {
             "type": "PATTERN",
             "value": "End_Struct",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "entity_declaration": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "entity_header"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "entity_field"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "entity_index"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "entity_relation"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "metadata_tag_group"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_eol"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "entity_footer"
+        }
+      ]
+    },
+    "entity_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Entity",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "entity_field": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "typedecl"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "entity_index": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Add_Index",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "FIELD",
+                "name": "field",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "Asc|Desc",
+                  "flags": "i"
+                },
+                "named": true,
+                "value": "keyword"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "entity_relation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "Add_Relation",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "field",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "and",
+                  "flags": "i"
+                },
+                "named": true,
+                "value": "keyword"
+              },
+              {
+                "type": "FIELD",
+                "name": "field",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "to",
+            "flags": "i"
+          },
+          "named": true,
+          "value": "keyword"
+        },
+        {
+          "type": "FIELD",
+          "name": "parent_field",
+          "content": {
+            "type": "SYMBOL",
+            "name": "postfix_expression"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "PATTERN",
+                  "value": "and",
+                  "flags": "i"
+                },
+                "named": true,
+                "value": "keyword"
+              },
+              {
+                "type": "FIELD",
+                "name": "parent_field",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "postfix_expression"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_eol"
+        }
+      ]
+    },
+    "entity_footer": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "End_Entity",
             "flags": "i"
           },
           "named": true,
