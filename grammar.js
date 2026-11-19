@@ -251,11 +251,15 @@ module.exports = grammar({
       seq(
         keyword(/Add_Relation/i, $),
         field("field", $.identifier),
-        repeat(seq(keyword(/and/i, $), field("field", $.identifier))),
         keyword(/to/i, $),
         field("parent_field", $.postfix_expression),
         repeat(
-          seq(keyword(/and/i, $), field("parent_field", $.postfix_expression)),
+          seq(
+            keyword(/and/i, $),
+            field("field", $.identifier),
+            keyword(/to/i, $),
+            field("parent_field", $.postfix_expression),
+          ),
         ),
         $._eol,
       ),
